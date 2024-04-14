@@ -14,5 +14,5 @@ Description: Syllabus Scout is a web application that allows students to search 
 Description: The Weather Website provides users with up-to-date weather information for their location. It fetches data from a weather API and displays it in a user-friendly interface, including current conditions.
 
 ## Contact
-If you have any questions or suggestions, you can reach me at [your@email.com].
+If you have any questions or suggestions, you can reach me at [puneethkondarasi198@email.com].
 Happy coding!
