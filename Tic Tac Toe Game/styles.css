@@ -1,0 +1,72 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #000000;
+  text-align: center;
+}
+
+h1{
+  font-size: 5rem;
+  color: whitesmoke;
+}
+
+.container{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board{
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vmin;
+}
+
+.box{
+  height: 18vmin;
+  width: 18vmin;
+  border-radius: 1rem;
+  border-color: white;
+  font-size: 8vmin;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.Instructions{
+  margin-left: 10vmin;
+  color: #ffffff;
+}
+
+.player-chance{
+  margin-left: 10vmin;
+  color: #ffffff;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+p{
+  font-size: 2rem;
+}
+
+.reset, .play-again{
+  padding: 1rem;
+  font-size: 1.25rem;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  border: none;
+}
+
+.hide{
+  display: none;
+}
