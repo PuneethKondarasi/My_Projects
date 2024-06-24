@@ -3,6 +3,8 @@ let instructions = document.querySelector(".Instructions");
 let player_chance = document.querySelector(".player-chance");
 let player_msg = document.querySelector(".player-message");
 let msg_box = document.querySelector(".message-box");
+let resetbtn = document.querySelector(".reset");
+let playAgainbtn = document.querySelector(".play-again");
 
 let turnX = true;
 let count = 0;
@@ -49,6 +51,14 @@ boxes.forEach((box) => {
     });
 });
 
+const resetGame = () => {
+    turnX = true;
+    count = 0;
+    enableBoxes();
+    instructions.classList.remove("hide");
+    player_chance.classList.add("hide");
+}
+
 const gameDraw = () => {
     player_msg.innerText = `Game was a Draw`;
     msg_box.classList.remove("hide");
@@ -87,3 +97,6 @@ const checkWinner = () => {
         }
     }
 };
+
+resetbtn.addEventListener("click", resetGame);
+playAgainbtn.addEventListener("click", resetGame);
