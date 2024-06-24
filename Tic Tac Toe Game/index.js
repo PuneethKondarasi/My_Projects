@@ -57,6 +57,7 @@ const resetGame = () => {
     enableBoxes();
     instructions.classList.remove("hide");
     player_chance.classList.add("hide");
+    msg_box.classList.add("hide");
 }
 
 const gameDraw = () => {
