@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 3rem;
+}
+
+h2{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2vmin;
+}
+
+h3{
+    color: white;
+    font-size: 20px;
+}
+
+p{
+    color: white;
+    font-size: 20px;
+}
+
+.container{
+    width: 100%;
+    margin-top: 5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.player{
+    text-align: center;
+}
+
+.computer{
+    text-align: center;
+}
+
+.default_img{
+    border-radius: 50%;
+    width: 50vmin;
+    height: 40vmin;
+}
+
+.choosing{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+}
+
+button{
+    height: 10vmin;
+    width: 10vmin;
+    font-size: 1.8rem;
+    border: 0;
+    border-radius: 50%;
+    transition: 0.8s;
+}
+
+button:hover{
+    background-color: black ;
+    border: 3px solid red;
+    opacity: 5;
+}
+
+.result{
+    margin-top: 3vmin;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.player_result{
+    text-align: center;
+}
+
+.tie{
+    text-align: center;
+}
+
+.computer_result{
+    text-align: center;
+}
+
+.winner_declaration{
+    text-align: center;
+    margin-top: 2vmin;
+    color: white;
+}
+
+.winner{
+    font-size: 2rem;
+    /* border: 1px solid white; */
+}
