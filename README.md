@@ -39,7 +39,42 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 3. Simon Game Challenge
+### 3. Rock-Paper-Scissors Game
+**Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
+
+**Technologies Used**:
+- HTML
+- CSS
+- JavaScript
+
+**Features**:
+- Randomized Computer Moves: Ensures unpredictable and fair gameplay.
+- Score Tracking: Keeps count of Player Wins, Computer Wins, and Ties.
+- Easy Setup: Simply open index.html to start playing.
+- Instant Feedback: Real-time display of game results.
+- Cross-Browser Compatibility: Works on Chrome, Firefox, Safari, and Edge.
+
+**Screenshot**:
+![Rock-Paper-Scissor Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2d265fd7-bfaf-433b-a095-69a1882c8f09)
+
+**Instructions**:
+1. **Start the Game**:
+   - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
+   - The computer randomly selects one of the options.
+   - The winner is determined based on the following rules:
+      - Rock crushes Scissors
+      - Scissors cuts Paper
+      - Paper covers Rock
+2. **Winning the Game**:-
+   - If the player wins, a message "You Won!" will be displayed.
+   - If the computer wins, a message "You Lost!" will be displayed.
+   - If it's a tie, a message "It's a Draw!" will be displayed.
+3. **Scores**:-
+   - The game keeps track of the number of wins, losses, and ties.
+
+---
+
+### 4. Simon Game Challenge
 **Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
 
 **Features**:
@@ -62,7 +97,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 4. Syllabus Scout
+### 5. Syllabus Scout
 **Description**: Syllabus Scout is a web application that allows students to search for study materials for a given topic or syllabus. This can be useful for students who are looking to get a head start on their classes by providing them with all the study materials they require in a single place.
 
 **Features**:
@@ -74,7 +109,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 5. Tic Tac Toe Game
+### 6. Tic Tac Toe Game
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
 **Technologies Used**:
@@ -106,7 +141,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 6. Weather Website
+### 7. Weather Website
 **Description**: The Weather Website provides users with up-to-date weather information for their location. It fetches data from a weather API and displays it in a user-friendly interface, including current conditions.
 
 **Technologies Used**:
