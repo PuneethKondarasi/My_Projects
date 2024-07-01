@@ -13,9 +13,7 @@ let tie_wins = 0;
 
 buttons_clicked.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log(`the clicked box is ${button.classList}`);
         let random_number = Math.floor(Math.random() * 3) + 1;
-        console.log(`the random number is ${random_number}`);
         if(button.classList == "Rock"){
             player_chance.src = "./Assets/Rock.jpeg";
         }
@@ -40,45 +38,38 @@ buttons_clicked.forEach((button) => {
 
 const checkWinner = (player, computer) => {
     if(player == "Rock" && computer === 2){
-        console.log("Computer Wins");
         computer_wins++;
         computer_win.innerHTML = computer_wins;
         winner_msg.innerHTML = `You lost!Paper beats ${player}`;
     }
     else if(player == "Paper" && computer === 1){
-        console.log("Player Wins");
         player_wins++;
         player_win.innerHTML = player_wins;
         winner_msg.innerHTML = `You Won!${player} beats Rock`;
     }
     else if(player == "Scissor" && computer === 2){
-        console.log("Player Wins");
         player_wins++;
         player_win.innerHTML = player_wins;
         winner_msg.innerHTML = `You Won!${player} beats Paper`;
     }
     else if(player == "Rock" && computer === 3){
-        console.log("Player Wins");
         player_wins++;
         player_win.innerHTML = player_wins;
         winner_msg.innerHTML = `You Won!${player} beats Scissor`;
     }
     else if(player == "Paper" && computer === 3){
-        console.log("Computer Wins");
         computer_wins++;
         computer_win.innerHTML = computer_wins;
         winner_msg.innerHTML = `You lost!Scissor beats ${player}`;
     }
     else if(player == "Scissor" && computer === 1){
-        console.log("Computer Wins");
         computer_wins++;
         computer_win.innerHTML = computer_wins;
         winner_msg.innerHTML = `You lost!Rock beats ${player}`;
     }
     else{
-        console.log("It's a Draw");
         tie_wins++;
         tie_win.innerHTML = tie_wins;
-        winner_msg.innerHTML = `It's a Draw`;
+        winner_msg.innerHTML = `It's a Draw!`;
     }
 }

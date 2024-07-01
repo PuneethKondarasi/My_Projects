@@ -107,5 +107,95 @@ button:hover{
 
 .winner{
     font-size: 2rem;
-    /* border: 1px solid white; */
 }
+
+@media screen and (max-width: 768px){   
+    h1{
+        font-size: 2rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+    h3{
+        font-size: 15px;
+    }
+
+    p{
+        font-size: 15px;
+    }
+
+    .default_img{
+        width: 40vmin;
+        height: 30vmin;
+    }
+
+    .buttons{
+        gap: 0.5vmin;
+    }
+
+    button{
+        height: 8vmin;
+        width: 8vmin;
+        font-size: 1.5rem;
+    }
+
+    .result{
+        gap: 5vmin;
+    }
+
+    .winner_declaration{
+        margin-top: 1vmin;
+    }
+
+    .winner{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 425px){
+    h1{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+
+    h3{
+        font-size: 12px;
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+    .default_img{
+        width: 30vmin;
+        height: 20vmin;
+    }
+
+    .buttons{
+        gap: 0.5vmin;
+    }
+
+    button{
+        height: 6vmin;
+        width: 6vmin;
+        font-size: 1.2rem;
+    }
+
+    .result{
+        gap: 5vmin;
+    }
+
+    .winner_declaration{
+        margin-top: 1vmin;
+    }
+
+    .winner{
+        font-size: 1.2rem;
+    }
+}
+
