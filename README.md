@@ -4,7 +4,38 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ## Projects
 
-### 1. Drum Kit
+### 1. Band Generator Project
+
+**Description**: Welcome to the Band Name Generator! This project generates a different band name every time you use it.
+
+**Technologies Used**:
+- JavaScript
+   - Node
+   - EJS
+
+**Features**:
+- Random Band Name Generation: Generates a unique band name every time you click the "Generate" button.
+- User-Friendly Interface: Clean and simple design using EJS templates for an intuitive user experience.
+- Server-Side Rendering: Utilizes Node.js and EJS for dynamic content rendering on the server side.
+- Customizable Name Lists: Easily modify the list of words used for generating band names to suit different themes or preferences.
+
+**Screenshot**:
+![Band Name generator Project](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/a783127b-2ce8-40c8-b633-daa1176a0d38)
+
+**Instructions**:
+1. **Start the Application**:
+   - Navigate to the Directory in which it is available.
+   - Open this folder in the terminal.
+   - install all the required dependencies by using `npm install`.
+   - Run `node index.js` in terminal for the application to run.
+   - Go to `localhost:3000` to view this website.
+  
+2. **Website**:
+   - Click on Generate Name to generate new band name every single time you click on it.
+
+---
+
+### 2. Drum Kit
 
 **Description**: This is a Drum Kit through which you can create your own beats.
 
@@ -31,7 +62,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 2. Netflix Clone
+### 3. Netflix Clone
 **Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
 
 **Screenshot**:
@@ -39,7 +70,32 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 3. Rock-Paper-Scissors Game
+### 4. QR Code Project
+
+**Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
+
+**Technologies Used**:
+- JavaScript
+   - Node
+
+**Features**:
+- QR Code Generation: Generates a unique QR code for any text or URL input.
+- Works through the terminal
+
+**Instructions**:
+1. **Start the Application**:
+   - Navigate to the Directory in which it is available.
+   - Open this folder in the terminal.
+   - install all the required dependencies by using `npm install`.
+   - Run `node index.js` in terminal for the application to run.
+  
+2. **Terminal**:
+   - You will be able to give the URL of the Website that you want to convert into QR Code in the terminal and click enter.
+   - After this the QR gets saved as a png file.
+
+---
+
+### 5. Rock-Paper-Scissors Game
 **Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
 
 **Technologies Used**:
@@ -74,7 +130,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 4. Simon Game Challenge
+### 6. Simon Game Challenge
 **Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
 
 **Features**:
@@ -97,7 +153,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 5. Syllabus Scout
+### 7. Syllabus Scout
 **Description**: Syllabus Scout is a web application that allows students to search for study materials for a given topic or syllabus. This can be useful for students who are looking to get a head start on their classes by providing them with all the study materials they require in a single place.
 
 **Features**:
@@ -109,7 +165,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 6. Tic Tac Toe Game
+### 8. Tic Tac Toe Game
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
 **Technologies Used**:
@@ -141,7 +197,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 7. Weather Website
+### 9. Weather Website
 **Description**: The Weather Website provides users with up-to-date weather information for their location. It fetches data from a weather API and displays it in a user-friendly interface, including current conditions.
 
 **Technologies Used**:
