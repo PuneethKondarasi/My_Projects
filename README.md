@@ -130,6 +130,66 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
+### 6. Weather Monitoring and Alert System  
+**Description**:  
+This project is a Weather Monitoring and Alert System that fetches live weather data based on the user's location and alerts users via SMS when weather parameters exceed or fall below defined thresholds.
+
+**Technologies Used**:  
+- **Frontend**:  
+  - HTML  
+  - CSS  
+  - JavaScript  
+- **Backend**:  
+  - Node.js  
+  - Express.js  
+- **APIs**:  
+  - OpenWeather API (to fetch real-time weather data)  
+  - Twilio API (to send SMS alerts)  
+
+**Features**:  
+- **Live Location Tracking**:  
+   - Automatically fetches the user's live location using geolocation.  
+   - Displays the weather for Katpadi, irrespective of the location fetched, for demonstration purposes.  
+- **Real-Time Weather Data**:  
+   - Provides details such as temperature, pressure, humidity, wind speed, and more.  
+- **Threshold Alerts**:  
+   - Automatically generates alerts when weather parameters fall below predefined thresholds.  
+- **SMS Notifications**:  
+   - Sends weather alerts to multiple phone numbers using Twilio SMS API.  
+- **Fallback Error Handling**:  
+   - Displays error messages if location access is denied or unavailable.  
+
+**Screenshot**:  
+![Screenshot 2024-11-14 130309](https://github.com/user-attachments/assets/d0c20690-5504-40ff-9784-bfcb1c51cb45)
+
+**Instructions**:  
+1. **Setup the Application**:  
+   - Clone the repository from GitHub.  
+   - Navigate to the project directory in your terminal.  
+   - Install dependencies using:  
+     ```bash  
+     npm install  
+     ```  
+   - Replace placeholders in the code with your own API keys for OpenWeather and Twilio.  
+
+2. **Run the Application**:  
+   - Start the backend server using:  
+     ```bash  
+     node index.js  
+     ```  
+   - Open a browser and go to:  
+     ```  
+     http://localhost:3000  
+     ```  
+
+3. **Usage**:  
+   - Allow location access when prompted to view live weather data.  
+   - If location access is denied, an error message will be displayed.  
+   - The application will always show the weather data for Katpadi, India, regardless of the location fetched.  
+   - Weather alerts are sent via SMS to predefined phone numbers when thresholds are breached.  
+
+---
+
 ### 6. Simon Game Challenge
 **Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
 
