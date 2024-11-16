@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Weather Forecast</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js -->
+  </head>
+  <body>
+    <div class="weather-app">
+      <h1>Weather in Your Location</h1>
+      <p id="location">Fetching location...</p>
+
+      <div id="weather-container">
+        <div class="weather-detail" id="temperature">
+          <img src="../icons/Temperature.png" alt="Temperature Icon" />
+          <div class="weather-text">
+            <p>Temperature: <span id="temp-current">-- °C</span></p>
+            <p>
+              Min: <span id="temp-min">-- °C</span> | Max:
+              <span id="temp-max">-- °C</span>
+            </p>
+          </div>
+          <div class="button">
+            <button onclick="showChart('temperature')">Full Graph</button>
+          </div>
+        </div>
+        <div class="weather-detail" id="humidity">
+          <img src="../icons/Humidity.png" alt="Humidity Icon" />
+          <div class="weather-text">
+            <p>Humidity: <span id="humidity-current">-- %</span></p>
+          </div>
+          <div class="button">
+            <button onclick="showChart('humidity')">Full Graph</button>
+          </div>
+        </div>
+        <div class="weather-detail" id="wind-speed">
+          <img src="../icons/windspeed.png" alt="Wind Icon" />
+          <div class="weather-text">
+            <p>Wind Speed: <span id="wind-current">-- m/s</span></p>
+          </div>
+          <div class="button">
+            <button onclick="showChart('wind')">Full Graph</button>
+          </div>
+        </div>
+        <div class="weather-detail" id="pressure">
+          <img src="../icons/Pressure.png" alt="Pressure Icon" />
+          <div class="weather-text">
+            <p>Pressure: <span id="pressure-current">-- hPa</span></p>
+            <p>
+              Min: <span id="pressure-min">-- hPa</span> | Max:
+              <span id="pressure-max">-- hPa</span>
+            </p>
+          </div>
+          <div class="button">
+            <button onclick="showChart('pressure')">Full Graph</button>
+          </div>
+        </div>
+      </div>
+
+      <h2>Hourly Forecast</h2>
+      <div id="hourly-forecast" class="scrollable">Loading forecast...</div>
+    </div>
+
+    <div id="chartModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" onclick="closeModal()">&times;</span>
+        <h3 id="chartTitle">Weather Data</h3>
+        <canvas id="weatherChart"></canvas>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
