@@ -20,13 +20,13 @@ app.post('/send-sms', (req, res) => {
         return res.status(400).json({ error: 'Phone number and message are required' });
     }
 
-    const accountSid = 'Your Account SID';
-    const authToken = 'Your Auth Token';
+    const accountSid = 'your_account_sid';
+    const authToken = 'your_auth_token';
     const client = twilio(accountSid, authToken);
 
     client.messages.create({
         body: message,
-        from: 'Your Twilio phone number', 
+        from: '+your_twilio_number', 
         to: phoneNumber,
     })
     .then(message => {

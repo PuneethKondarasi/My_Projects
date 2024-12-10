@@ -12,7 +12,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #87ceeb, #1e90ff);
+    animation: gradientBg 8s infinite alternate ease-in-out;
+}
+
+@keyframes gradientBg {
+    0% { background: linear-gradient(135deg, #87ceeb, #1e90ff); }
+    50% { background: linear-gradient(135deg, #1e90ff, #4682b4); }
+    100% { background: linear-gradient(135deg, #4682b4, #87ceeb); }
 }
 
 .weather-app {
@@ -20,14 +27,26 @@ body {
     padding: 20px;
     border-radius: 10px;
     background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 80%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
     width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 h1, h2 {
     color: #000000;
     margin-bottom: 10px;
+    animation: slideDown 1.5s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 #location {
@@ -40,13 +59,12 @@ h1, h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .weather-detail {
     text-align: left;
-    font-size: 2rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     padding: 15px;
@@ -57,7 +75,19 @@ h1, h2 {
     color: #000000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    height: 90px;
+    height: auto;
+    animation: popUp 0.5s ease-in-out;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.95); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.weather-detail:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    background: #d1ecf1;
 }
 
 .weather-detail img {
@@ -68,17 +98,12 @@ h1, h2 {
 
 .weather-text p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: left;
 }
 
 .weather-detail span {
     font-weight: bold;
-}
-
-#weather-detail:hover{
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
 }
 
 #hourly-forecast {
@@ -89,11 +114,12 @@ h1, h2 {
     padding: 10px 0;
     margin-top: 20px;
     gap: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hour {
-    min-width: 160px;
-    height: 200px;
+    min-width: 140px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,6 +129,12 @@ h1, h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
     color: #000000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hour:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hour img {
@@ -140,6 +172,12 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     position: relative;
+    animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 #closeModal {
@@ -148,17 +186,16 @@ h1, h2 {
     right: 20px;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+#closeModal:hover {
+    color: #ff0000;
 }
 
 #weatherChart {
     width: 100%;
     height: 70vh;
-}
-
-.button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 button {
@@ -173,8 +210,59 @@ button {
     right: 10px;
     bottom: 10px;
     margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    #weather-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hour {
+        min-width: 120px;
+        height: 160px;
+    }
+
+    .weather-detail {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 525px) {
+    .weather-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        height: auto;
+        background: #e0f7fa;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .weather-text {
+        margin-bottom: 50px;
+        font-size: 1.2rem;
+    }
+
+    .button {
+        position: static; 
+        margin-top: 15px;
+    }
+
+    button {
+        width: 90%; 
+        max-width: 250px; 
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .weather-detail {
+        height: auto;
+        min-height: 140px;
+    }
 }

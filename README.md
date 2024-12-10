@@ -172,21 +172,119 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 7. Syllabus Scout
+### 7. SMS Alert for Emergency Response Planning
 
-**Description**: Syllabus Scout is a web application that allows students to search for study materials for a given topic or syllabus. This can be useful for students who are looking to get a head start on their classes by providing them with all the study materials they require in a single place.
+**Description**:  
+The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
+
+**Technologies Used**:
+
+- **Frontend**:
+  - HTML
+  - CSS
+  - JavaScript
+- **Backend**:
+  - Node.js
+  - Express.js
+- **APIs**:
+  - OpenWeather API (for real-time weather data)
+  - Twilio API (for sending SMS alerts)
 
 **Features**:
 
-- Search functionality by topic or keyword
-- Display of relevant study resources
+- **Live Location Tracking**:
+  - Automatically fetches the user's live location using geolocation.
+- **Real-Time Weather Data**:
 
-**Screenshot**:
-![Syllabus Scout](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/cc5bbcde-f05c-43d3-ac26-cf9a88f7481f)
+  - Provides detailed information such as temperature, pressure, humidity, wind speed, and other weather parameters.
+
+- **Forecast Monitoring**:
+
+  - Checks weather forecast and compares them against thresholds.
+  - Sends proactive alerts via SMS if the weather parameters are expected to exceed or fall below thresholds.
+
+- **Threshold Alerts**:
+
+  - Automatically generates alerts when weather parameters breach thresholds, ensuring users are alerted in advance for necessary emergency responses.
+
+- **SMS Notifications**:
+
+  - Sends SMS alerts to predefined phone numbers using the **Twilio API** when weather conditions exceed or fall below the defined thresholds.
+
+- **Error Handling**:
+  - Handles location access issues and displays error messages if location data is unavailable or access is denied.
+
+**Screenshot**:  
+![Screenshot 2024-11-14 130309](https://github.com/user-attachments/assets/9681ebf0-fcea-4f4a-baa2-1b87e2ebc4ff)
+
+**Instructions**:
+
+1. **Setup the Application**:
+
+   - Clone the repository from GitHub.
+   - Navigate to the project directory in your terminal.
+   - Install the required dependencies using:
+     ```bash
+     npm install
+     ```
+   - Replace the placeholders in the code with your **OpenWeather** and **Twilio** API keys.
+
+2. **Running the Application**:
+
+   - Start the backend server using:
+     ```bash
+     node index.js
+     ```
+   - Open your browser and navigate to:
+     ```bash
+     http://localhost:3000
+     ```
+
+3. **Using the Application**:
+
+   - Allow location access when prompted to view live weather data.
+   - If location access is denied, an error message will be displayed.
+   - Weather alerts will be sent via SMS to predefined phone numbers when the thresholds are breached in the next two-day forecast.
 
 ---
 
-### 8. Tic Tac Toe Game
+### 8. Syllabus Scout
+
+**Description**:  
+**Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
+
+**Technologies Used**:
+
+- **Frontend**:
+  - HTML
+  - CSS
+  - JavaScript
+- **Backend**:
+  - Express.js (for API handling)
+- **APIs**:
+  - Google API (to fetch relevant book resources)
+  - YouTube Data API (to fetch educational videos)
+
+**Features**:
+
+- **Search Functionality**:
+  - Allows users to search for study materials based on a given topic, course name, or keyword.
+  - Returns a list of relevant resources, including articles, videos, and other materials.
+- **Responsive Design**:
+
+  - The web app is fully responsive, ensuring a smooth user experience on both desktop and mobile devices.
+
+- **User-Friendly Interface**:
+  - A clean and intuitive UI built offering a seamless search experience.
+- **API Integration**:
+  - Integrates with multiple third-party APIs (Google API and YouTube API) to gather relevant resources.
+
+**Screenshot**:  
+![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
+
+---
+
+### 9. Tic Tac Toe Game
 
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
@@ -222,10 +320,10 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 9. Weather Monitoring and Alert System
+### 10. Weather Website
 
 **Description**:  
-This project is a Weather Monitoring and Alert System that fetches live weather data based on the user's location and alerts users via SMS when weather parameters exceed or fall below defined thresholds.
+The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
 
 **Technologies Used**:
 
@@ -233,85 +331,35 @@ This project is a Weather Monitoring and Alert System that fetches live weather 
   - HTML
   - CSS
   - JavaScript
-- **Backend**:
-  - Node.js
-  - Express.js
-- **APIs**:
+- **API**:
   - OpenWeather API (to fetch real-time weather data)
-  - Twilio API (to send SMS alerts)
 
 **Features**:
 
-- **Live Location Tracking**:
-  - Automatically fetches the user's live location using geolocation.
-  - Displays the weather for Katpadi, irrespective of the location fetched, for demonstration purposes.
-- **Real-Time Weather Data**:
-  - Provides details such as temperature, pressure, humidity, wind speed, and more.
-- **Threshold Alerts**:
-  - Automatically generates alerts when weather parameters fall below predefined thresholds.
-- **SMS Notifications**:
-  - Sends weather alerts to multiple phone numbers using Twilio SMS API.
-- **Fallback Error Handling**:
-  - Displays error messages if location access is denied or unavailable.
+- **Current Weather Information**:
+  - Displays real-time weather data including temperature, humidity, wind speed, and weather conditions (e.g., clear, cloudy, rainy).
+- **Location Input**:
+  - Users can specify a city by entering its name in a search bar, allowing the app to fetch weather information for that location.
+- **Celsius to Fahrenheit Toggle**:
+  - Users can easily switch between Celsius and Fahrenheit for temperature readings with a single click, offering flexibility and convenience.
+- **Responsive Design**:
+  - Fully responsive layout ensuring an optimal experience on both desktop and mobile devices.
 
 **Screenshot**:  
-![Screenshot 2024-11-14 130309](https://github.com/user-attachments/assets/d0c20690-5504-40ff-9784-bfcb1c51cb45)
+![Weather website Screenshot](https://github.com/user-attachments/assets/d867c634-bf0b-4779-b4fb-f83e0eaff5ab)
 
 **Instructions**:
 
-1. **Setup the Application**:
-
-   - Clone the repository from GitHub.
-   - Navigate to the project directory in your terminal.
-   - Install dependencies using:
-     ```bash
-     npm install
-     ```
-   - Replace placeholders in the code with your own API keys for OpenWeather and Twilio.
-
-2. **Run the Application**:
-
-   - Start the backend server using:
-     ```bash
-     node index.js
-     ```
-   - Open a browser and go to:
-     ```
-     http://localhost:3000
-     ```
-
-3. **Usage**:
-   - Allow location access when prompted to view live weather data.
-   - If location access is denied, an error message will be displayed.
-   - The application will always show the weather data for Katpadi, India, regardless of the location fetched.
-   - Weather alerts are sent via SMS to predefined phone numbers when thresholds are breached.
+1. **Enter a City**:
+   - Type the name of the city in the search bar at the top of the page.
+2. **Submit the Search**:
+   - Click the **"Submit"** button to fetch the weather data for the specified location.
+3. **View the Weather**:
+   - The weather information for the specified city will be displayed, including the current temperature, humidity, and weather conditions.
+4. **Toggle Between Celsius and Fahrenheit**:
+   - Click on the **"Switch to Fahrenheit"** or **"Switch to Celsius"** button to toggle the temperature unit.
 
 ---
-
-### 10. Weather Website
-
-**Description**: The Weather Website provides users with up-to-date weather information for their location. It fetches data from a weather API and displays it in a user-friendly interface, including current conditions.
-
-**Technologies Used**:
-
-- HTML
-- CSS
-- JavaScript
-- API's
-
-**Features**:
-
-- Displays current temperature, humidity, and weather conditions
-- User can specify location by entering a city name
-
-**Screenshot**:
-![Weather website Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/80a3d62f-2ae2-4717-962f-bce4a7ee8bc3)
-
-**Instructions**:
-
-1. **Enter a city name in the search bar**
-2. **Click "Submit"**
-3. **The weather conditions for the specified city will be displayed**
 
 ## Contribution
 

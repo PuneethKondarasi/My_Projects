@@ -3,18 +3,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const output = document.getElementById("output");
     const page3 = document.querySelector(".page_3");
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", async function(event) {
         event.preventDefault();
-        output.style.display = "block";
-        page3.style.display = "grid";
+        const topic = document.getElementById("search").value;
+        const videos = await searchYouTubeVideos(topic);
+        displayYouTubeVideos(videos);
+        searchStudyMaterial(topic);
     });
 });
 
 function searchStudyMaterial(topic) {
-    const cx = 'YOUR_CX_CODE';
-    const apiKey = 'YOUT_API'; 
+    const cx = 'YOUR_CX';
+    const apiKey = 'YOUR_API_KEY';
 
-    const url = `https://www.googleapis.com/customsearch/v1?q=${topic}&cx=${cx}&key=${apiKey}&num=5`;
+    const url = `https://www.googleapis.com/customsearch/v1?q=${topic}&cx=${cx}&key=${apiKey}&num=5`;  // Limit to 5 results
 
     fetch(url)
         .then(response => {
@@ -43,11 +45,11 @@ function displaySearchResults(results) {
     });
 }
 
-function searchYouTubePlaylists(topic) {
-    const apiKey = 'YOUR_API';
-    const maxResults = 4;
+function searchYouTubeVideos(topic) {
+    const apiKey = 'YOUR_API_KEY';
+    const maxResults = 5;
 
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${topic}&key=${apiKey}&maxResults=${maxResults}&type=playlist`;
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${topic}&key=${apiKey}&maxResults=${maxResults}&type=video`;
 
     return fetch(url)
         .then(response => {
@@ -57,47 +59,36 @@ function searchYouTubePlaylists(topic) {
             return response.json();
         })
         .then(data => {
-            console.log('YouTube Playlists:', data);
+            console.log('YouTube Videos:', data);
             return data.items;
         })
-        .catch(error => console.error('Error fetching YouTube playlists:', error));
+        .catch(error => console.error('Error fetching YouTube videos:', error));
 }
 
-async function displayYouTubePlaylists(playlists) {
+async function displayYouTubeVideos(videos) {
     const page3 = document.querySelector(".page_3");
     page3.innerHTML = "";
-
-    for (const playlist of playlists) {
-        const playlistDiv = document.createElement("div");
-        playlistDiv.classList.add("playlist");
-
-        const playlistTitle = document.createElement("h3");
-        playlistTitle.textContent = playlist.snippet.title;
-
+    const videoContainer = document.createElement("div");
+    videoContainer.classList.add("scrollable-row");
+    const bestVideosTitle = document.createElement("h2");
+    bestVideosTitle.textContent = "Best Videos";
+    const bestVideosContainer = document.createElement("div");
+    bestVideosContainer.classList.add("scrollable-row");
+    for (const video of videos) {
+        const videoDiv = document.createElement("div");
+        videoDiv.classList.add("video");
+        const videoTitle = document.createElement("h3");
+        videoTitle.textContent = video.snippet.title;
         const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/videoseries?list=${playlist.id.playlistId}`;
+        iframe.src = `https://www.youtube.com/embed/${video.id.videoId}`;
         iframe.width = "460";
         iframe.height = "250";
         iframe.allowFullscreen = true;
-        iframe.title = playlist.snippet.title;
-
-        playlistDiv.appendChild(playlistTitle);
-        playlistDiv.appendChild(iframe);
-
-        page3.appendChild(playlistDiv);
+        iframe.title = video.snippet.title;
+        videoDiv.appendChild(videoTitle);
+        videoDiv.appendChild(iframe);
+        bestVideosContainer.appendChild(videoDiv);
     }
+    page3.appendChild(bestVideosTitle);
+    page3.appendChild(bestVideosContainer);
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form");
-    form.addEventListener("submit", async function(event) {
-        event.preventDefault();
-        const topic = document.getElementById("search").value;
-
-        const playlists = await searchYouTubePlaylists(topic);
-        displayYouTubePlaylists(playlists);
-
-        searchStudyMaterial(topic);
-    });
-});
-

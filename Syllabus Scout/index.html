@@ -19,176 +19,342 @@
   </head>
 
   <body>
-    <div class="page_1" id="page_1">
+    <div class="page_1" id="Home">
+      <!-- Navigation Bar -->
       <div class="header_container">
         <header class="p-3 text-bg-dark">
-          <div>
-            <header class="d-flex justify-content-center py-3">
-              <ul class="nav nav-pills">
-                <li class="nav-item">
-                  <a href="#page_1" class="nav-link active" aria-current="page"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="#page_2" class="nav-link">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a href="./pricing.html" class="nav-link">Pricing</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#FAQ" class="nav-link">FAQs</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#page_5" class="nav-link">About</a>
-                </li>
-              </ul>
-            </header>
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+              <a href="#" class="navbar-brand fw-bold">Syllabus Scout</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a href="#Home" class="nav-link active">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#Features" class="nav-link">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pricing.html" class="nav-link">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#FAQs" class="nav-link">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#About" class="nav-link">About</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
         </header>
       </div>
-      <div class="heading_text">
-        <h1>Syllabus Scout</h1>
-      </div>
-    </div>
-    <div class="page_2" id="page_2">
-      <div class="info1">
-        <h2>What is Syllabus Scout?</h2>
-        <p>
-          Syllabus Scout is a web application that allows students to search for
-          study materials for a given topic or syllabus. This can be useful for
-          students who are looking to get a head start on their classes by
-          providing them with all the study materials that they require in a
-          single place.
-        </p>
-      </div>
-      <div class="info2">
-        <h2>How does it work?</h2>
-        <p>
-          Students can search for study material by entering the name of the
-          topic or by uploading the syllabus. The application will then return a
-          list of study materials that match the search criteria. Students can
-          then click on the material to view it.
-        </p>
-      </div>
-      <form>
-        <div class="input_form">
-          <label for="search">Search for a topic:</label>
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Search for a topic..."
-          />
-        </div>
 
-        <div class="buttons">
-          <button type="submit" class="btn btn-primary">Search</button>
-          <button type="reset" class="btn btn-primary">Reset</button>
-        </div>
-      </form>
-      <div id="output">
-        <div></div>
+      <!-- Hero Section -->
+      <div class="hero-container text-center text-white">
+        <h1 class="display-1 fw-bold">Syllabus Scout</h1>
+        <p class="lead">Your Ultimate Study Material Hub</p>
+        <a href="#Features" class="btn btn-primary btn-lg mt-4"
+          >Explore Features</a
+        >
       </div>
     </div>
+
+    <div class="page_2" id="Features">
+      <section class="info-section py-5">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <h2 class="text-primary">What is Syllabus Scout?</h2>
+              <p>
+                Syllabus Scout is a cutting-edge web platform designed to
+                simplify how students find and access study resources. Whether
+                you're preparing for exams, exploring new topics, or enhancing
+                your classroom learning, Syllabus Scout provides a comprehensive
+                and user-friendly solution for all your academic needs.
+              </p>
+            </div>
+            <div class="col-lg-6 mb-4">
+              <h2 class="text-primary">How Does It Work?</h2>
+              <p>
+                Our platform allows students to discover study materials
+                effortlessly. You can either search by entering the topic name
+                or upload your syllabus for tailored recommendations. In
+                moments, you'll receive a curated list of resources that match
+                your criteria, from textbooks to video tutorials.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-section py-5">
+        <div class="container text-center">
+          <h3 class="text-dark mb-4">Search for Study Materials Below</h3>
+          <form>
+            <div class="row justify-content-center">
+              <div class="col-md-3 mb-3">
+                <label for="search" class="form-label visually-hidden"
+                  >Search for a Topic:</label
+                >
+                <input
+                  type="text"
+                  id="search"
+                  name="search"
+                  class="form-control"
+                  placeholder="Enter a topic name or keyword..."
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary me-2">
+                  Search
+                </button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </div>
+          </form>
+          <div id="output" class="mt-4">
+            <p class="text-muted">Your search results will appear here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <div class="video_container">
-      <div class="page_3">
-        <div class="class1"></div>
-        <div class="class2"></div>
-        <div class="class3"></div>
-        <div class="class4"></div>
-      </div>
+      <div class="page_3"></div>
     </div>
-    <div class="page_4" id="page_4">
-      <div class="FAQ" id="FAQ">
-        <h2 style="text-align: center">FAQ's</h2>
-        <h3>1. Is the Basic Plan really free?</h3>
-        <p>
-          Yes, absolutely! Our Basic Plan provides free access to a limited
-          selection of study materials. It's a great way to explore our platform
-          and see what we have to offer.
-        </p>
-        <h3>2. What payment methods do you accept for the Premium Plan?</h3>
-        <p>
-          We accept major credit cards, including Visa, Mastercard, American
-          Express, and Discover. We also support payments through PayPal for
-          your convenience.
-        </p>
-        <h3>3. Can I cancel my subscription at any time?</h3>
-        <p>
-          Of course! You can cancel your subscription to the Premium Plan at any
-          time, no questions asked. Your access will continue until the end of
-          your billing cycle.
-        </p>
 
-        <h3>4. Is there a limit to how many study materials I can access?</h3>
-        <p>
-          No, there is no limit to the number of study materials you can access
-          with the Premium Plan. You'll have unlimited access to our entire
-          library of study materials for the duration of your subscription.
-        </p>
-        <h3>
-          5. How can I get help if I have a question or encounter an issue?
-        </h3>
-        <p>
-          If you have any questions or encounter any issues while using our
-          platform, our support team is here to help. You can reach out to us
-        </p>
-      </div>
+    <div class="page_4" id="FAQs">
+      <section class="faq-section py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center text-primary mb-5">
+            Frequently Asked Questions
+          </h2>
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq1Heading">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq1"
+                  aria-expanded="true"
+                  aria-controls="faq1"
+                >
+                  Is the Basic Plan really free?
+                </button>
+              </h3>
+              <div
+                id="faq1"
+                class="accordion-collapse collapse show"
+                aria-labelledby="faq1Heading"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Yes, absolutely! Our Basic Plan provides free access to a
+                  limited selection of study materials. It's a great way to
+                  explore our platform and see what we have to offer.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq2Heading">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq2"
+                  aria-expanded="false"
+                  aria-controls="faq2"
+                >
+                  What payment methods do you accept for the Premium Plan?
+                </button>
+              </h3>
+              <div
+                id="faq2"
+                class="accordion-collapse collapse"
+                aria-labelledby="faq2Heading"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We accept major credit cards, including Visa, Mastercard,
+                  American Express, and Discover. Additionally, payments can be
+                  made through PayPal for your convenience.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq3Heading">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq3"
+                  aria-expanded="false"
+                  aria-controls="faq3"
+                >
+                  Can I cancel my subscription at any time?
+                </button>
+              </h3>
+              <div
+                id="faq3"
+                class="accordion-collapse collapse"
+                aria-labelledby="faq3Heading"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Of course! You can cancel your subscription to the Premium
+                  Plan at any time. Your access will continue until the end of
+                  your current billing cycle, ensuring you receive the full
+                  value of your subscription.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq4Heading">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq4"
+                  aria-expanded="false"
+                  aria-controls="faq4"
+                >
+                  Is there a limit to how many study materials I can access?
+                </button>
+              </h3>
+              <div
+                id="faq4"
+                class="accordion-collapse collapse"
+                aria-labelledby="faq4Heading"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  No, there is no limit to the number of study materials you can
+                  access with the Premium Plan. You'll enjoy unlimited access to
+                  our entire library for the duration of your subscription.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faq5Heading">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq5"
+                  aria-expanded="false"
+                  aria-controls="faq5"
+                >
+                  How can I get help if I have a question or encounter an issue?
+                </button>
+              </h3>
+              <div
+                id="faq5"
+                class="accordion-collapse collapse"
+                aria-labelledby="faq5Heading"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Our dedicated support team is always here to assist you. If
+                  you have questions or face any issues, feel free to reach out
+                  to us via the contact options provided on our platform.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="page_5" id="page_5">
-      <div class="about">
-        <h2>About Us</h2>
-        <p>
-          At Syllabus Scout, we believe that education should be accessible to
-          everyone, everywhere. That's why we've created a platform dedicated to
-          providing high-quality study materials to students around the globe.
-          The idea for Syllabus Scout was born during a one-day ideathon at VIT
-          Vellore, where a group of passionate individuals came together with a
-          shared vision: to make education accessible to everyone, everywhere.
-          Inspired by this vision, we set out to create a platform dedicated to
-          providing high-quality study materials to students. Whether you're a
-          student preparing for exams, a teacher looking for supplemental
-          materials, or a lifelong learner eager to expand your knowledge, we're
-          here to support you every step of the way. With a vast library of
-          study materials covering a wide range of subjects and topics, our
-          platform offers something for everyone. What sets us apart is our
-          dedication to quality, accessibility, and affordability. We work
-          tirelessly to ensure that our study materials are accurate,
-          up-to-date, and easy to understand. And with flexible pricing plans
-          and special discounts for students and educators, we strive to make
-          our platform accessible to learners of all budgets. But our commitment
-          to education goes beyond just providing study materials.Through
-          forums, discussion boards, and virtual events, we aim to create a
-          supportive environment where everyone feels valued and empowered to
-          learn. Thank you for choosing Syllabus Scout as your trusted partner
-          in education. We're excited to embark on this journey with you and
-          help you unlock your full potential. Together, we can shape a brighter
-          future through the power of learning.
-        </p>
-      </div>
+    <div class="page_5" id="About">
+      <section class="about-section py-5 bg-white">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <img
+                src="./Assets/WhatsApp Image 2024-03-21 at 12.47.00_d17a5b2b.jpg"
+                alt="About Syllabus Scout"
+                class="img-fluid rounded shadow-sm"
+              />
+            </div>
+            <div class="col-md-6">
+              <h2 class="text-primary mb-4">About Us</h2>
+              <p>
+                At <strong>Syllabus Scout</strong>, we believe that education
+                should be accessible to everyone, everywhere. Our mission is to
+                empower students and educators with a platform that delivers
+                high-quality, curated study materials from around the globe.
+              </p>
+              <p>
+                Born from an ideathon at VIT Vellore,
+                <strong>Syllabus Scout</strong> is the result of passionate
+                individuals coming together with a shared vision: to make
+                learning accessible and engaging for everyone. Whether you're a
+                student preparing for exams, a teacher looking for supplemental
+                materials, or a lifelong learner eager to expand your knowledge,
+                we're here to support you at every step.
+              </p>
+              <p>
+                Our library is extensive, covering a wide range of subjects and
+                topics. What sets us apart is our commitment to
+                <strong>quality, accessibility, and affordability</strong>. We
+                ensure that all materials are accurate, up-to-date, and easy to
+                understand. With flexible pricing plans and special discounts
+                for students and educators, we strive to make our platform
+                accessible to all budgets.
+              </p>
+              <p>
+                But we don't stop at study materials. Through forums, discussion
+                boards, and virtual events, we foster a vibrant learning
+                community where everyone feels valued and supported.
+              </p>
+              <p>
+                Thank you for choosing <strong>Syllabus Scout</strong> as your
+                trusted partner in education. Together, we can shape a brighter
+                future through the power of learning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="container">
-      <footer class="py-3 my-4">
+
+    <div class="container-fluid">
+      <footer class="py-3">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item">
-            <a href="#page_1" class="nav-link px-2 text-body-secondary">Home</a>
+            <a href="#Home" class="nav-link px-2">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#page_2" class="nav-link px-2 text-body-secondary"
-              >Features</a
-            >
+            <a href="#Features" class="nav-link px-2">Features</a>
           </li>
           <li class="nav-item">
-            <a href="./pricing.html" class="nav-link px-2 text-body-secondary"
-              >Pricing</a
-            >
+            <a href="./pricing.html" class="nav-link px-2">Pricing</a>
           </li>
           <li class="nav-item">
-            <a href="#FAQ" class="nav-link px-2 text-body-secondary">FAQs</a>
+            <a href="#FAQs" class="nav-link px-2">FAQs</a>
           </li>
         </ul>
-        <p class="text-center text-body-secondary">© Syllabus Scout, Inc</p>
+        <p class="text-center">
+          © 2024 Syllabus Scout, Inc. All rights reserved.
+        </p>
       </footer>
     </div>
   </body>
