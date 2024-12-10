@@ -233,7 +233,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
    - Start the backend server using:
      ```bash
-     node index.js
+     node server.js
      ```
    - Open your browser and navigate to:
      ```bash
