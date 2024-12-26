@@ -266,7 +266,35 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 8. SMS Alert for Emergency Response Planning
+### 8. Simon Game Challenge
+
+**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
+
+**Features**:
+
+- Progressive difficulty levels
+- Score tracking
+- Sound effects for correct and incorrect moves
+
+**Screenshot**:
+![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - press any key to start the game
+2. **Gameplay**:
+   - The game will show a sequence of colors and sounds.
+   - Repeat the sequence by clicking on the colored buttons.
+   - The sequence length increases with each successful round.
+3. **Scoring**:
+   - The game ends when you make a mistake or complete all rounds.
+
+**Live Demo**: [Simon Game](https://simongame-challenge.netlify.app)
+
+---
+
+### 9. SMS Alert for Emergency Response Planning
 
 **Description**:  
 The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
@@ -344,7 +372,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 9. Syllabus Scout
+### 10. Syllabus Scout
 
 **Description**:  
 **Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
@@ -382,7 +410,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 10. Tic Tac Toe Game
+### 11. Tic Tac Toe Game
 
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
@@ -420,7 +448,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 11. Weather Website
+### 12. Weather Website
 
 **Description**:  
 The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
