@@ -30,7 +30,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
    - Navigate to the Directory in which it is available.
    - Open this folder in the terminal.
-   - install all the required dependencies by using `npm install`.
+   - Install all the required dependencies by using `npm install`.
    - Run `node index.js` in terminal for the application to run.
    - Go to `localhost:3000` to view this website.
 
@@ -39,7 +39,61 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 2. Drum Kit
+### 2. CRUD Operations with React, Express, and MySQL
+
+**Description**: This project implements a simple CRUD (Create, Read, Update, Delete) application. The frontend is built with React, while the backend uses Express.js and connects to a MySQL database. This application allows users to manage records in a MySQL database through a user-friendly React interface.
+
+**Technologies Used**:
+
+- React (Frontend)
+- Express (Backend)
+- MySQL (Database)
+- CORS Middleware for handling cross-origin requests
+
+**Dependencies**:
+
+- cors
+- express
+- mysql
+
+**Features**:
+
+- **Create**: Add new records to the MySQL database through the React interface.
+- **Read**: Display all records stored in the MySQL database.
+- **Update**: Edit and update existing records in the database.
+- **Delete**: Remove records from the MySQL database.
+- **Cross-Origin Resource Sharing (CORS)**: Ensures smooth communication between React frontend and Express backend.
+
+**Screenshot**:
+![CRUD Operations Project](https://github.com/user-attachments/assets/63166fd3-2527-4c4a-b71f-79f2087073c8)
+
+**Instructions**:
+
+1. **Start the Backend (Express + MySQL)**:
+
+   - Navigate to the backend folder in your terminal.
+   - Run `npm install` to install all the required dependencies.
+   - Ensure that your MySQL database is set up with the appropriate tables and data.
+   - Run the Express server using `node server.js` or `npm start` (depending on your setup).
+   - The server will run on `http://localhost:5000` (or another port if configured differently).
+
+2. **Start the Frontend (React)**:
+
+   - Navigate to the frontend folder in your terminal.
+   - Run `npm install` to install all the required dependencies.
+   - Start the React application with `npm start`.
+   - The frontend will run on `http://localhost:3000`.
+
+3. **Interacting with the Application**:
+   - Use the React interface to create, read, update, or delete records.
+   - The backend (Express) will handle requests and interact with the MySQL database.
+
+**Website**:
+   - You can interact with the application on the frontend by visiting `http://localhost:3000` after running both servers.
+
+---
+
+### 3. Drum Kit
 
 **Description**: This is a Drum Kit through which you can create your own beats.
 
@@ -67,9 +121,73 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 3. **Create Beats**:
    - Combine the drum sounds to create your own beats and rhythms.
 
+**Live Demo**: [Drum Kit beats](https://drum-kit-beats.netlify.app)
+
 ---
 
-### 3. Netflix Clone
+### 4. IMAP Email Operations with Python
+
+**Description**: This project involves a series of Python scripts that perform different IMAP operations to interact with email servers. These scripts help manage and manipulate email folders, retrieve messages, download attachments, flag emails, and perform searches on the inbox.
+
+**Technologies Used**:
+
+- Python
+- IMAP (Internet Message Access Protocol)
+
+**Scripts**:
+
+- `p1_list_all_folders.py`: Lists all folders available in the email account using IMAP.
+- `p2_to_access_mails.py`: Accesses and logs into the email account via IMAP.
+- `p3_folder_summary.py`: Provides a summary of the contents of email folders.
+- `p4_message_download.py`: Downloads email messages or attachments from the inbox.
+- `p5_flagging.py`: Flags or marks messages for follow-up or other purposes.
+- `p6_searching.py`: Searches for specific emails or messages based on various criteria.
+
+**Features**:
+
+- **List Folders**: Retrieve a list of all folders in the email account.
+- **Access Emails**: Connect to the IMAP server and access the user's inbox.
+- **Folder Summary**: Get a summary of emails in each folder, including unread, flagged, and total count.
+- **Message Download**: Download email messages or their attachments.
+- **Flagging Emails**: Mark messages for follow-up or other categories.
+- **Search Emails**: Perform searches within email folders based on criteria like date, sender, subject, etc.
+
+**Instructions**:
+
+1. **Install Dependencies**:
+
+   - Ensure you have Python installed on your system.
+   - Install the necessary Python libraries using `pip`:
+     ```bash
+     pip install imaplib email
+     ```
+
+2. **Run the Scripts**:
+
+   - Navigate to the directory containing the scripts.
+   - Execute each script using the following command:
+     ```bash
+     python <script_name>.py
+     ```
+   - Each script performs a different IMAP operation, so you can run them independently or in sequence.
+
+3. **Configuration**:
+
+   - Ensure you have access to an IMAP-enabled email account (like Gmail, Yahoo, etc.).
+   - Modify the script configuration where necessary to set your email server, username, password, and other required details.
+
+   Example usage in `p2_to_access_mails.py`:
+
+   ```python
+   
+   imap = imaplib.IMAP4_SSL("imap.gmail.com")
+   username = "your_email@gmail.com"  # Replace with your Gmail account
+   password = "your_password"         # Replace with your password
+   imap.login(username, password)
+
+---
+
+### 5. Netflix Clone
 
 **Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
 
@@ -78,7 +196,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 4. QR Code Project
+### 6. QR Code Project
 
 **Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
 
@@ -107,7 +225,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 5. Rock-Paper-Scissors Game
+### 7. Rock-Paper-Scissors Game
 
 **Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
 
@@ -144,35 +262,11 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 3. **Scores**:-
    - The game keeps track of the number of wins, losses, and ties.
 
----
-
-### 6. Simon Game Challenge
-
-**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
-
-**Features**:
-
-- Progressive difficulty levels
-- Score tracking
-- Sound effects for correct and incorrect moves
-
-**Screenshot**:
-![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
-
-**Instructions**:
-
-1. **Start the Game**:
-   - press any key to start the game
-2. **Gameplay**:
-   - The game will show a sequence of colors and sounds.
-   - Repeat the sequence by clicking on the colored buttons.
-   - The sequence length increases with each successful round.
-3. **Scoring**:
-   - The game ends when you make a mistake or complete all rounds.
+**Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
 
 ---
 
-### 7. SMS Alert for Emergency Response Planning
+### 8. SMS Alert for Emergency Response Planning
 
 **Description**:  
 The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
@@ -246,9 +340,11 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
    - If location access is denied, an error message will be displayed.
    - Weather alerts will be sent via SMS to predefined phone numbers when the thresholds are breached in the next two-day forecast.
 
+**Live Demo**: [SMS Weather Alert](https://sms-weather-alert.netlify.app)
+
 ---
 
-### 8. Syllabus Scout
+### 9. Syllabus Scout
 
 **Description**:  
 **Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
@@ -282,9 +378,11 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 **Screenshot**:  
 ![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
 
+**Live Demo**: [Syllabus Scout](https://syllabus-scout.netlify.app)
+
 ---
 
-### 9. Tic Tac Toe Game
+### 10. Tic Tac Toe Game
 
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
@@ -318,9 +416,11 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 4. **Reset Game**:
    - Click the "Reset Game" button to clear the board and reset the game.
 
+**Live Demo**: [Tic Tac Toe](https://your-tic-tac-toe.netlify.app)
+
 ---
 
-### 10. Weather Website
+### 11. Weather Website
 
 **Description**:  
 The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
@@ -358,6 +458,8 @@ The **Weather Website** is a web application that provides users with up-to-date
    - The weather information for the specified city will be displayed, including the current temperature, humidity, and weather conditions.
 4. **Toggle Between Celsius and Fahrenheit**:
    - Click on the **"Switch to Fahrenheit"** or **"Switch to Celsius"** button to toggle the temperature unit.
+
+**Live Demo**: [Weather Scout](https://weather-scout.netlify.app)
 
 ---
 
