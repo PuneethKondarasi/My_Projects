@@ -189,7 +189,114 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 5. Smart Farming Dashboard with React, Flask, and Machine Learning
+### 5. Netflix Clone
+
+**Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
+
+**Screenshot**:
+![Netflix Clone Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2adf5403-40eb-4d9c-87aa-e89cc4bd5089)
+
+---
+
+### 6. QR Code Project
+
+**Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
+
+**Technologies Used**:
+
+- JavaScript
+  - Node
+
+**Features**:
+
+- QR Code Generation: Generates a unique QR code for any text or URL input.
+- Works through the terminal
+
+**Instructions**:
+
+1. **Start the Application**:
+
+   - Navigate to the Directory in which it is available.
+   - Open this folder in the terminal.
+   - install all the required dependencies by using `npm install`.
+   - Run `node index.js` in terminal for the application to run.
+
+2. **Terminal**:
+   - You will be able to give the URL of the Website that you want to convert into QR Code in the terminal and click enter.
+   - After this the QR gets saved as a png file.
+
+---
+
+### 7. Rock-Paper-Scissors Game
+
+**Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
+
+**Technologies Used**:
+
+- HTML
+- CSS
+- JavaScript
+
+**Features**:
+
+- Randomized Computer Moves: Ensures unpredictable and fair gameplay.
+- Score Tracking: Keeps count of Player Wins, Computer Wins, and Ties.
+- Easy Setup: Simply open index.html to start playing.
+- Instant Feedback: Real-time display of game results.
+- Cross-Browser Compatibility: Works on Chrome, Firefox, Safari, and Edge.
+
+**Screenshot**:
+![Rock-Paper-Scissor Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2d265fd7-bfaf-433b-a095-69a1882c8f09)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
+   - The computer randomly selects one of the options.
+   - The winner is determined based on the following rules:
+     - Rock crushes Scissors
+     - Scissors cuts Paper
+     - Paper covers Rock
+2. **Winning the Game**:-
+   - If the player wins, a message "You Won!" will be displayed.
+   - If the computer wins, a message "You Lost!" will be displayed.
+   - If it's a tie, a message "It's a Draw!" will be displayed.
+3. **Scores**:-
+   - The game keeps track of the number of wins, losses, and ties.
+
+**Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
+
+---
+
+### 8. Simon Game Challenge
+
+**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
+
+**Features**:
+
+- Progressive difficulty levels
+- Score tracking
+- Sound effects for correct and incorrect moves
+
+**Screenshot**:
+![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - press any key to start the game
+2. **Gameplay**:
+   - The game will show a sequence of colors and sounds.
+   - Repeat the sequence by clicking on the colored buttons.
+   - The sequence length increases with each successful round.
+3. **Scoring**:
+   - The game ends when you make a mistake or complete all rounds.
+
+**Live Demo**: [Simon Game](https://simongame-challenge.netlify.app)
+
+---
+
+### 9. Smart Farming Dashboard with React, Flask, and Machine Learning
 
 **Description**:  
 This project builds a **Smart Farming Dashboard** that collects real-time sensor data (temperature, humidity, soil moisture, and rainfall), predicts the best crop to plant based on conditions using a machine learning model, and displays insights on a React frontend. The backend uses Flask to manage data processing, model inference, and API endpoints.
@@ -259,113 +366,6 @@ This project builds a **Smart Farming Dashboard** that collects real-time sensor
 **Website**:
 
 - Visit `http://localhost:3000` to access the Smart Farming Dashboard after starting both servers.
-
----
-
-### 6. Netflix Clone
-
-**Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
-
-**Screenshot**:
-![Netflix Clone Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2adf5403-40eb-4d9c-87aa-e89cc4bd5089)
-
----
-
-### 7. QR Code Project
-
-**Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
-
-**Technologies Used**:
-
-- JavaScript
-  - Node
-
-**Features**:
-
-- QR Code Generation: Generates a unique QR code for any text or URL input.
-- Works through the terminal
-
-**Instructions**:
-
-1. **Start the Application**:
-
-   - Navigate to the Directory in which it is available.
-   - Open this folder in the terminal.
-   - install all the required dependencies by using `npm install`.
-   - Run `node index.js` in terminal for the application to run.
-
-2. **Terminal**:
-   - You will be able to give the URL of the Website that you want to convert into QR Code in the terminal and click enter.
-   - After this the QR gets saved as a png file.
-
----
-
-### 8. Rock-Paper-Scissors Game
-
-**Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
-
-**Technologies Used**:
-
-- HTML
-- CSS
-- JavaScript
-
-**Features**:
-
-- Randomized Computer Moves: Ensures unpredictable and fair gameplay.
-- Score Tracking: Keeps count of Player Wins, Computer Wins, and Ties.
-- Easy Setup: Simply open index.html to start playing.
-- Instant Feedback: Real-time display of game results.
-- Cross-Browser Compatibility: Works on Chrome, Firefox, Safari, and Edge.
-
-**Screenshot**:
-![Rock-Paper-Scissor Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2d265fd7-bfaf-433b-a095-69a1882c8f09)
-
-**Instructions**:
-
-1. **Start the Game**:
-   - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
-   - The computer randomly selects one of the options.
-   - The winner is determined based on the following rules:
-     - Rock crushes Scissors
-     - Scissors cuts Paper
-     - Paper covers Rock
-2. **Winning the Game**:-
-   - If the player wins, a message "You Won!" will be displayed.
-   - If the computer wins, a message "You Lost!" will be displayed.
-   - If it's a tie, a message "It's a Draw!" will be displayed.
-3. **Scores**:-
-   - The game keeps track of the number of wins, losses, and ties.
-
-**Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
-
----
-
-### 9. Simon Game Challenge
-
-**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
-
-**Features**:
-
-- Progressive difficulty levels
-- Score tracking
-- Sound effects for correct and incorrect moves
-
-**Screenshot**:
-![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
-
-**Instructions**:
-
-1. **Start the Game**:
-   - press any key to start the game
-2. **Gameplay**:
-   - The game will show a sequence of colors and sounds.
-   - Repeat the sequence by clicking on the colored buttons.
-   - The sequence length increases with each successful round.
-3. **Scoring**:
-   - The game ends when you make a mistake or complete all rounds.
-
-**Live Demo**: [Simon Game](https://simongame-challenge.netlify.app)
 
 ---
 
