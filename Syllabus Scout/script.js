@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function searchStudyMaterial(topic) {
-    const cx = 'YOUR_CX';
-    const apiKey = 'YOUR_API_KEY';
+    const cx = config.googleCx;
+    const apiKey = config.googleApiKey;
 
     const url = `https://www.googleapis.com/customsearch/v1?q=${topic}&cx=${cx}&key=${apiKey}&num=5`;  // Limit to 5 results
 
@@ -46,7 +46,7 @@ function displaySearchResults(results) {
 }
 
 function searchYouTubeVideos(topic) {
-    const apiKey = 'YOUR_API_KEY';
+    const apiKey = config.youtubeApiKey;
     const maxResults = 5;
 
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${topic}&key=${apiKey}&maxResults=${maxResults}&type=video`;

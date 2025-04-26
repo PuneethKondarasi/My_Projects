@@ -1,4 +1,4 @@
-const apiKey = "Your API Key";
+const apiKey = config.apiKey;
 let unit = "metric";
 
 async function getWeather() {

@@ -1,4 +1,4 @@
-const apiKey = 'your_api_key';
+const apiKey = config.apiKey;
 let weatherChart;
 
 function getWeather(lat, lon) {

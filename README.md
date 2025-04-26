@@ -89,7 +89,8 @@ Welcome to my project repository! This repository serves as a centralized hub fo
    - The backend (Express) will handle requests and interact with the MySQL database.
 
 **Website**:
-   - You can interact with the application on the frontend by visiting `http://localhost:3000` after running both servers.
+
+- You can interact with the application on the frontend by visiting `http://localhost:3000` after running both servers.
 
 ---
 
@@ -179,15 +180,89 @@ Welcome to my project repository! This repository serves as a centralized hub fo
    Example usage in `p2_to_access_mails.py`:
 
    ```python
-   
+
    imap = imaplib.IMAP4_SSL("imap.gmail.com")
    username = "your_email@gmail.com"  # Replace with your Gmail account
    password = "your_password"         # Replace with your password
    imap.login(username, password)
+   ```
 
 ---
 
-### 5. Netflix Clone
+### 5. Smart Farming Dashboard with React, Flask, and Machine Learning
+
+**Description**:  
+This project builds a **Smart Farming Dashboard** that collects real-time sensor data (temperature, humidity, soil moisture, and rainfall), predicts the best crop to plant based on conditions using a machine learning model, and displays insights on a React frontend. The backend uses Flask to manage data processing, model inference, and API endpoints.
+
+**Technologies Used**:
+
+- **React** (Frontend Framework)
+- **Flask** (Backend Server)
+- **Python Machine Learning Model** (Crop Recommendation)
+- **Arduino + Sensors** (Real-time data collection)
+- **Axios** (for API calls)
+- **Chart.js** (for graphical data representation)
+
+**Dependencies**:
+
+- Flask
+- Flask-CORS
+- scikit-learn
+- numpy
+- pandas
+- axios (in React)
+- react-chartjs-2
+
+**Features**:
+
+- **Real-Time Sensor Data Display**: Visualize live environmental readings on the dashboard.
+- **Crop Prediction**: Get instant crop recommendations based on sensor data using a trained machine learning model.
+- **Data Visualization**: Monitor environmental trends with dynamic graphs for temperature, humidity, soil moisture, and rainfall.
+- **Manual Data Refresh**: Option to manually update displayed sensor readings.
+- **Notification System**: Get real-time alerts when environmental thresholds are breached.
+- **API Integration**: Communicate smoothly between React frontend and Flask backend with CORS enabled.
+
+**Screenshot**:
+
+**Instructions**:
+
+1. **Start the Backend (Flask + Machine Learning)**:
+
+   - Connect the sensors to **COM4** port
+   - Navigate to the backend project folder.
+   - Start the Flask server using `python app.py`.
+   - The server will run at `http://localhost:5000`.
+
+2. **Start the Frontend (React Dashboard)**:
+
+   - Navigate to the React frontend folder.
+   - Run `npm install` to install all React dependencies.
+   - Start the React app using `npm run dev`
+   - The dashboard will be live at `http://localhost:3000`.
+
+3. **Testing the Crop Prediction API with Postman**:
+
+   - Send a **POST** request to `http://localhost:5000/predict`.
+   - Use **raw JSON** body format like:
+
+     ```json
+     {
+       "temperature": 28,
+       "humidity": 60,
+       "moisture": 400,
+       "rainfall": 5
+     }
+     ```
+
+   - Get the recommended crop and model confidence score in the response.
+
+**Website**:
+
+- Visit `http://localhost:3000` to access the Smart Farming Dashboard after starting both servers.
+
+---
+
+### 6. Netflix Clone
 
 **Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
 
@@ -196,7 +271,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 6. QR Code Project
+### 7. QR Code Project
 
 **Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
 
@@ -225,7 +300,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 7. Rock-Paper-Scissors Game
+### 8. Rock-Paper-Scissors Game
 
 **Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
 
@@ -266,7 +341,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 8. Simon Game Challenge
+### 9. Simon Game Challenge
 
 **Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
 
@@ -294,7 +369,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 9. SMS Alert for Emergency Response Planning
+### 10. SMS Alert for Emergency Response Planning
 
 **Description**:  
 The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
@@ -372,7 +447,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 10. Syllabus Scout
+### 11. Syllabus Scout
 
 **Description**:  
 **Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
@@ -410,7 +485,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 11. Tic Tac Toe Game
+### 12. Tic Tac Toe Game
 
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
@@ -448,7 +523,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 12. Weather Website
+### 13. Weather Website
 
 **Description**:  
 The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
