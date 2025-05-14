@@ -6,7 +6,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ### 1. Band Generator Project
 
-**Description**: Welcome to the Band Name Generator! This project generates a different band name every time you use it.
+**Description**: The Band Name Generator is a fun web application that generates a new, unique band name every time you use it. Built with Node.js and EJS, it features a clean interface and server-side rendering.
 
 **Technologies Used**:
 
@@ -94,7 +94,43 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 3. Drum Kit
+### 3. Credit Card Fraud Detection Using Machine Learning and R Programming
+
+**Description**: This project uses machine learning techniques in **R** to detect fraudulent credit card transactions. It leverages classification models, threshold optimization, and a **Shiny dashboard** for real-time analysis.
+
+**Technologies Used**:
+
+- R
+- Shiny
+- Machine Learning Libraries (caret, xgboost, ranger)
+
+**Features**:
+
+- **Modeling**: Logistic Regression, Decision Tree, Random Forest, XGBoost
+- **Class Imbalance Handling**: ROSE for oversampling
+- **Model Evaluation**: ROC, AUC, Precision, Recall
+- **Shiny App**: Interactive dashboard for model training, threshold setting, and visualization
+
+**Screenshot**:  
+![Image](https://github.com/user-attachments/assets/290fd61b-0693-464c-8f72-349d5fce4cb2)
+
+**Instructions**:
+
+1. **Run the R Scripts**:
+
+   - Install required R packages (`caret`, `xgboost`, `ROSE`, etc.).
+   - Run each script for model training and evaluation.
+
+2. **Start the Shiny App**:
+
+   - Run the Shiny app to interact with the model and visualize results.
+
+**Website**:  
+- Access the interactive Shiny app after running the scripts locally.
+  
+---
+
+### 4. Drum Kit
 
 **Description**: This is a Drum Kit through which you can create your own beats.
 
@@ -108,6 +144,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 - Play different drum sounds using keyboard keys or by clicking on the buttons on screen.
 - Visual feedback for each key press.
+- Combine different drum sounds to create your own rhythms and patterns.
 
 **Screenshot**:
 ![Drum Kit](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/44f20c4b-8c66-4b18-bad8-bb642c6e1934)
@@ -126,7 +163,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 4. IMAP Email Operations with Python
+### 5. IMAP Email Operations with Python
 
 **Description**: This project involves a series of Python scripts that perform different IMAP operations to interact with email servers. These scripts help manage and manipulate email folders, retrieve messages, download attachments, flag emails, and perform searches on the inbox.
 
@@ -146,12 +183,18 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 **Features**:
 
-- **List Folders**: Retrieve a list of all folders in the email account.
-- **Access Emails**: Connect to the IMAP server and access the user's inbox.
-- **Folder Summary**: Get a summary of emails in each folder, including unread, flagged, and total count.
-- **Message Download**: Download email messages or their attachments.
-- **Flagging Emails**: Mark messages for follow-up or other categories.
-- **Search Emails**: Perform searches within email folders based on criteria like date, sender, subject, etc.
+- **List Folders**  
+  Retrieve a list of all folders in the email account.
+- **Access Emails**  
+  Connect to the IMAP server and access email messages from the inbox.
+- **Folder Summary**  
+  Get a summary of emails in each folder, including unread, flagged, and total counts.
+- **Message Download**  
+  Download email messages and attachments for offline access.
+- **Flagging Emails**  
+  Flag messages for follow-up or categorize them for future reference.
+- **Search Emails**  
+  Perform searches within email folders based on criteria like date, sender, and subject.
 
 **Instructions**:
 
@@ -189,7 +232,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 5. Netflix Clone
+### 6. Netflix Clone
 
 **Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
 
@@ -198,7 +241,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 6. QR Code Project
+### 7. QR Code Project
 
 **Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
 
@@ -227,9 +270,9 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 7. Rock-Paper-Scissors Game
+### 8. Rock-Paper-Scissors Game
 
-**Description**: Welcome to the Rock-Paper-Scissors Game! This project is a simple yet fun implementation of the classic Rock-Paper-Scissors game. It allows a player to compete against the computer in a graphical, easy-to-use interface.
+**Description**: This project is a fun, interactive implementation of the classic Rock-Paper-Scissors game. Players compete against the computer in a simple, graphical interface.
 
 **Technologies Used**:
 
@@ -251,24 +294,25 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 **Instructions**:
 
 1. **Start the Game**:
+   - Open `index.html` in any modern web browser.
    - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
    - The computer randomly selects one of the options.
    - The winner is determined based on the following rules:
      - Rock crushes Scissors
      - Scissors cuts Paper
      - Paper covers Rock
-2. **Winning the Game**:-
+3. **Winning the Game**:-
    - If the player wins, a message "You Won!" will be displayed.
    - If the computer wins, a message "You Lost!" will be displayed.
    - If it's a tie, a message "It's a Draw!" will be displayed.
-3. **Scores**:-
+4. **Scores**:-
    - The game keeps track of the number of wins, losses, and ties.
 
 **Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
 
 ---
 
-### 8. Simon Game Challenge
+### 9. Simon Game Challenge
 
 **Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
 
@@ -296,7 +340,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### 9. Smart Farming Dashboard with React, Flask, and Machine Learning
+### 10. Smart Farming Dashboard with React, Flask, and Machine Learning
 
 **Description**:  
 This project builds a **Smart Farming Dashboard** that collects real-time sensor data (temperature, humidity, soil moisture, and rainfall), predicts the best crop to plant based on conditions using a machine learning model, and displays insights on a React frontend. The backend uses Flask to manage data processing, model inference, and API endpoints.
@@ -369,7 +413,7 @@ This project builds a **Smart Farming Dashboard** that collects real-time sensor
 
 ---
 
-### 10. SMS Alert for Emergency Response Planning
+### 11. SMS Alert for Emergency Response Planning
 
 **Description**:  
 The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
@@ -447,7 +491,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 11. Syllabus Scout
+### 12. Syllabus Scout
 
 **Description**:  
 **Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
@@ -485,7 +529,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 12. Tic Tac Toe Game
+### 13. Tic Tac Toe Game
 
 **Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
 
@@ -523,7 +567,7 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 13. Weather Website
+### 14. Weather Website
 
 **Description**:  
 The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
