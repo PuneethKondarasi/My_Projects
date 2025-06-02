@@ -4,97 +4,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ## Projects
 
-### 1. Band Generator Project
-
-**Description**: The Band Name Generator is a fun web application that generates a new, unique band name every time you use it. Built with Node.js and EJS, it features a clean interface and server-side rendering.
-
-**Technologies Used**:
-
-- JavaScript
-  - Node
-  - EJS
-
-**Features**:
-
-- Random Band Name Generation: Generates a unique band name every time you click the "Generate" button.
-- User-Friendly Interface: Clean and simple design using EJS templates for an intuitive user experience.
-- Server-Side Rendering: Utilizes Node.js and EJS for dynamic content rendering on the server side.
-- Customizable Name Lists: Easily modify the list of words used for generating band names to suit different themes or preferences.
-
-**Screenshot**:
-![Band Name generator Project](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/a783127b-2ce8-40c8-b633-daa1176a0d38)
-
-**Instructions**:
-
-1. **Start the Application**:
-
-   - Navigate to the Directory in which it is available.
-   - Open this folder in the terminal.
-   - Install all the required dependencies by using `npm install`.
-   - Run `node index.js` in terminal for the application to run.
-   - Go to `localhost:3000` to view this website.
-
-2. **Website**:
-   - Click on Generate Name to generate new band name every single time you click on it.
-
----
-
-### 2. CRUD Operations with React, Express, and MySQL
-
-**Description**: This project implements a simple CRUD (Create, Read, Update, Delete) application. The frontend is built with React, while the backend uses Express.js and connects to a MySQL database. This application allows users to manage records in a MySQL database through a user-friendly React interface.
-
-**Technologies Used**:
-
-- React (Frontend)
-- Express (Backend)
-- MySQL (Database)
-- CORS Middleware for handling cross-origin requests
-
-**Dependencies**:
-
-- cors
-- express
-- mysql
-
-**Features**:
-
-- **Create**: Add new records to the MySQL database through the React interface.
-- **Read**: Display all records stored in the MySQL database.
-- **Update**: Edit and update existing records in the database.
-- **Delete**: Remove records from the MySQL database.
-- **Cross-Origin Resource Sharing (CORS)**: Ensures smooth communication between React frontend and Express backend.
-
-**Screenshot**:
-![CRUD Operations Project](https://github.com/user-attachments/assets/63166fd3-2527-4c4a-b71f-79f2087073c8)
-
-**Instructions**:
-
-1. **Start the Backend (Express + MySQL)**:
-
-   - Navigate to the backend folder in your terminal.
-   - Run `npm install` to install all the required dependencies.
-   - Ensure that your MySQL database is set up with the appropriate tables and data.
-   - Run the Express server using `node server.js` or `npm start` (depending on your setup).
-   - The server will run on `http://localhost:5000` (or another port if configured differently).
-
-2. **Start the Frontend (React)**:
-
-   - Navigate to the frontend folder in your terminal.
-   - Run `npm install` to install all the required dependencies.
-   - Start the React application with `npm start`.
-   - The frontend will run on `http://localhost:3000`.
-
-3. **Interacting with the Application**:
-   - Use the React interface to create, read, update, or delete records.
-   - The backend (Express) will handle requests and interact with the MySQL database.
-
-**Website**:
-
-- You can interact with the application on the frontend by visiting `http://localhost:3000` after running both servers.
-
----
-
-### 3. Credit Card Fraud Detection Using Machine Learning and R Programming
+### P01. Credit Card Fraud Detection Using Machine Learning and R Programming
 
 **Description**: This project uses machine learning techniques in **R** to detect fraudulent credit card transactions. It leverages classification models, threshold optimization, and a **Shiny dashboard** for real-time analysis.
 
@@ -130,217 +40,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
   
 ---
 
-### 4. Drum Kit
-
-**Description**: This is a Drum Kit through which you can create your own beats.
-
-**Technologies Used**:
-
-- HTML
-- CSS
-- JavaScript
-
-**Features**:
-
-- Play different drum sounds using keyboard keys or by clicking on the buttons on screen.
-- Visual feedback for each key press.
-- Combine different drum sounds to create your own rhythms and patterns.
-
-**Screenshot**:
-![Drum Kit](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/44f20c4b-8c66-4b18-bad8-bb642c6e1934)
-
-**Instructions**:
-
-1. **Start the Application**:
-   - Open the `index.html` file in your web browser.
-2. **Play the Drums**:
-   - Press the corresponding keys (W, A, S, D, J, K, L) on your keyboard or the buttons on screen to play different drum sounds.
-   - Visual feedback will appear for each key press.
-3. **Create Beats**:
-   - Combine the drum sounds to create your own beats and rhythms.
-
-**Live Demo**: [Drum Kit beats](https://drum-kit-beats.netlify.app)
-
----
-
-### 5. IMAP Email Operations with Python
-
-**Description**: This project involves a series of Python scripts that perform different IMAP operations to interact with email servers. These scripts help manage and manipulate email folders, retrieve messages, download attachments, flag emails, and perform searches on the inbox.
-
-**Technologies Used**:
-
-- Python
-- IMAP (Internet Message Access Protocol)
-
-**Scripts**:
-
-- `p1_list_all_folders.py`: Lists all folders available in the email account using IMAP.
-- `p2_to_access_mails.py`: Accesses and logs into the email account via IMAP.
-- `p3_folder_summary.py`: Provides a summary of the contents of email folders.
-- `p4_message_download.py`: Downloads email messages or attachments from the inbox.
-- `p5_flagging.py`: Flags or marks messages for follow-up or other purposes.
-- `p6_searching.py`: Searches for specific emails or messages based on various criteria.
-
-**Features**:
-
-- **List Folders**  
-  Retrieve a list of all folders in the email account.
-- **Access Emails**  
-  Connect to the IMAP server and access email messages from the inbox.
-- **Folder Summary**  
-  Get a summary of emails in each folder, including unread, flagged, and total counts.
-- **Message Download**  
-  Download email messages and attachments for offline access.
-- **Flagging Emails**  
-  Flag messages for follow-up or categorize them for future reference.
-- **Search Emails**  
-  Perform searches within email folders based on criteria like date, sender, and subject.
-
-**Instructions**:
-
-1. **Install Dependencies**:
-
-   - Ensure you have Python installed on your system.
-   - Install the necessary Python libraries using `pip`:
-     ```bash
-     pip install imaplib email
-     ```
-
-2. **Run the Scripts**:
-
-   - Navigate to the directory containing the scripts.
-   - Execute each script using the following command:
-     ```bash
-     python <script_name>.py
-     ```
-   - Each script performs a different IMAP operation, so you can run them independently or in sequence.
-
-3. **Configuration**:
-
-   - Ensure you have access to an IMAP-enabled email account (like Gmail, Yahoo, etc.).
-   - Modify the script configuration where necessary to set your email server, username, password, and other required details.
-
-   Example usage in `p2_to_access_mails.py`:
-
-   ```python
-
-   imap = imaplib.IMAP4_SSL("imap.gmail.com")
-   username = "your_email@gmail.com"  # Replace with your Gmail account
-   password = "your_password"         # Replace with your password
-   imap.login(username, password)
-   ```
-
----
-
-### 6. Netflix Clone
-
-**Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
-
-**Screenshot**:
-![Netflix Clone Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2adf5403-40eb-4d9c-87aa-e89cc4bd5089)
-
----
-
-### 7. QR Code Project
-
-**Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
-
-**Technologies Used**:
-
-- JavaScript
-  - Node
-
-**Features**:
-
-- QR Code Generation: Generates a unique QR code for any text or URL input.
-- Works through the terminal
-
-**Instructions**:
-
-1. **Start the Application**:
-
-   - Navigate to the Directory in which it is available.
-   - Open this folder in the terminal.
-   - install all the required dependencies by using `npm install`.
-   - Run `node index.js` in terminal for the application to run.
-
-2. **Terminal**:
-   - You will be able to give the URL of the Website that you want to convert into QR Code in the terminal and click enter.
-   - After this the QR gets saved as a png file.
-
----
-
-### 8. Rock-Paper-Scissors Game
-
-**Description**: This project is a fun, interactive implementation of the classic Rock-Paper-Scissors game. Players compete against the computer in a simple, graphical interface.
-
-**Technologies Used**:
-
-- HTML
-- CSS
-- JavaScript
-
-**Features**:
-
-- Randomized Computer Moves: Ensures unpredictable and fair gameplay.
-- Score Tracking: Keeps count of Player Wins, Computer Wins, and Ties.
-- Easy Setup: Simply open index.html to start playing.
-- Instant Feedback: Real-time display of game results.
-- Cross-Browser Compatibility: Works on Chrome, Firefox, Safari, and Edge.
-
-**Screenshot**:
-![Rock-Paper-Scissor Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2d265fd7-bfaf-433b-a095-69a1882c8f09)
-
-**Instructions**:
-
-1. **Start the Game**:
-   - Open `index.html` in any modern web browser.
-   - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
-   - The computer randomly selects one of the options.
-   - The winner is determined based on the following rules:
-     - Rock crushes Scissors
-     - Scissors cuts Paper
-     - Paper covers Rock
-3. **Winning the Game**:-
-   - If the player wins, a message "You Won!" will be displayed.
-   - If the computer wins, a message "You Lost!" will be displayed.
-   - If it's a tie, a message "It's a Draw!" will be displayed.
-4. **Scores**:-
-   - The game keeps track of the number of wins, losses, and ties.
-
-**Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
-
----
-
-### 9. Simon Game Challenge
-
-**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
-
-**Features**:
-
-- Progressive difficulty levels
-- Score tracking
-- Sound effects for correct and incorrect moves
-
-**Screenshot**:
-![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
-
-**Instructions**:
-
-1. **Start the Game**:
-   - press any key to start the game
-2. **Gameplay**:
-   - The game will show a sequence of colors and sounds.
-   - Repeat the sequence by clicking on the colored buttons.
-   - The sequence length increases with each successful round.
-3. **Scoring**:
-   - The game ends when you make a mistake or complete all rounds.
-
-**Live Demo**: [Simon Game](https://simongame-challenge.netlify.app)
-
----
-
-### 10. Smart Farming Dashboard with React, Flask, and Machine Learning
+### P02. Smart Farming Dashboard with React, Flask, and Machine Learning
 
 **Description**:  
 This project builds a **Smart Farming Dashboard** that collects real-time sensor data (temperature, humidity, soil moisture, and rainfall), predicts the best crop to plant based on conditions using a machine learning model, and displays insights on a React frontend. The backend uses Flask to manage data processing, model inference, and API endpoints.
@@ -373,7 +73,7 @@ This project builds a **Smart Farming Dashboard** that collects real-time sensor
 - **Notification System**: Get real-time alerts when environmental thresholds are breached.
 - **API Integration**: Communicate smoothly between React frontend and Flask backend with CORS enabled.
 
-**Screenshot**:
+**Screenshot**:![Image](https://github.com/user-attachments/assets/9894f3d1-5b3e-418d-bada-df36605482c9)
 
 **Instructions**:
 
@@ -413,7 +113,45 @@ This project builds a **Smart Farming Dashboard** that collects real-time sensor
 
 ---
 
-### 11. SMS Alert for Emergency Response Planning
+### P03. Syllabus Scout
+
+**Description**:  
+**Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
+
+**Technologies Used**:
+
+- **Frontend**:
+  - HTML
+  - CSS
+  - JavaScript
+- **Backend**:
+  - Express.js (for API handling)
+- **APIs**:
+  - Google API (to fetch relevant book resources)
+  - YouTube Data API (to fetch educational videos)
+
+**Features**:
+
+- **Search Functionality**:
+  - Allows users to search for study materials based on a given topic, course name, or keyword.
+  - Returns a list of relevant resources, including articles, videos, and other materials.
+- **Responsive Design**:
+
+  - The web app is fully responsive, ensuring a smooth user experience on both desktop and mobile devices.
+
+- **User-Friendly Interface**:
+  - A clean and intuitive UI built offering a seamless search experience.
+- **API Integration**:
+  - Integrates with multiple third-party APIs (Google API and YouTube API) to gather relevant resources.
+
+**Screenshot**:  
+![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
+
+**Live Demo**: [Syllabus Scout](https://syllabus-scout.netlify.app)
+
+---
+
+### P04. SMS Alert for Emergency Response Planning
 
 **Description**:  
 The **SMS Alert for Emergency Response Planning** provides real-time weather data and sends **SMS alerts** when weather parameters exceed or fall below thresholds. This system not only checks live weather data but also forecasts the weather, sending proactive alerts to users phone numbers. This feature helps ensure timely responses for emergency planning and preparation based on weather changes.
@@ -491,10 +229,24 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
 
 ---
 
-### 12. Syllabus Scout
+### P05. NASA Explorer
 
 **Description**:  
-**Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
+The **NASA Multimedia Explorer** is a modern web application that showcases NASA's incredible collection of space imagery and videos using multiple public APIs. This app allows users to explore daily astronomy pictures, Mars rover photos, real-time Earth satellite images, and NASA's vast multimedia library — all in one place.
+
+**Features**
+
+- **Astronomy Picture of the Day (APOD)**  
+  View NASA's daily space photo/video with explanations.
+
+- **Mars Rover Photos**  
+  Fetch photos from NASA rovers: Curiosity, Perseverance, Opportunity, and Spirit.
+
+- **EPIC Earth Images**  
+  View Earth images from the DSCOVR satellite (NASA EPIC camera).
+
+- **NASA Media Library**  
+  Search and browse NASA’s massive image and video archives.
 
 **Technologies Used**:
 
@@ -502,72 +254,45 @@ The **SMS Alert for Emergency Response Planning** provides real-time weather dat
   - HTML
   - CSS
   - JavaScript
-- **Backend**:
-  - Express.js (for API handling)
 - **APIs**:
-  - Google API (to fetch relevant book resources)
-  - YouTube Data API (to fetch educational videos)
-
-**Features**:
-
-- **Search Functionality**:
-  - Allows users to search for study materials based on a given topic, course name, or keyword.
-  - Returns a list of relevant resources, including articles, videos, and other materials.
-- **Responsive Design**:
-
-  - The web app is fully responsive, ensuring a smooth user experience on both desktop and mobile devices.
-
-- **User-Friendly Interface**:
-  - A clean and intuitive UI built offering a seamless search experience.
-- **API Integration**:
-  - Integrates with multiple third-party APIs (Google API and YouTube API) to gather relevant resources.
+  - [NASA APOD API](https://api.nasa.gov/)
+  - [NASA Mars Rover Photos API](https://api.nasa.gov/)
+  - [NASA EPIC API](https://epic.gsfc.nasa.gov/)
+  - [NASA Image & Video Library API](https://images.nasa.gov/)
 
 **Screenshot**:  
-![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
+![NASA Explorer Screenshot](https://github.com/user-attachments/assets/13f9c7a1-729b-4c7c-a647-40826dc1c32d)
 
-**Live Demo**: [Syllabus Scout](https://syllabus-scout.netlify.app)
-
----
-
-### 13. Tic Tac Toe Game
-
-**Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
-
-**Technologies Used**:
-
-- HTML
-- CSS
-- JavaScript
-
-**Features**:
-
-- Two-player gameplay
-- Real-time win detection
-- Game reset functionality
-- Play again option
-
-**Screenshot**:
-![Tic Tac Toe Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/bb999af8-35a0-4b56-9d43-57f9fe009a77)
 
 **Instructions**:
 
-1. **Start the Game**:
-   - The game begins with an empty 3x3 grid.
-   - Player X starts first. Players take turns to click on an empty cell to place their mark (X or O).
-2. **Winning the Game**:
-   - The game will automatically check for a winner after each move.
-   - A player wins by placing three of their marks in a horizontal, vertical, or diagonal row.
-   - Once a player wins, a message will be displayed announcing the winner.
-3. **Play Again**:
-   - Click the "Play Again" button to start a new game with the same players.
-4. **Reset Game**:
-   - Click the "Reset Game" button to clear the board and reset the game.
+### Option 1: Open Directly in Browser
 
-**Live Demo**: [Tic Tac Toe](https://your-tic-tac-toe.netlify.app)
+1. Download or clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/nasa-explorer.git
+   cd nasa-explorer
+   ```
+
+2. **Add your API key** to a new `config.js` file in the project root folder:
+
+   Create a file named `config.js` and add the following:
+
+   ```javascript
+   // config.js
+   const config = {
+     apiKey: "YOUR_API_KEY",
+   };
+   ```
+
+3. Open the `index.html` file in your preferred browser.
+
+**Live Demo**: [NASA Explorer](https://nasa-media-explorer.netlify.app/)
 
 ---
 
-### 14. Weather Website
+### P06. Weather Website
 
 **Description**:  
 The **Weather Website** is a web application that provides users with up-to-date weather information based on their specified location. The app fetches real-time weather data from a weather API and presents it in a clean, user-friendly interface. Key details include the current temperature, humidity, and weather conditions. Additionally, users can toggle between Celsius and Fahrenheit to view temperature readings in their preferred unit.
@@ -607,6 +332,344 @@ The **Weather Website** is a web application that provides users with up-to-date
    - Click on the **"Switch to Fahrenheit"** or **"Switch to Celsius"** button to toggle the temperature unit.
 
 **Live Demo**: [Weather Scout](https://weather-scout.netlify.app)
+
+---
+
+### P07. Simon Game Challenge
+
+**Description**: Experience the classic Simon game here, created using **HTML, CSS, and JavaScript**. Challenge your memory with increasingly complex sequences of colors.
+
+**Features**:
+
+- Progressive difficulty levels
+- Score tracking
+- Sound effects for correct and incorrect moves
+
+**Screenshot**:
+![Simon Game Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/238f55b8-203b-496c-892e-9a05c4e827f8)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - press any key to start the game
+2. **Gameplay**:
+   - The game will show a sequence of colors and sounds.
+   - Repeat the sequence by clicking on the colored buttons.
+   - The sequence length increases with each successful round.
+3. **Scoring**:
+   - The game ends when you make a mistake or complete all rounds.
+
+**Live Demo**: [Simon Game](https://simongame-challenge.netlify.app)
+
+---
+
+### P08. IMAP Email Operations with Python
+
+**Description**: This project involves a series of Python scripts that perform different IMAP operations to interact with email servers. These scripts help manage and manipulate email folders, retrieve messages, download attachments, flag emails, and perform searches on the inbox.
+
+**Technologies Used**:
+
+- Python
+- IMAP (Internet Message Access Protocol)
+
+**Scripts**:
+
+- `p1_list_all_folders.py`: Lists all folders available in the email account using IMAP.
+- `p2_to_access_mails.py`: Accesses and logs into the email account via IMAP.
+- `p3_folder_summary.py`: Provides a summary of the contents of email folders.
+- `p4_message_download.py`: Downloads email messages or attachments from the inbox.
+- `p5_flagging.py`: Flags or marks messages for follow-up or other purposes.
+- `p6_searching.py`: Searches for specific emails or messages based on various criteria.
+
+**Features**:
+
+- **List Folders**  
+  Retrieve a list of all folders in the email account.
+- **Access Emails**  
+  Connect to the IMAP server and access email messages from the inbox.
+- **Folder Summary**  
+  Get a summary of emails in each folder, including unread, flagged, and total counts.
+- **Message Download**  
+  Download email messages and attachments for offline access.
+- **Flagging Emails**  
+  Flag messages for follow-up or categorize them for future reference.
+- **Search Emails**  
+  Perform searches within email folders based on criteria like date, sender, and subject.
+
+**Instructions**:
+
+1. **Install Dependencies**:
+
+   - Ensure you have Python installed on your system.
+   - Install the necessary Python libraries using `pip`:
+     ```bash
+     pip install imaplib email
+     ```
+
+2. **Run the Scripts**:
+
+   - Navigate to the directory containing the scripts.
+   - Execute each script using the following command:
+     ```bash
+     python <script_name>.py
+     ```
+   - Each script performs a different IMAP operation, so you can run them independently or in sequence.
+
+3. **Configuration**:
+
+   - Ensure you have access to an IMAP-enabled email account (like Gmail, Yahoo, etc.).
+   - Modify the script configuration where necessary to set your email server, username, password, and other required details.
+
+   Example usage in `p2_to_access_mails.py`:
+
+   ```python
+
+   imap = imaplib.IMAP4_SSL("imap.gmail.com")
+   username = "your_email@gmail.com"  # Replace with your Gmail account
+   password = "your_password"         # Replace with your password
+   imap.login(username, password)
+   ```
+
+---
+
+### P09. CRUD Operations with React, Express, and MySQL
+
+**Description**: This project implements a simple CRUD (Create, Read, Update, Delete) application. The frontend is built with React, while the backend uses Express.js and connects to a MySQL database. This application allows users to manage records in a MySQL database through a user-friendly React interface.
+
+**Technologies Used**:
+
+- React (Frontend)
+- Express (Backend)
+- MySQL (Database)
+- CORS Middleware for handling cross-origin requests
+
+**Dependencies**:
+
+- cors
+- express
+- mysql
+
+**Features**:
+
+- **Create**: Add new records to the MySQL database through the React interface.
+- **Read**: Display all records stored in the MySQL database.
+- **Update**: Edit and update existing records in the database.
+- **Delete**: Remove records from the MySQL database.
+- **Cross-Origin Resource Sharing (CORS)**: Ensures smooth communication between React frontend and Express backend.
+
+**Screenshot**:
+![CRUD Operations Project](https://github.com/user-attachments/assets/63166fd3-2527-4c4a-b71f-79f2087073c8)
+
+**Instructions**:
+
+1. **Start the Backend (Express + MySQL)**:
+
+   - Navigate to the backend folder in your terminal.
+   - Run `npm install` to install all the required dependencies.
+   - Ensure that your MySQL database is set up with the appropriate tables and data.
+   - Run the Express server using `node server.js` or `npm start` (depending on your setup).
+   - The server will run on `http://localhost:5000` (or another port if configured differently).
+
+2. **Start the Frontend (React)**:
+
+   - Navigate to the frontend folder in your terminal.
+   - Run `npm install` to install all the required dependencies.
+   - Start the React application with `npm start`.
+   - The frontend will run on `http://localhost:3000`.
+
+3. **Interacting with the Application**:
+   - Use the React interface to create, read, update, or delete records.
+   - The backend (Express) will handle requests and interact with the MySQL database.
+
+**Website**:
+
+- You can interact with the application on the frontend by visiting `http://localhost:3000` after running both servers.
+
+---
+
+### P10. Netflix Clone
+
+**Description**: This project is a clone of the Netflix website, built using **HTML and CSS**. It mimics the layout of Netflix.
+
+**Screenshot**:
+![Netflix Clone Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2adf5403-40eb-4d9c-87aa-e89cc4bd5089)
+
+---
+
+### P11. Drum Kit
+
+**Description**: This is a Drum Kit through which you can create your own beats.
+
+**Technologies Used**:
+
+- HTML
+- CSS
+- JavaScript
+
+**Features**:
+
+- Play different drum sounds using keyboard keys or by clicking on the buttons on screen.
+- Visual feedback for each key press.
+- Combine different drum sounds to create your own rhythms and patterns.
+
+**Screenshot**:
+![Drum Kit](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/44f20c4b-8c66-4b18-bad8-bb642c6e1934)
+
+**Instructions**:
+
+1. **Start the Application**:
+   - Open the `index.html` file in your web browser.
+2. **Play the Drums**:
+   - Press the corresponding keys (W, A, S, D, J, K, L) on your keyboard or the buttons on screen to play different drum sounds.
+   - Visual feedback will appear for each key press.
+3. **Create Beats**:
+   - Combine the drum sounds to create your own beats and rhythms.
+
+**Live Demo**: [Drum Kit beats](https://drum-kit-beats.netlify.app)
+
+---
+
+### P12. Rock-Paper-Scissors Game
+
+**Description**: This project is a fun, interactive implementation of the classic Rock-Paper-Scissors game. Players compete against the computer in a simple, graphical interface.
+
+**Technologies Used**:
+
+- HTML
+- CSS
+- JavaScript
+
+**Features**:
+
+- Randomized Computer Moves: Ensures unpredictable and fair gameplay.
+- Score Tracking: Keeps count of Player Wins, Computer Wins, and Ties.
+- Easy Setup: Simply open index.html to start playing.
+- Instant Feedback: Real-time display of game results.
+- Cross-Browser Compatibility: Works on Chrome, Firefox, Safari, and Edge.
+
+**Screenshot**:
+![Rock-Paper-Scissor Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/2d265fd7-bfaf-433b-a095-69a1882c8f09)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - Open `index.html` in any modern web browser.
+   - The player chooses one of the three options: Rock 🪨, Paper 📄, or Scissors ✂️.
+   - The computer randomly selects one of the options.
+   - The winner is determined based on the following rules:
+     - Rock crushes Scissors
+     - Scissors cuts Paper
+     - Paper covers Rock
+3. **Winning the Game**:-
+   - If the player wins, a message "You Won!" will be displayed.
+   - If the computer wins, a message "You Lost!" will be displayed.
+   - If it's a tie, a message "It's a Draw!" will be displayed.
+4. **Scores**:-
+   - The game keeps track of the number of wins, losses, and ties.
+
+**Live Demo**: [Rock Paper Scissor](https://rock-paper-scissor-throw.netlify.app)
+
+---
+
+### P13. Tic Tac Toe Game
+
+**Description**: This project is a basic implementation of the classic Tic Tac Toe game. Players can take turns to place their marks (X or O) on the 3x3 grid. The game announces the winner once a player successfully places three of their marks in a horizontal, vertical, or diagonal row.
+
+**Technologies Used**:
+
+- HTML
+- CSS
+- JavaScript
+
+**Features**:
+
+- Two-player gameplay
+- Real-time win detection
+- Game reset functionality
+- Play again option
+
+**Screenshot**:
+![Tic Tac Toe Screenshot](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/bb999af8-35a0-4b56-9d43-57f9fe009a77)
+
+**Instructions**:
+
+1. **Start the Game**:
+   - The game begins with an empty 3x3 grid.
+   - Player X starts first. Players take turns to click on an empty cell to place their mark (X or O).
+2. **Winning the Game**:
+   - The game will automatically check for a winner after each move.
+   - A player wins by placing three of their marks in a horizontal, vertical, or diagonal row.
+   - Once a player wins, a message will be displayed announcing the winner.
+3. **Play Again**:
+   - Click the "Play Again" button to start a new game with the same players.
+4. **Reset Game**:
+   - Click the "Reset Game" button to clear the board and reset the game.
+
+**Live Demo**: [Tic Tac Toe](https://your-tic-tac-toe.netlify.app)
+
+---
+
+### P14. QR Code Project
+
+**Description**: Welcome to the QR Code Generator! This project allows you to generate QR codes for any input text or URL.
+
+**Technologies Used**:
+
+- JavaScript
+  - Node
+
+**Features**:
+
+- QR Code Generation: Generates a unique QR code for any text or URL input.
+- Works through the terminal
+
+**Instructions**:
+
+1. **Start the Application**:
+
+   - Navigate to the Directory in which it is available.
+   - Open this folder in the terminal.
+   - install all the required dependencies by using `npm install`.
+   - Run `node index.js` in terminal for the application to run.
+
+2. **Terminal**:
+   - You will be able to give the URL of the Website that you want to convert into QR Code in the terminal and click enter.
+   - After this the QR gets saved as a png file.
+
+---
+
+### P15. Band Generator Project
+
+**Description**: The Band Name Generator is a fun web application that generates a new, unique band name every time you use it. Built with Node.js and EJS, it features a clean interface and server-side rendering.
+
+**Technologies Used**:
+
+- JavaScript
+  - Node
+  - EJS
+
+**Features**:
+
+- Random Band Name Generation: Generates a unique band name every time you click the "Generate" button.
+- User-Friendly Interface: Clean and simple design using EJS templates for an intuitive user experience.
+- Server-Side Rendering: Utilizes Node.js and EJS for dynamic content rendering on the server side.
+- Customizable Name Lists: Easily modify the list of words used for generating band names to suit different themes or preferences.
+
+**Screenshot**:
+![Band Name generator Project](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/a783127b-2ce8-40c8-b633-daa1176a0d38)
+
+**Instructions**:
+
+1. **Start the Application**:
+
+   - Navigate to the Directory in which it is available.
+   - Open this folder in the terminal.
+   - Install all the required dependencies by using `npm install`.
+   - Run `node index.js` in terminal for the application to run.
+   - Go to `localhost:3000` to view this website.
+
+2. **Website**:
+   - Click on Generate Name to generate new band name every single time you click on it.
 
 ---
 
