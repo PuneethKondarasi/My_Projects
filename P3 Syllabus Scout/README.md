@@ -40,7 +40,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/syllabus-scout.git
+git clone https://github.com/PuneethKondarasi/Syllabus-Scout
 cd syllabus-scout
 ```
 
@@ -58,7 +58,9 @@ cd ../server
 npm install
 ```
 
-### 3. Create `.env` file
+---
+
+### 2. Create `.env` file
 
 In `/server/.env`:
 
@@ -68,7 +70,9 @@ MONGO_URI=your_mongodb_uri
 YOUTUBE_API_KEY=your_youtube_api_key
 ```
 
-### 4. Run the app
+---
+
+### 3. Run the app
 
 **Start backend**
 
@@ -83,6 +87,8 @@ npm run dev
 cd ../client
 npm run dev
 ```
+
+---
 
 ### 🧠 Future Enhancements
 
