@@ -116,36 +116,78 @@ This project builds a **Smart Farming Dashboard** that collects real-time sensor
 ### P03. Syllabus Scout
 
 **Description**:  
-**Syllabus Scout** is a web application designed to help students find relevant study materials based on specific topics or syllabi. Whether you're looking for textbooks, articles, videos, or practice problems, Syllabus Scout aggregates various resources in one place to help students get a head start on their coursework. It simplifies the process of locating quality study materials, making it easier for students to prepare for their classes efficiently.
+**Syllabus Scout** is a full-stack educational resource discovery platform that helps students find high-quality books and videos based on topics or syllabus content. It simplifies learning by matching users with curated study materials from trusted sources, promoting accessible education for all.
 
 **Technologies Used**:
 
 - **Frontend**:
-  - HTML
-  - CSS
-  - JavaScript
+   - React + Vite  
+   - Tailwind CSS  
+   - Framer Motion  
+   - React Icons 
 - **Backend**:
-  - Express.js (for API handling)
-- **APIs**:
-  - Google API (to fetch relevant book resources)
-  - YouTube Data API (to fetch educational videos)
+   - Node.js + Express  
+   - MongoDB (Mongoose)  
+   - Open Library API  
+   - YouTube Data API  
 
 **Features**:
-
-- **Search Functionality**:
-  - Allows users to search for study materials based on a given topic, course name, or keyword.
-  - Returns a list of relevant resources, including articles, videos, and other materials.
-- **Responsive Design**:
-
-  - The web app is fully responsive, ensuring a smooth user experience on both desktop and mobile devices.
-
-- **User-Friendly Interface**:
-  - A clean and intuitive UI built offering a seamless search experience.
-- **API Integration**:
-  - Integrates with multiple third-party APIs (Google API and YouTube API) to gather relevant resources.
+- 🔍 **Search Topics**: Find relevant study materials by entering any topic or subject name.  
+- 📚 **Curated Resources**: Access quality textbooks and video tutorials from global sources.  
+- 📄 **Upload Syllabus** (Coming Soon): Upload your syllabus PDF to get personalized recommendations.  
+- 👥 **Community** (Coming Soon): Forums and collaborative learning spaces to support peer learning.
 
 **Screenshot**:  
 ![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
+
+## 📦 Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/PuneethKondarasi/Syllabus-Scout
+cd syllabus-scout
+```
+
+**Frontend**
+
+```bash
+cd client
+npm install
+```
+
+**Backend**
+
+```bash
+cd ../server
+npm install
+```
+
+### 2. Create `.env` file
+
+In `/server/.env`:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_uri
+YOUTUBE_API_KEY=your_youtube_api_key
+```
+
+### 3. Run the app
+
+**Start backend**
+
+```bash
+cd server
+npm run dev
+```
+
+**Start frontend**
+
+```bash
+cd ../client
+npm run dev
+```
 
 **Live Demo**: [Syllabus Scout](https://syllabus-scout.netlify.app)
 
