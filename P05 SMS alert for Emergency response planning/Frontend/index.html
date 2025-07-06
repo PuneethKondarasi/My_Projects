@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Emergency Weather Alert System - Real-time weather monitoring with SMS alerts for dangerous conditions"
+    />
+    <meta
+      name="keywords"
+      content="weather, emergency, alerts, SMS, monitoring, forecast"
+    />
+    <title>Emergency Weather Alert System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header Section -->
+      <header class="app-header">
+        <div class="header-content">
+          <h1 class="app-title">
+            <span class="title-icon">🌤️</span>
+            Emergency Weather Alert System
+          </h1>
+          <p class="app-subtitle">
+            Real-time monitoring with intelligent SMS alerts
+          </p>
+        </div>
+        <div class="status-indicator" id="connection-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Connecting...</span>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Location Display -->
+        <section class="location-section">
+          <div class="location-card">
+            <div class="location-icon">📍</div>
+            <div class="location-info">
+              <h2 id="location">Detecting your location...</h2>
+              <p class="location-time" id="last-updated">Last updated: --</p>
+              <div class="location-accuracy" id="location-accuracy" style="display: none;">
+                <span class="accuracy-icon">🎯</span>
+                <span class="accuracy-text">Accuracy: <span id="accuracy-value">--</span> meters</span>
+              </div>
+            </div>
+            <div class="location-actions">
+              <button
+                class="refresh-btn"
+                id="refresh-btn"
+                onclick="refreshWeather()"
+              >
+                <span class="refresh-icon">🔄</span>
+                Refresh
+              </button>
+              <button
+                class="manual-location-btn"
+                id="manual-location-btn"
+                onclick="showManualLocationModal()"
+              >
+                <span class="location-icon">🎯</span>
+                Manual Location
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weather Dashboard -->
+        <section class="weather-dashboard">
+          <h2 class="section-title">Current Weather Conditions</h2>
+          <div id="weather-container" class="weather-grid">
+            <!-- Temperature Card -->
+            <div class="weather-card temperature-card" id="temperature">
+              <div class="card-header">
+                <img
+                  src="./icons/Temperature.png"
+                  alt="Temperature"
+                  class="weather-icon"
+                />
+                <h3>Temperature</h3>
+              </div>
+              <div class="card-content">
+                <div class="current-value">
+                  <span class="value" id="temp-current">-- °C</span>
+                  <span class="unit">°C</span>
+                </div>
+                <div class="range-info">
+                  <span class="min">Min: <span id="temp-min">-- °C</span></span>
+                  <span class="max">Max: <span id="temp-max">-- °C</span></span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="chart-btn" onclick="showChart('temperature')">
+                  <span class="btn-icon">📊</span>
+                  View Trends
+                </button>
+              </div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="weather-card humidity-card" id="humidity">
+              <div class="card-header">
+                <img
+                  src="./icons/Humidity.png"
+                  alt="Humidity"
+                  class="weather-icon"
+                />
+                <h3>Humidity</h3>
+              </div>
+              <div class="card-content">
+                <div class="current-value">
+                  <span class="value" id="humidity-current">-- %</span>
+                  <span class="unit">%</span>
+                </div>
+                <div class="humidity-bar">
+                  <div class="bar-bg">
+                    <div class="bar-fill" id="humidity-bar-fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="chart-btn" onclick="showChart('humidity')">
+                  <span class="btn-icon">📊</span>
+                  View Trends
+                </button>
+              </div>
+            </div>
+
+            <!-- Wind Speed Card -->
+            <div class="weather-card wind-card" id="wind-speed">
+              <div class="card-header">
+                <img
+                  src="./icons/windspeed.png"
+                  alt="Wind Speed"
+                  class="weather-icon"
+                />
+                <h3>Wind Speed</h3>
+              </div>
+              <div class="card-content">
+                <div class="current-value">
+                  <span class="value" id="wind-current">-- m/s</span>
+                  <span class="unit">m/s</span>
+                </div>
+                <div class="wind-direction" id="wind-direction">
+                  <span class="direction-icon">↗️</span>
+                  <span class="direction-text">--</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="chart-btn" onclick="showChart('wind')">
+                  <span class="btn-icon">📊</span>
+                  View Trends
+                </button>
+              </div>
+            </div>
+
+            <!-- Pressure Card -->
+            <div class="weather-card pressure-card" id="pressure">
+              <div class="card-header">
+                <img
+                  src="./icons/Pressure.png"
+                  alt="Pressure"
+                  class="weather-icon"
+                />
+                <h3>Pressure</h3>
+              </div>
+              <div class="card-content">
+                <div class="current-value">
+                  <span class="value" id="pressure-current">-- hPa</span>
+                  <span class="unit">hPa</span>
+                </div>
+                <div class="range-info">
+                  <span class="min"
+                    >Min: <span id="pressure-min">-- hPa</span></span
+                  >
+                  <span class="max"
+                    >Max: <span id="pressure-max">-- hPa</span></span
+                  >
+                </div>
+              </div>
+              <div class="card-actions">
+                <button class="chart-btn" onclick="showChart('pressure')">
+                  <span class="btn-icon">📊</span>
+                  View Trends
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section">
+          <div class="section-header">
+            <h2 class="section-title">Hourly Forecast</h2>
+            <div class="forecast-controls">
+              <button class="control-btn active" data-period="6">
+                6 Hours
+              </button>
+              <button class="control-btn" data-period="12">12 Hours</button>
+              <button class="control-btn" data-period="24">24 Hours</button>
+            </div>
+          </div>
+          <div id="hourly-forecast" class="forecast-container">
+            <div class="loading-spinner">
+              <div class="spinner"></div>
+              <p>Loading forecast data...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Alert History Section -->
+        <section class="alerts-section">
+          <h2 class="section-title">Recent Alerts</h2>
+          <div id="alerts-container" class="alerts-container">
+            <div class="no-alerts">
+              <span class="alert-icon">✅</span>
+              <p>No active weather alerts</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Chart Modal -->
+      <div id="chartModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="chartTitle">Weather Data Trends</h3>
+            <button id="closeModal" class="close-btn" onclick="closeModal()">
+              <span class="close-icon">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <canvas id="weatherChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert Modal -->
+      <div id="alertModal" class="modal alert-modal">
+        <div class="modal-content alert-content">
+          <div class="modal-header">
+            <h3>Weather Alert</h3>
+            <button class="close-btn" onclick="closeAlertModal()">
+              <span class="close-icon">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="alertMessage" class="alert-message"></div>
+            <div class="alert-actions">
+              <button class="btn btn-primary" onclick="sendSMSAlert()">
+                Send SMS Alert
+              </button>
+              <button class="btn btn-secondary" onclick="closeAlertModal()">
+                Dismiss
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manual Location Modal -->
+      <div id="manualLocationModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Set Manual Location</h3>
+            <button class="close-btn" onclick="closeManualLocationModal()">
+              <span class="close-icon">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="location-input-section">
+              <h4>Search by City</h4>
+              <div class="input-group">
+                <label for="cityName">City Name:</label>
+                <input type="text" id="cityName" placeholder="e.g., New York, London" />
+              </div>
+              <button class="btn btn-primary" onclick="searchCityLocation()">
+                Search City
+              </button>
+            </div>
+            <div class="location-divider">
+              <span>OR</span>
+            </div>
+            <div class="location-input-section">
+              <h4>Enter Coordinates</h4>
+              <div class="coordinate-inputs">
+                <div class="input-group">
+                  <label for="latitude">Latitude:</label>
+                  <input type="number" id="latitude" placeholder="e.g., 40.7128" step="any" />
+                </div>
+                <div class="input-group">
+                  <label for="longitude">Longitude:</label>
+                  <input type="number" id="longitude" placeholder="e.g., -74.0060" step="any" />
+                </div>
+              </div>
+              <button class="btn btn-primary" onclick="setManualLocation()">
+                Set Location
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

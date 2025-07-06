@@ -1,0 +1,201 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 3rem;
+}
+
+h2{
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2vmin;
+}
+
+h3{
+    color: white;
+    font-size: 20px;
+}
+
+p{
+    color: white;
+    font-size: 20px;
+}
+
+.container{
+    width: 100%;
+    margin-top: 5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.player{
+    text-align: center;
+}
+
+.computer{
+    text-align: center;
+}
+
+.default_img{
+    border-radius: 50%;
+    width: 50vmin;
+    height: 40vmin;
+}
+
+.choosing{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+}
+
+button{
+    height: 10vmin;
+    width: 10vmin;
+    font-size: 1.8rem;
+    border: 0;
+    border-radius: 50%;
+    transition: 0.8s;
+}
+
+button:hover{
+    background-color: black ;
+    border: 3px solid red;
+    opacity: 5;
+}
+
+.result{
+    margin-top: 3vmin;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vmin;
+}
+
+.player_result{
+    text-align: center;
+}
+
+.tie{
+    text-align: center;
+}
+
+.computer_result{
+    text-align: center;
+}
+
+.winner_declaration{
+    text-align: center;
+    margin-top: 2vmin;
+    color: white;
+}
+
+.winner{
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 768px){   
+    h1{
+        font-size: 2rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+    h3{
+        font-size: 15px;
+    }
+
+    p{
+        font-size: 15px;
+    }
+
+    .default_img{
+        width: 40vmin;
+        height: 30vmin;
+    }
+
+    .buttons{
+        gap: 0.5vmin;
+    }
+
+    button{
+        height: 8vmin;
+        width: 8vmin;
+        font-size: 1.5rem;
+    }
+
+    .result{
+        gap: 5vmin;
+    }
+
+    .winner_declaration{
+        margin-top: 1vmin;
+    }
+
+    .winner{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 425px){
+    h1{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+
+    h3{
+        font-size: 12px;
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+    .default_img{
+        width: 30vmin;
+        height: 20vmin;
+    }
+
+    .buttons{
+        gap: 0.5vmin;
+    }
+
+    button{
+        height: 6vmin;
+        width: 6vmin;
+        font-size: 1.2rem;
+    }
+
+    .result{
+        gap: 5vmin;
+    }
+
+    .winner_declaration{
+        margin-top: 1vmin;
+    }
+
+    .winner{
+        font-size: 1.2rem;
+    }
+}
+

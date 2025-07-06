@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherVue - Modern Weather App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <i class="fas fa-cloud-sun"></i>
+            <h1>WeatherVue</h1>
+          </div>
+          <div class="header-actions">
+            <button class="location-btn" onclick="getCurrentLocation()" title="Get current location">
+              <i class="fas fa-location-arrow"></i>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Search Section -->
+        <section class="search-section">
+          <div class="search-container">
+            <div class="search-box">
+              <i class="fas fa-search search-icon"></i>
+              <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Enter city name..." 
+                onkeypress="handleKeyPress(event)"
+              />
+              <button class="search-btn" onclick="getWeather()">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="unit-toggle-container">
+              <button class="unit-toggle" onclick="toggleUnit()" id="unitButton">
+                <span class="unit-text">°C</span>
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Current Weather Section -->
+        <section class="weather-section" id="weatherResult">
+          <div class="weather-placeholder">
+            <i class="fas fa-cloud-sun"></i>
+            <h2>Search for a city to get weather information</h2>
+            <p>Enter a city name above to see current weather and forecast</p>
+          </div>
+        </section>
+
+        <!-- Weather Details Section -->
+        <section class="details-section" id="weatherDetails" style="display: none;">
+          <div class="details-grid">
+            <div class="detail-card">
+              <i class="fas fa-thermometer-half"></i>
+              <div class="detail-info">
+                <span class="detail-label">Feels Like</span>
+                <span class="detail-value" id="feelsLike">--</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <i class="fas fa-tint"></i>
+              <div class="detail-info">
+                <span class="detail-label">Humidity</span>
+                <span class="detail-value" id="humidity">--</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <i class="fas fa-wind"></i>
+              <div class="detail-info">
+                <span class="detail-label">Wind Speed</span>
+                <span class="detail-value" id="windSpeed">--</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <i class="fas fa-eye"></i>
+              <div class="detail-info">
+                <span class="detail-label">Visibility</span>
+                <span class="detail-value" id="visibility">--</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <i class="fas fa-compress-arrows-alt"></i>
+              <div class="detail-info">
+                <span class="detail-label">Pressure</span>
+                <span class="detail-value" id="pressure">--</span>
+              </div>
+            </div>
+            <div class="detail-card">
+              <i class="fas fa-sun"></i>
+              <div class="detail-info">
+                <span class="detail-label">UV Index</span>
+                <span class="detail-value" id="uvIndex">--</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section">
+          <h3 class="forecast-title">5-Day Forecast</h3>
+          <div class="forecast-container" id="forecastResult">
+            <div class="forecast-placeholder">
+              <i class="fas fa-calendar-alt"></i>
+              <p>Forecast will appear here</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Loading Overlay -->
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Loading weather data...</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
