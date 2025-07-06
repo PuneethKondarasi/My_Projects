@@ -1,0 +1,25 @@
+# Core app & environment
+streamlit==1.29.0
+python-dotenv==1.0.0
+
+# LangChain core and required submodules
+langchain>=0.1.13
+langchain-community>=0.0.20
+langchain-google-genai>=0.0.6
+langchain-huggingface>=0.0.5
+
+# Google Gemini SDK
+google-generativeai==0.3.2
+
+# FAISS for local vector database
+faiss-cpu==1.7.4
+
+# Embeddings
+sentence-transformers==2.2.2
+transformers==4.36.0
+torch==2.1.0
+huggingface-hub==0.19.4
+
+# Ensure internal dependencies for sentence-transformers
+scipy>=1.10.0
+numpy>=1.24.0
