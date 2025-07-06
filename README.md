@@ -1,6 +1,6 @@
-# 🚀 My Projects Portfolio
+# 🚀 My Projects
 
-Welcome to my comprehensive project repository! This repository serves as a centralized hub for all my ongoing and completed projects, showcasing a diverse range of technologies and skills.
+Welcome to my project repository! This repository serves as a centralized hub for all my ongoing and completed projects, showcasing a diverse range of technologies and skills.
 
 ## 📋 Quick Navigation
 
@@ -10,18 +10,18 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 | [P02](#p02-medical-ai-assistant) | Medical AI Assistant | AI/ML | - |
 | [P03](#p03-smart-farming-dashboard) | Smart Farming Dashboard | IoT/ML | - |
 | [P04](#p04-syllabus-scout) | Syllabus Scout | Web Dev | [Demo](https://syllabus-scout.netlify.app) |
-| [P05](#p05-sms-alert-for-emergency-response) | SMS Alert System | IoT/API | [Demo](https://sms-weather-alert.netlify.app) |
+| [P05](#p05-sms-alert-for-emergency-response-planning) | SMS Alert System | IoT/API | [Demo](https://sms-weather-alert.netlify.app) |
 | [P06](#p06-nasa-multimedia-explorer) | NASA Explorer | API/Web | [Demo](https://nasa-media-explorer.netlify.app) |
 | [P07](#p07-weather-website) | Weather Website | API/Web | [Demo](https://weathervue-web.netlify.app) |
 | [P08](#p08-simon-game-challenge) | Simon Game | Game | [Demo](https://simongame-challenge.netlify.app) |
 | [P09](#p09-imap-email-operations) | IMAP Email Operations | Tools | - |
-| [P10](#p10-crud-operations) | CRUD Operations | Full-Stack | - |
+| [P10](#p10-crud-operations-with-react-express-and-mysql) | CRUD Operations | Full-Stack | - |
 | [P11](#p11-netflix-clone) | Netflix Clone | Web Dev | - |
 | [P12](#p12-drum-kit) | Drum Kit | Interactive | [Demo](https://drum-kit-beats.netlify.app) |
-| [P13](#p13-rock-paper-scissors) | Rock Paper Scissors | Game | [Demo](https://rock-paper-scissor-throw.netlify.app) |
-| [P14](#p14-tic-tac-toe) | Tic Tac Toe | Game | [Demo](https://your-tic-tac-toe.netlify.app) |
+| [P13](#p13-rock-paper-scissors-game) | Rock Paper Scissors | Game | [Demo](https://rock-paper-scissor-throw.netlify.app) |
+| [P14](#p14-tic-tac-toe-game) | Tic Tac Toe | Game | [Demo](https://your-tic-tac-toe.netlify.app) |
 | [P15](#p15-qr-code-generator) | QR Code Generator | Tools | - |
-| [P16](#p16-band-generator) | Band Generator | Web Dev | - |
+| [P16](#p16-band-generator-project) | Band Generator | Web Dev | - |
 
 ## 🛠️ Technologies Used
 
@@ -83,6 +83,9 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 3. Initialize vector database: `python create_memory_for_llm.py`
 4. Run application: `streamlit run medibot.py`
 
+**Screenshot**
+![Medical Chatbot](https://github.com/user-attachments/assets/72209720-b072-48fa-8bce-9e84e34b933c)
+
 **⚠️ Important**: This is for educational purposes only, not medical advice.
 
 ---
@@ -105,9 +108,24 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 - **API Integration**: Smooth React-Flask communication with CORS
 
 **Instructions**:
-1. **Backend**: Connect sensors to COM4 → `python app.py`
-2. **Frontend**: `npm install` → `npm run dev`
+1. **Backend Setup**
+```bash
+cd backend
+python train_model.py
+python sensor_server.py
+# Open a new terminal
+python app.py
+```
+2. **Frontend Setup**
+```bash
+cd frontend
+npm install
+npm run dev
+```
 3. **Access**: Visit `http://localhost:3000` for the dashboard
+
+**Screenshot**
+![Smart Farming Dashboard](https://github.com/user-attachments/assets/2878852f-9f24-4ce5-beeb-494937c7796f)
 
 ---
 
@@ -127,7 +145,7 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 - **Community** (Coming Soon): Forums and collaborative learning spaces
 
 **Screenshot**:  
-![Syllabus Scout](https://github.com/user-attachments/assets/55880e47-84df-403b-95bb-7471dcfbb881)
+![Syllabus Scout](https://github.com/user-attachments/assets/d2cf02a2-b759-4d8b-bbf7-384e65bc3dd4)
 
 **Live Demo**: [Syllabus Scout](https://syllabus-scout.netlify.app)
 
@@ -150,7 +168,7 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 - **Threshold Alerts**: Automatic alerts when parameters breach limits
 
 **Screenshot**:  
-![SMS Weather Alert](https://github.com/user-attachments/assets/9681ebf0-fcea-4f4a-baa2-1b87e2ebc4ff)
+![SMS Weather Alert](https://github.com/user-attachments/assets/46fc6693-9f09-4357-a2cd-5ddc377de408)
 
 **Live Demo**: [SMS Weather Alert](https://sms-weather-alert.netlify.app)
 
@@ -175,6 +193,9 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 2. Open `index.html` in browser
 3. Explore NASA's multimedia content
 
+**Screenshot**:  
+![Nasa Multimedia Screenshot](https://github.com/user-attachments/assets/def10a2c-d0ad-4daa-ac77-597a5ac7a51e)
+
 **Live Demo**: [NASA Media Explorer](https://nasa-media-explorer.netlify.app)
 
 ---
@@ -194,7 +215,7 @@ Welcome to my comprehensive project repository! This repository serves as a cent
 - **Responsive Design**: Optimal experience on all devices
 
 **Screenshot**:  
-![Weather website Screenshot](https://github.com/user-attachments/assets/d867c634-bf0b-4779-b4fb-f83e0eaff5ab)
+![Weather website Screenshot](https://github.com/user-attachments/assets/a5cca623-7414-4df4-9ec4-439bfee06533)
 
 **Live Demo**: [Weather Vue](https://weathervue-web.netlify.app)
 
