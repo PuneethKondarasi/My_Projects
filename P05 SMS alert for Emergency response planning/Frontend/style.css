@@ -848,7 +848,7 @@ body {
     .weather-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -858,7 +858,7 @@ body {
         width: 100%;
         justify-content: center;
     }
-    
+
     .modal-content {
         margin: 2vh auto;
         max-width: 95%;
@@ -1029,7 +1029,7 @@ body {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
+    }
 
 .coordinate-inputs {
     display: grid;
@@ -1088,7 +1088,7 @@ body {
     flex: 1;
     overflow-y: auto;
     min-height: 0;
-}
+    }
 
 #manualLocationModal .location-input-section {
     margin-bottom: var(--spacing-3);
@@ -1121,7 +1121,7 @@ body {
     font-size: var(--font-size-sm);
     width: 100%;
     margin-top: var(--spacing-2);
-}
+    }
 
 #manualLocationModal .location-divider {
     margin: var(--spacing-3) 0;
@@ -1171,7 +1171,7 @@ body {
 .notification-message {
     font-size: 14px;
     color: #374151;
-}
+    }
 
 .spinning {
     animation: spin 1s linear infinite;
@@ -1215,7 +1215,7 @@ body {
 #manualLocationModal .modal-body::-webkit-scrollbar-thumb {
     background: var(--gray-400);
     border-radius: var(--radius-sm);
-}
+    }
 
 #manualLocationModal .modal-body::-webkit-scrollbar-thumb:hover {
     background: var(--gray-500);

@@ -14,20 +14,22 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 | [P06](#p06-nasa-multimedia-explorer) | NASA Explorer | API/Web | [Demo](https://nasa-media-explorer.netlify.app) |
 | [P07](#p07-weather-website) | Weather Website | API/Web | [Demo](https://weathervue-web.netlify.app) |
 | [P08](#p08-simon-game-challenge) | Simon Game | Game | [Demo](https://simongame-challenge.netlify.app) |
-| [P09](#p09-imap-email-operations) | IMAP Email Operations | Tools | - |
-| [P10](#p10-crud-operations-with-react-express-and-mysql) | CRUD Operations | Full-Stack | - |
-| [P11](#p11-netflix-clone) | Netflix Clone | Web Dev | - |
-| [P12](#p12-drum-kit) | Drum Kit | Interactive | [Demo](https://drum-kit-beats.netlify.app) |
-| [P13](#p13-rock-paper-scissors-game) | Rock Paper Scissors | Game | [Demo](https://rock-paper-scissor-throw.netlify.app) |
-| [P14](#p14-tic-tac-toe-game) | Tic Tac Toe | Game | [Demo](https://your-tic-tac-toe.netlify.app) |
-| [P15](#p15-qr-code-generator) | QR Code Generator | Tools | - |
-| [P16](#p16-band-generator-project) | Band Generator | Web Dev | - |
+| [P09](#p09-family-travel-tracker) | Family Travel Tracker | Web App | - |
+| [P10](#p10-permalist-project) | Permalist Project | Web App | - |
+| [P11](#p11-imap-email-operations) | IMAP Email Operations | Tools | - |
+| [P12](#p12-crud-operations-with-react-express-and-mysql) | CRUD Operations | Full-Stack | - |
+| [P13](#p13-netflix-clone) | Netflix Clone | Web Dev | - |
+| [P14](#p14-drum-kit) | Drum Kit | Interactive | [Demo](https://drum-kit-beats.netlify.app) |
+| [P15](#p15-rock-paper-scissors-game) | Rock Paper Scissors | Game | [Demo](https://rock-paper-scissor-throw.netlify.app) |
+| [P16](#p16-tic-tac-toe-game) | Tic Tac Toe | Game | [Demo](https://your-tic-tac-toe.netlify.app) |
+| [P17](#p17-qr-code-generator) | QR Code Generator | Tools | - |
+| [P18](#p18-band-generator-project) | Band Generator | Web Dev | - |
 
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript, React, Streamlit
 - **Backend**: Node.js, Express.js, Flask, Python
-- **Databases**: MySQL, Vector Databases (FAISS)
+- **Databases**: MySQL, PostgreSQL, Vector Databases (FAISS)
 - **AI/ML**: R, Python (scikit-learn, TensorFlow), Google Gemini AI
 - **APIs**: OpenWeather, NASA, Google, YouTube, Twilio
 - **IoT**: Arduino, Sensors, Real-time data collection
@@ -241,7 +243,59 @@ npm run dev
 
 ---
 
-### P09: IMAP Email Operations
+### P09: Family Travel Tracker
+
+**Description**: A web application that allows families to track and manage their travel experiences. Users can add countries they've visited, switch between family members, and visualize their travel history with a color-coded map interface.
+
+**Technologies Used**:
+- Node.js, Express.js
+- PostgreSQL Database
+- EJS Templates
+- Body Parser
+
+**Features**:
+- **Multi-User Support**: Different family members can track their own travels
+- **Country Tracking**: Add and manage visited countries
+- **Visual Map**: Color-coded world map showing visited countries
+- **Database Integration**: Persistent storage of travel data
+- **User Management**: Add new family members with custom colors
+
+**Instructions**:
+1. Set up PostgreSQL database with the provided schema
+2. Install dependencies: `npm install`
+3. Configure database connection in `index.js`
+4. Run the application: `node index.js`
+5. Access at `http://localhost:3000`
+
+---
+
+### P10: Permalist Project
+
+**Description**: A comprehensive todo list application with full CRUD operations, allowing users to create, read, update, and delete tasks with persistent storage in PostgreSQL database.
+
+**Technologies Used**:
+- Node.js, Express.js
+- PostgreSQL Database
+- EJS Templates
+- Body Parser
+
+**Features**:
+- **Task Management**: Create, read, update, and delete tasks
+- **Persistent Storage**: All tasks saved in PostgreSQL database
+- **Real-time Updates**: Immediate reflection of changes
+- **Clean Interface**: Simple and intuitive user experience
+- **Database Integration**: Robust data persistence
+
+**Instructions**:
+1. Set up PostgreSQL database with the provided schema
+2. Install dependencies: `npm install`
+3. Configure database connection in `index.js`
+4. Run the application: `npm start`
+5. Access at `http://localhost:3000`
+
+---
+
+### P11: IMAP Email Operations
 
 **Description**: A collection of Python scripts for comprehensive email management using IMAP protocol, including folder operations, message handling, and search capabilities.
 
@@ -269,7 +323,7 @@ npm run dev
 
 ---
 
-### P10: CRUD Operations with React, Express, and MySQL
+### P12: CRUD Operations with React, Express, and MySQL
 
 **Description**: Full-stack CRUD application with React frontend, Express.js backend, and MySQL database for managing records through a user-friendly interface.
 
@@ -294,7 +348,7 @@ npm run dev
 
 ---
 
-### P11: Netflix Clone
+### P13: Netflix Clone
 
 **Description**: A responsive Netflix website clone built with HTML and CSS, featuring the iconic Netflix design and layout.
 
@@ -311,7 +365,7 @@ npm run dev
 
 ---
 
-### P12: Drum Kit
+### P14: Drum Kit
 
 **Description**: An interactive drum kit application that allows users to create beats using keyboard controls or mouse clicks with visual feedback.
 
@@ -331,7 +385,7 @@ npm run dev
 
 ---
 
-### P13: Rock-Paper-Scissors Game
+### P15: Rock-Paper-Scissors Game
 
 **Description**: Interactive implementation of the classic Rock-Paper-Scissors game with randomized computer moves and score tracking.
 
@@ -351,7 +405,7 @@ npm run dev
 
 ---
 
-### P14: Tic Tac Toe Game
+### P16: Tic Tac Toe Game
 
 **Description**: Classic Tic Tac Toe game with two-player gameplay, real-time win detection, and game reset functionality.
 
@@ -371,7 +425,7 @@ npm run dev
 
 ---
 
-### P15: QR Code Generator
+### P17: QR Code Generator
 
 **Description**: A terminal-based QR code generator that creates unique QR codes for any text or URL input, saving them as PNG files.
 
@@ -391,7 +445,7 @@ npm run dev
 
 ---
 
-### P16: Band Generator Project
+### P18: Band Generator Project
 
 **Description**: A fun web application that generates unique band names using Node.js and EJS, featuring server-side rendering and customizable name lists.
 
