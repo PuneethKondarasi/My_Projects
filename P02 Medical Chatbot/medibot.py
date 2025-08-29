@@ -162,6 +162,8 @@ def main():
     prompt = st.chat_input("💬 Ask a medical question...")
     if prompt:
         st.chat_message("user", avatar="🧑‍💼").markdown(prompt)
+        if "msgs" not in st.session_state:
+            st.session_state.msgs = []
         st.session_state.msgs.append({"role": "user", "content": prompt})
 
         db = get_vectorstore() or create_sample_medical_db()
@@ -170,6 +172,8 @@ def main():
         if not db or not llm:
             error = "⚠️ System not ready. Check setup in sidebar."
             st.chat_message("assistant", avatar="🤖").markdown(error)
+            if "msgs" not in st.session_state:
+                st.session_state.msgs = []
             st.session_state.msgs.append({"role": "assistant", "content": error})
             return
 
@@ -198,11 +202,13 @@ def main():
 
                 response = format_response(result)
                 st.markdown(response)
+                if "msgs" not in st.session_state:
+                    st.session_state.msgs = []
+                st.session_state.msgs.append({"role": "assistant", "content": response})
                 st.markdown(
                     """<div class='disclaimer'>⚠️ Disclaimer: Not a substitute for professional medical advice. Always consult a licensed healthcare provider.</div>""",
                     unsafe_allow_html=True,
                 )
-                st.session_state.msgs.append({"role": "assistant", "content": response})
 
 
 if __name__ == "__main__":
