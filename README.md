@@ -4,26 +4,27 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ## 📋 Quick Navigation
 
-| Project | Name | Category | Live Demo |
-|---------|------|----------|-----------|
-| [P01](#p01-credit-card-fraud-detection) | Credit Card Fraud Detection | AI/ML | - |
-| [P02](#p02-medical-ai-assistant) | Medical AI Assistant | AI/ML | - |
-| [P03](#p03-smart-farming-dashboard) | Smart Farming Dashboard | IoT/ML | - |
-| [P04](#p04-syllabus-scout) | Syllabus Scout | Web Dev | [Demo](https://syllabus-scout.netlify.app) |
-| [P05](#p05-sms-alert-for-emergency-response-planning) | SMS Alert System | IoT/API | [Demo](https://sms-weather-alert.netlify.app) |
-| [P06](#p06-nasa-multimedia-explorer) | NASA Explorer | API/Web | [Demo](https://nasa-media-explorer.netlify.app) |
-| [P07](#p07-weather-website) | Weather Website | API/Web | [Demo](https://weathervue-web.netlify.app) |
-| [P08](#p08-simon-game-challenge) | Simon Game | Game | [Demo](https://simongame-challenge.netlify.app) |
-| [P09](#p09-family-travel-tracker) | Family Travel Tracker | Web App | - |
-| [P10](#p10-permalist-project) | Permalist Project | Web App | - |
-| [P11](#p11-imap-email-operations) | IMAP Email Operations | Tools | - |
-| [P12](#p12-crud-operations-with-react-express-and-mysql) | CRUD Operations | Full-Stack | - |
-| [P13](#p13-netflix-clone) | Netflix Clone | Web Dev | - |
-| [P14](#p14-drum-kit) | Drum Kit | Interactive | [Demo](https://drum-kit-beats.netlify.app) |
-| [P15](#p15-rock-paper-scissors-game) | Rock Paper Scissors | Game | [Demo](https://rock-paper-scissor-throw.netlify.app) |
-| [P16](#p16-tic-tac-toe-game) | Tic Tac Toe | Game | [Demo](https://your-tic-tac-toe.netlify.app) |
-| [P17](#p17-qr-code-generator) | QR Code Generator | Tools | - |
-| [P18](#p18-band-generator-project) | Band Generator | Web Dev | - |
+| Project                                                  | Name                        | Category    | Live Demo                                            |
+| -------------------------------------------------------- | --------------------------- | ----------- | ---------------------------------------------------- |
+| [P01](#p01-credit-card-fraud-detection)                  | Credit Card Fraud Detection | AI/ML       | -                                                    |
+| [P02](#p02-medical-ai-assistant)                         | Medical AI Assistant        | AI/ML       | -                                                    |
+| [P03](#p03-syllabus-scout)                               | Syllabus Scout              | Web Dev     | [Demo](https://syllabus-scout.netlify.app)           |
+| [P04](#p04-hastara-store)                                | Hastara Store               | Web Dev     | -                                                    |
+| [P05](#p05-smart-farming-dashboard)                      | Smart Farming Dashboard     | IoT/ML      | -                                                    |
+| [P06](#p06-sms-alert-for-emergency-response-planning)    | SMS Alert System            | IoT/API     | [Demo](https://sms-weather-alert.netlify.app)        |
+| [P07](#p07-nasa-multimedia-explorer)                     | NASA Explorer               | API/Web     | [Demo](https://nasa-media-explorer.netlify.app)      |
+| [P08](#p08-weather-website)                              | Weather Website             | API/Web     | [Demo](https://weathervue-web.netlify.app)           |
+| [P09](#p09-simon-game-challenge)                         | Simon Game                  | Game        | [Demo](https://simongame-challenge.netlify.app)      |
+| [P10](#p10-family-travel-tracker)                        | Family Travel Tracker       | Web App     | -                                                    |
+| [P11](#p11-permalist-project)                            | Permalist Project           | Web App     | -                                                    |
+| [P12](#p12-imap-email-operations)                        | IMAP Email Operations       | Tools       | -                                                    |
+| [P13](#p13-crud-operations-with-react-express-and-mysql) | CRUD Operations             | Full-Stack  | -                                                    |
+| [P14](#p14-netflix-clone)                                | Netflix Clone               | Web Dev     | -                                                    |
+| [P15](#p15-drum-kit)                                     | Drum Kit                    | Interactive | [Demo](https://drum-kit-beats.netlify.app)           |
+| [P16](#p16-rock-paper-scissors-game)                     | Rock Paper Scissors         | Game        | [Demo](https://rock-paper-scissor-throw.netlify.app) |
+| [P17](#p17-tic-tac-toe-game)                             | Tic Tac Toe                 | Game        | [Demo](https://your-tic-tac-toe.netlify.app)         |
+| [P18](#p18-qr-code-generator)                            | QR Code Generator           | Tools       | -                                                    |
+| [P19](#p19-band-generator-project)                       | Band Generator              | Web Dev     | -                                                    |
 
 ## 🛠️ Technologies Used
 
@@ -44,9 +45,11 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 **Description**: Machine learning project using R to detect fraudulent credit card transactions with classification models, threshold optimization, and a Shiny dashboard for real-time analysis.
 
 **Technologies Used**:
+
 - R, Shiny, Machine Learning Libraries (caret, xgboost, ranger)
 
 **Features**:
+
 - **Modeling**: Logistic Regression, Decision Tree, Random Forest, XGBoost
 - **Class Imbalance Handling**: ROSE for oversampling
 - **Model Evaluation**: ROC, AUC, Precision, Recall
@@ -56,6 +59,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 ![Credit Card Fraud Detection](https://github.com/user-attachments/assets/290fd61b-0693-464c-8f72-349d5fce4cb2)
 
 **Instructions**:
+
 1. Install required R packages (`caret`, `xgboost`, `ROSE`, etc.)
 2. Run each script for model training and evaluation
 3. Start the Shiny app to interact with the model and visualize results
@@ -67,12 +71,14 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 **Description**: A sophisticated medical chatbot powered by Google Gemini AI and LangChain, designed to provide accurate medical information using a vector database of medical knowledge from The Gale Encyclopedia of Medicine.
 
 **Technologies Used**:
+
 - Python, Streamlit, LangChain
 - Google Gemini 1.5 Flash AI
 - FAISS Vector Database
 - HuggingFace Transformers
 
 **Key Features**:
+
 - **Medical Knowledge Base**: Powered by The Gale Encyclopedia of Medicine
 - **AI-Powered Responses**: Uses Google Gemini 1.5 Flash for intelligent responses
 - **Vector Search**: FAISS-based similarity search for relevant medical information
@@ -80,6 +86,7 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 - **Context-Aware**: Only responds to medically relevant questions
 
 **Instructions**:
+
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set up Google API key in `.env` file
 3. Initialize vector database: `python create_memory_for_llm.py`
@@ -92,55 +99,18 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 
 ---
 
-### P03: Smart Farming Dashboard
-
-**Description**: A comprehensive smart farming system that collects real-time sensor data, predicts optimal crops using machine learning, and displays insights on a React dashboard.
-
-**Technologies Used**:
-- React (Frontend), Flask (Backend)
-- Python Machine Learning (scikit-learn)
-- Arduino + Sensors (Real-time data collection)
-- Chart.js (Data visualization)
-
-**Features**:
-- **Real-Time Sensor Data**: Temperature, humidity, soil moisture, rainfall monitoring
-- **Crop Prediction**: ML model recommends best crops based on conditions
-- **Data Visualization**: Dynamic graphs for environmental trends
-- **Notification System**: Real-time alerts for threshold breaches
-- **API Integration**: Smooth React-Flask communication with CORS
-
-**Instructions**:
-1. **Backend Setup**
-```bash
-cd backend
-python train_model.py
-python sensor_server.py
-# Open a new terminal
-python app.py
-```
-2. **Frontend Setup**
-```bash
-cd frontend
-npm install
-npm run dev
-```
-3. **Access**: Visit `http://localhost:3000` for the dashboard
-
-**Screenshot**
-![Smart Farming Dashboard](https://github.com/user-attachments/assets/2878852f-9f24-4ce5-beeb-494937c7796f)
-
----
-
-### P04: Syllabus Scout
+### P03: Syllabus Scout
 
 **Description**: A full-stack educational resource discovery platform that helps students find high-quality books and videos based on topics or syllabus content. It simplifies learning by matching users with curated study materials from trusted sources.
 
 **Technologies Used**:
+
 - React + Vite, Tailwind CSS, Framer Motion
 - Node.js + Express, MongoDB (Mongoose)
 - Open Library API, YouTube Data API
 
 **Features**:
+
 - **Search Topics**: Find relevant study materials by entering any topic or subject name
 - **Curated Resources**: Access quality textbooks and video tutorials from global sources
 - **Upload Syllabus** (Coming Soon): Upload your syllabus PDF to get personalized recommendations
@@ -153,16 +123,85 @@ npm run dev
 
 ---
 
-### P05: SMS Alert for Emergency Response Planning
+### P04: Hastara Store - E-commerce Website
+
+**Description**: A modern e-commerce platform built with React and Firebase, featuring product management, user testimonials, and secure admin authentication.
+
+**Technologies Used**:
+
+- **Frontend**: React, Vite, React Router DOM
+- **Backend**: Firebase (Auth, Firestore, Storage)
+
+**Features**:
+
+- **Product Catalog**: Browse and filter products by category
+- **Admin Dashboard**: Manage products, orders, and customer information
+- **Customer Testimonials**: User-generated reviews to build trust
+- **WhatsApp Integration**: Seamless order placement via WhatsApp
+
+**Screenshot**:  
+![Hastara Store](https://github.com/user-attachments/assets/d2cf02a2-b759-4d8b-bbf7-384e65bc3dd4)
+
+---
+
+### P05: Smart Farming Dashboard
+
+**Description**: A comprehensive smart farming system that collects real-time sensor data, predicts optimal crops using machine learning, and displays insights on a React dashboard.
+
+**Technologies Used**:
+
+- React (Frontend), Flask (Backend)
+- Python Machine Learning (scikit-learn)
+- Arduino + Sensors (Real-time data collection)
+- Chart.js (Data visualization)
+
+**Features**:
+
+- **Real-Time Sensor Data**: Temperature, humidity, soil moisture, rainfall monitoring
+- **Crop Prediction**: ML model recommends best crops based on conditions
+- **Data Visualization**: Dynamic graphs for environmental trends
+- **Notification System**: Real-time alerts for threshold breaches
+- **API Integration**: Smooth React-Flask communication with CORS
+
+**Instructions**:
+
+1. **Backend Setup**
+
+```bash
+cd backend
+python train_model.py
+python sensor_server.py
+# Open a new terminal
+python app.py
+```
+
+2. **Frontend Setup**
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+3. **Access**: Visit `http://localhost:3000` for the dashboard
+
+**Screenshot**
+![Smart Farming Dashboard](https://github.com/user-attachments/assets/2878852f-9f24-4ce5-beeb-494937c7796f)
+
+---
+
+### P06: SMS Alert for Emergency Response Planning
 
 **Description**: Real-time weather monitoring system with SMS alerts when weather parameters exceed thresholds, including forecast monitoring for proactive emergency planning.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript (Frontend)
 - Node.js, Express.js (Backend)
 - OpenWeather API, Twilio API
 
 **Features**:
+
 - **Live Location Tracking**: Automatic geolocation detection
 - **Real-Time Weather Data**: Temperature, pressure, humidity, wind speed
 - **Forecast Monitoring**: Proactive alerts based on weather predictions
@@ -176,21 +215,24 @@ npm run dev
 
 ---
 
-### P06: NASA Multimedia Explorer
+### P07: NASA Multimedia Explorer
 
 **Description**: A modern web application showcasing NASA's incredible collection of space imagery and videos through multiple public APIs. Explore daily astronomy pictures, Mars rover photos, Earth satellite images, and NASA's vast multimedia library.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 - NASA APIs (APOD, Mars Rover, EPIC, Media Library)
 
 **Features**:
+
 - **Astronomy Picture of the Day (APOD)**: Daily space media with descriptions
 - **Mars Rover Photos**: Images from Curiosity, Perseverance, Opportunity & Spirit
 - **EPIC Earth Images**: Real-time photos from the DSCOVR satellite
 - **NASA Media Library**: Search and browse NASA's image/video archives
 
 **Instructions**:
+
 1. Add NASA API key to `config.js`
 2. Open `index.html` in browser
 3. Explore NASA's multimedia content
@@ -202,15 +244,17 @@ npm run dev
 
 ---
 
-### P07: Weather Website
+### P08: Weather Website
 
 **Description**: A comprehensive weather application providing real-time weather information with location-based search and temperature unit conversion.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 - OpenWeather API
 
 **Features**:
+
 - **Current Weather Information**: Temperature, humidity, wind speed, conditions
 - **Location Input**: Search by city name for weather data
 - **Temperature Toggle**: Switch between Celsius and Fahrenheit
@@ -223,14 +267,16 @@ npm run dev
 
 ---
 
-### P08: Simon Game Challenge
+### P09: Simon Game Challenge
 
 **Description**: Classic Simon memory game with progressive difficulty levels, score tracking, and sound effects.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 
 **Features**:
+
 - **Progressive Difficulty**: Sequence length increases with each successful round
 - **Score Tracking**: Monitor your performance
 - **Sound Effects**: Audio feedback for correct and incorrect moves
@@ -243,17 +289,19 @@ npm run dev
 
 ---
 
-### P09: Family Travel Tracker
+### P10: Family Travel Tracker
 
 **Description**: A web application that allows families to track and manage their travel experiences. Users can add countries they've visited, switch between family members, and visualize their travel history with a color-coded map interface.
 
 **Technologies Used**:
+
 - Node.js, Express.js
 - PostgreSQL Database
 - EJS Templates
 - Body Parser
 
 **Features**:
+
 - **Multi-User Support**: Different family members can track their own travels
 - **Country Tracking**: Add and manage visited countries
 - **Visual Map**: Color-coded world map showing visited countries
@@ -261,6 +309,7 @@ npm run dev
 - **User Management**: Add new family members with custom colors
 
 **Instructions**:
+
 1. Set up PostgreSQL database with the provided schema
 2. Install dependencies: `npm install`
 3. Configure database connection in `index.js`
@@ -269,17 +318,19 @@ npm run dev
 
 ---
 
-### P10: Permalist Project
+### P11: Permalist Project
 
 **Description**: A comprehensive todo list application with full CRUD operations, allowing users to create, read, update, and delete tasks with persistent storage in PostgreSQL database.
 
 **Technologies Used**:
+
 - Node.js, Express.js
 - PostgreSQL Database
 - EJS Templates
 - Body Parser
 
 **Features**:
+
 - **Task Management**: Create, read, update, and delete tasks
 - **Persistent Storage**: All tasks saved in PostgreSQL database
 - **Real-time Updates**: Immediate reflection of changes
@@ -287,6 +338,7 @@ npm run dev
 - **Database Integration**: Robust data persistence
 
 **Instructions**:
+
 1. Set up PostgreSQL database with the provided schema
 2. Install dependencies: `npm install`
 3. Configure database connection in `index.js`
@@ -295,14 +347,16 @@ npm run dev
 
 ---
 
-### P11: IMAP Email Operations
+### P12: IMAP Email Operations
 
 **Description**: A collection of Python scripts for comprehensive email management using IMAP protocol, including folder operations, message handling, and search capabilities.
 
 **Technologies Used**:
+
 - Python, IMAP (Internet Message Access Protocol)
 
 **Scripts**:
+
 - `p1_list_all_folders.py`: Lists all email folders
 - `p2_to_access_mails.py`: Email account access and login
 - `p3_folder_summary.py`: Folder content summaries
@@ -311,27 +365,31 @@ npm run dev
 - `p6_searching.py`: Advanced email search functionality
 
 **Features**:
+
 - **Email Management**: Complete IMAP email operations
 - **Folder Operations**: List, access, and manage email folders
 - **Message Handling**: Download, flag, and search emails
 - **Search Capabilities**: Advanced search with various criteria
 
 **Instructions**:
+
 1. Install dependencies: `pip install imaplib email`
 2. Configure email credentials in scripts
 3. Run individual scripts for specific operations
 
 ---
 
-### P12: CRUD Operations with React, Express, and MySQL
+### P13: CRUD Operations with React, Express, and MySQL
 
 **Description**: Full-stack CRUD application with React frontend, Express.js backend, and MySQL database for managing records through a user-friendly interface.
 
 **Technologies Used**:
+
 - React (Frontend), Express (Backend), MySQL (Database)
 - CORS Middleware for cross-origin requests
 
 **Features**:
+
 - **Create**: Add new records to MySQL database
 - **Read**: Display all stored records
 - **Update**: Edit and update existing records
@@ -342,20 +400,23 @@ npm run dev
 ![CRUD Operations Project](https://github.com/user-attachments/assets/63166fd3-2527-4c4a-b71f-79f2087073c8)
 
 **Instructions**:
+
 1. **Backend**: Navigate to backend folder → `npm install` → `node server.js`
 2. **Frontend**: Navigate to frontend folder → `npm install` → `npm start`
 3. **Access**: Visit `http://localhost:3000` after starting both servers
 
 ---
 
-### P13: Netflix Clone
+### P14: Netflix Clone
 
 **Description**: A responsive Netflix website clone built with HTML and CSS, featuring the iconic Netflix design and layout.
 
 **Technologies Used**:
+
 - HTML, CSS
 
 **Features**:
+
 - **Responsive Design**: Adapts to different screen sizes
 - **Netflix-like Interface**: Mimics the original Netflix design
 - **Modern Layout**: Clean and professional appearance
@@ -365,14 +426,16 @@ npm run dev
 
 ---
 
-### P14: Drum Kit
+### P15: Drum Kit
 
 **Description**: An interactive drum kit application that allows users to create beats using keyboard controls or mouse clicks with visual feedback.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 
 **Features**:
+
 - **Keyboard Controls**: Use keys (W, A, S, D, J, K, L) to play different drum sounds
 - **Visual Feedback**: Animated effects for each key press
 - **Mouse Interaction**: Click buttons on screen to play sounds
@@ -385,14 +448,16 @@ npm run dev
 
 ---
 
-### P15: Rock-Paper-Scissors Game
+### P16: Rock-Paper-Scissors Game
 
 **Description**: Interactive implementation of the classic Rock-Paper-Scissors game with randomized computer moves and score tracking.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 
 **Features**:
+
 - **Randomized Computer Moves**: Ensures unpredictable and fair gameplay
 - **Score Tracking**: Keeps count of Player Wins, Computer Wins, and Ties
 - **Instant Feedback**: Real-time display of game results
@@ -405,14 +470,16 @@ npm run dev
 
 ---
 
-### P16: Tic Tac Toe Game
+### P17: Tic Tac Toe Game
 
 **Description**: Classic Tic Tac Toe game with two-player gameplay, real-time win detection, and game reset functionality.
 
 **Technologies Used**:
+
 - HTML, CSS, JavaScript
 
 **Features**:
+
 - **Two-Player Gameplay**: Take turns placing X or O marks
 - **Real-Time Win Detection**: Automatically checks for winning combinations
 - **Game Reset**: Start new games with the same players
@@ -425,34 +492,39 @@ npm run dev
 
 ---
 
-### P17: QR Code Generator
+### P18: QR Code Generator
 
 **Description**: A terminal-based QR code generator that creates unique QR codes for any text or URL input, saving them as PNG files.
 
 **Technologies Used**:
+
 - JavaScript, Node.js
 
 **Features**:
+
 - **QR Code Generation**: Creates QR codes for any text or URL
 - **Terminal Interface**: Simple command-line operation
 - **PNG Output**: Saves generated QR codes as image files
 - **Easy Setup**: Minimal configuration required
 
 **Instructions**:
+
 1. Navigate to project directory
 2. `npm install` → `node index.js`
 3. Enter URL/text in terminal to generate QR code
 
 ---
 
-### P18: Band Generator Project
+### P19: Band Generator Project
 
 **Description**: A fun web application that generates unique band names using Node.js and EJS, featuring server-side rendering and customizable name lists.
 
 **Technologies Used**:
+
 - JavaScript, Node.js, EJS
 
 **Features**:
+
 - **Random Band Name Generation**: Unique names on each click
 - **User-Friendly Interface**: Clean EJS template design
 - **Server-Side Rendering**: Dynamic content rendering
@@ -462,6 +534,7 @@ npm run dev
 ![Band Name generator Project](https://github.com/PuneethKondarasi/My_Projects/assets/117269882/a783127b-2ce8-40c8-b633-daa1176a0d38)
 
 **Instructions**:
+
 1. Navigate to project directory
 2. `npm install` → `node index.js`
 3. Visit `localhost:3000`
@@ -490,6 +563,6 @@ Contributions are welcome! Please feel free to submit pull requests for any impr
 
 **Happy coding! 🚀**
 
-*Built with ❤️ by Puneeth Kondarasi*
+_Built with ❤️ by Puneeth Kondarasi_
 
 </div>
