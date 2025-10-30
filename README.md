@@ -139,8 +139,9 @@ Welcome to my project repository! This repository serves as a centralized hub fo
 - **Customer Testimonials**: User-generated reviews to build trust
 - **WhatsApp Integration**: Seamless order placement via WhatsApp
 
-**Screenshot**:  
-![Hastara Store](https://github.com/user-attachments/assets/d2cf02a2-b759-4d8b-bbf7-384e65bc3dd4)
+**Screenshot**:
+
+<!-- ![Hastara Store](https://github.com/user-attachments/assets/d2cf02a2-b759-4d8b-bbf7-384e65bc3dd4) -->
 
 ---
 
