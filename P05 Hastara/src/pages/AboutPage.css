@@ -1,0 +1,62 @@
+
+/* Main container for the About Page */
+.about-page {
+  padding: 1rem 0 3rem 0; /* Add some padding at the top and bottom */
+}
+
+/* Section for the brand story and moto */
+.about-section {
+  max-width: 800px;
+  margin: 0 auto 4rem auto; /* Center the section and add space below it */
+  text-align: center;
+  line-height: 1.8;
+}
+
+.about-section h2,
+.testimonials-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: 500; /* A softer weight for headings */
+  color: var(--primary-color);
+}
+
+.about-section p {
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.about-section h3 {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  text-align: center;
+}
+
+/* Grid layout for the testimonial cards */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column on mobile */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+/* For desktops and larger screens */
+@media (min-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}

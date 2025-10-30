@@ -1,0 +1,224 @@
+/* The semi-transparent background overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* The main modal container */
+.modal-content {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* The 'X' close button */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Grid layout for image and info */
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Product Image */
+.product-detail-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* Image Gallery with smooth transition */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+/* Image Navigation Buttons */
+.image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(65, 65, 65, 0.7);
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.image-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.prev-btn, .next-btn {
+  color: white;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  color: var(--primary-color);
+}
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Product Info Container */
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-detail-info h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.product-detail-info .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.product-detail-info .description {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.product-detail-info h4 {
+  margin: 1rem 0 0.5rem 0;
+  font-weight: bold;
+}
+
+/* Container for size and quantity selectors */
+.selectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  align-items: center;
+}
+
+/* Size selector buttons */
+.size-selector {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.size-selector label {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.size-selector button {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.size-selector button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* Quantity input */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-selector label {
+  font-weight: bold;
+}
+
+.quantity-selector input {
+  width: 60px;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Buy Now button */
+.buy-now-btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .product-detail-info h2 {
+    font-size: 1.8rem;
+  }
+  .modal-content {
+    padding: 2rem 1.5rem;
+  }
+  .close-btn {
+    top: 0.5rem;
+    right: 1rem;
+  }
+}

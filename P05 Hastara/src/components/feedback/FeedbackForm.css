@@ -1,0 +1,73 @@
+.feedback-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.feedback-form input[type="text"],
+.feedback-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  transition: border-color 0.2s;
+}
+
+.feedback-form input[type="text"]:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.feedback-form label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: -0.75rem; /* Pulls the file input closer */
+}
+
+.feedback-form input[type="file"] {
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.feedback-form button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  font-weight: bold;
+}
+
+.feedback-form button[type="submit"]:disabled {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--white);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-message {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 5px;
+  background-color: #e2f0d9; /* Light green */
+  color: #385723; /* Dark green */
+  border: 1px solid #c7dfb5;
+}

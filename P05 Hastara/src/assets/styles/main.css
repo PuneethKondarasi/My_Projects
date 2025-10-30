@@ -1,0 +1,136 @@
+/* === COLOR PALETTE & FONT SETUP === */
+:root {
+  /* Colors from your logo */
+  --primary-color: #5d534a;   /* Dark brown for text and logos */
+  --secondary-color: #857b72; /* Lighter brown for subtitles/secondary text */
+  --accent-color: #5d534a;    /* Using the primary dark brown for buttons and links */
+  --background-color: #f5f3ef;/* Light beige for the page background */
+  --white: #ffffff;           /* Pure white for card backgrounds and button text */
+  --border-color: #e5e2dd;   /* A subtle border color */
+}
+
+/* === BASIC RESET === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', Times, serif; /* A more elegant font choice */
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === HEADER & LOGO === */
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  display: flex; /* Aligns items side-by-side */
+  justify-content: center; /* Centers them horizontally */
+  align-items: center; /* Aligns them vertically */
+  gap: 1rem; /* Adds space between the logo and text */
+  padding: 2rem 0;
+  text-align: center;
+}
+.header .brand-name {
+  font-size: 2.5rem;
+  font-weight: normal; /* A softer weight to match the logo style */
+}
+/* Update the existing .header rule and add a new rule for the logo */
+
+
+.header-logo {
+  height: 50px; /* Adjust the size of your logo as needed */
+  width: auto;
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+.navbar a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+.navbar a:hover, .navbar a.active {
+  color: var(--primary-color);
+}
+
+/* === FOOTER === */
+.footer {
+  background-color: transparent; /* Makes it blend with the page background */
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+.footer-left h4, .footer-right h4 {
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+.footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.footer a:hover {
+  color: var(--primary-color);
+}
+.footer-right .social-links {
+  display: flex;
+  gap: 1rem;
+}
+.footer-right .social-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.copyright {
+  text-align: center;
+  color: var(--secondary-color);
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* === GENERAL UTILITIES === */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}

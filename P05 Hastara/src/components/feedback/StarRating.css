@@ -1,0 +1,26 @@
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.star-rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 2.5rem; /* Adjust size of stars */
+  line-height: 1;
+  color: #ccc; /* Default color for an "off" star */
+  transition: color 0.2s ease-in-out;
+}
+
+.star-rating button.on .star {
+  color: #ffc107; /* Gold color for an "on" star */
+}
+
+.star-rating button.off .star {
+  color: #ccc;
+}

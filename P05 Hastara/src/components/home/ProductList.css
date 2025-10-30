@@ -1,0 +1,23 @@
+.product-list-section {
+  padding: 2rem 0;
+}
+
+.product-list-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+/* The responsive grid for all the product cards */
+.product-grid {
+  display: grid;
+  /* This creates a responsive grid without media queries.
+    - It fills the row with as many columns as possible.
+    - Each column has a minimum width of 280px.
+    - The `1fr` allows the columns to grow and fill any remaining space.
+  */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem; /* This is the space between the product cards */
+}
