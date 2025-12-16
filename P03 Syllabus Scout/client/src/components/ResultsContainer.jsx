@@ -8,8 +8,8 @@ function ResultsContainer({ results, isLoading }) {
   
   const tabs = [
     { id: 'all', label: 'All Results' },
-    { id: 'books', label: `Books (${books.length})` },
-    { id: 'videos', label: `Videos (${videos.length})` }
+    { id: 'books', label: `Books (${books?.length || 0})` },
+    { id: 'videos', label: `Videos (${videos?.length || 0})` }
   ];
   
   // Filter results based on active tab
@@ -27,61 +27,86 @@ function ResultsContainer({ results, isLoading }) {
   const { books: filteredBooks, videos: filteredVideos } = filteredResults();
   
   return (
-    <div className="w-full">
+    <div className="w-full space-y-8">
       {/* Tabs */}
-      <div className="border-b border-gray-200 dark:border-gray-700">
-        <nav className="flex space-x-2 overflow-x-auto">
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex p-1 bg-secondary/10 rounded-xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-3 px-4 text-sm font-medium transition-colors border-b-2 whitespace-nowrap ${
+              className={`py-2 px-6 text-sm font-medium rounded-lg transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
+                  ? 'bg-white dark:bg-gray-800 shadow-sm text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {tab.label}
             </button>
           ))}
-        </nav>
+        </div>
       </div>
       
       {/* Books section */}
-      {filteredBooks.length > 0 && (
-        <div className="mt-6">
-          {activeTab === 'all' && (
-            <h2 className="text-xl font-semibold mb-4">Books</h2>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredBooks.map((book) => (
-              <BookCard key={book.id} book={book} />
+      {(activeTab === 'all' || activeTab === 'books') && filteredBooks.length > 0 && (
+        <section className="animate-fade-in-up">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-display font-bold flex items-center">
+              <span className="mr-2 text-2xl"></span> Recommended Books
+            </h2>
+            {activeTab === 'all' && (
+              <button 
+                onClick={() => setActiveTab('books')}
+                className="text-sm text-primary hover:underline font-medium"
+              >
+                View all books
+              </button>
+            )}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredBooks.map((book, index) => (
+              <div key={index} style={{ animationDelay: `${index * 100}ms` }} className="animate-fade-in-up">
+                <BookCard book={book} />
+              </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
       
       {/* Videos section */}
-      {filteredVideos.length > 0 && (
-        <div className="mt-6">
-          {activeTab === 'all' && (
-            <h2 className="text-xl font-semibold mb-4">Videos</h2>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredVideos.map((video) => (
-              <VideoCard key={video.id} video={video} />
+      {(activeTab === 'all' || activeTab === 'videos') && filteredVideos.length > 0 && (
+        <section className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-display font-bold flex items-center">
+              <span className="mr-2 text-2xl"></span> Video Tutorials
+            </h2>
+            {activeTab === 'all' && (
+              <button 
+                onClick={() => setActiveTab('videos')}
+                className="text-sm text-primary hover:underline font-medium"
+              >
+                View all videos
+              </button>
+            )}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredVideos.map((video, index) => (
+              <div key={index} style={{ animationDelay: `${index * 100}ms` }} className="animate-fade-in-up">
+                <VideoCard video={video} />
+              </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
       
-      {/* No results message */}
-      {filteredBooks.length === 0 && filteredVideos.length === 0 && !isLoading && (
-        <div className="mt-6 text-center py-12 px-4">
-          <div className="text-gray-500 dark:text-gray-400">
-            <h3 className="text-lg font-medium mb-2">No results found</h3>
-            <p>Try adjusting your search or filter to find what you're looking for.</p>
-          </div>
+      {/* No results state */}
+      {filteredBooks.length === 0 && filteredVideos.length === 0 && (
+        <div className="text-center py-20 bg-secondary/5 rounded-2xl border border-border border-dashed">
+          <div className="text-6xl mb-4"></div>
+          <h3 className="text-xl font-bold mb-2">No results found</h3>
+          <p className="text-muted-foreground max-w-md mx-auto">
+            We couldn't find any resources matching your query. Try searching for a different topic or keyword.
+          </p>
         </div>
       )}
     </div>

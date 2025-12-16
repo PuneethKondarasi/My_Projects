@@ -1,16 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 function Register() {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setMessage('');
+
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       const res = await fetch(`${API_URL}/api/auth/register`, {
@@ -21,31 +27,106 @@ function Register() {
 
       const data = await res.json();
       if (res.ok) {
+        // Auto login after registration
+        if (data.token) {
+            login(data.token, data.user);
+        }
         setMessage('Registration successful! Redirecting...');
-        console.log('Register Response:', data);
         setTimeout(() => navigate('/'), 1500);
       } else {
-        setMessage(`${data.message || 'Something went wrong'}`);
+        setMessage(`${data.message || 'Registration failed'}`);
       }
     } catch (err) {
       console.error('Register Error:', err);
-      setMessage('Server error');
+      setMessage('Server error. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-800 shadow rounded">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white text-center">Register</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input name="username" type="text" placeholder="Name" onChange={handleChange}
-          className="input" required />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange}
-          className="input" required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange}
-          className="input" required />
-        <button className="btn btn-primary w-full">Register</button>
-        <p className="text-sm text-green-500 dark:text-green-400 mt-2">{message}</p>
-      </form>
+    <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 glass p-8 rounded-2xl">
+        <div className="text-center">
+          <h2 className="text-3xl font-display font-bold text-foreground">Create Account</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Join Syllabus Scout and start your learning journey
+          </p>
+        </div>
+
+        {message && (
+          <div className={`p-3 rounded-lg text-sm text-center ${
+            message.includes('successful') 
+              ? 'bg-green-500/10 text-green-600 border border-green-500/20' 
+              : 'bg-destructive/10 text-destructive border border-destructive/20'
+          }`}>
+            {message}
+          </div>
+        )}
+
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="username" className="sr-only">Full Name</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autoComplete="name"
+                required
+                className="input"
+                placeholder="Full Name"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="email-address" className="sr-only">Email address</label>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="input"
+                placeholder="Email address"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="new-password"
+                required
+                className="input"
+                placeholder="Password"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="btn btn-primary w-full py-3"
+            >
+              {isLoading ? 'Creating account...' : 'Sign up'}
+            </button>
+          </div>
+        </form>
+
+        <div className="text-center text-sm">
+          <p className="text-muted-foreground">
+            Already have an account?{' '}
+            <Link to="/login" className="font-medium text-primary hover:text-primary/80 transition-colors">
+              Sign in
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
-import { FaUserCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaUserCircle, FaEye, FaEyeSlash, FaHistory, FaVideo, FaEdit, FaKey, FaSave, FaTimes } from 'react-icons/fa';
 
 const Profile = () => {
   const { auth, setAuth } = useAuth();
@@ -100,52 +100,24 @@ const Profile = () => {
       setError('');
       setMessage('');
       
-      // Validate inputs
-      if (!formData.username.trim() || !formData.email.trim()) {
-        setError('Username and email are required');
-        return;
-      }
-      
-      const updateData = {
+      const updatedData = {
         username: formData.username,
         email: formData.email
       };
-
-      // Debug the API call
-      console.log('Updating profile with data:', updateData);
 
       const response = await api.put(
         `/user/${auth.user._id}`,
-        updateData,
+        updatedData,
         { headers: { Authorization: `Bearer ${auth.token}` } }
       );
-      
-      console.log('API Response:', response);
 
-      // Update local state
-      const updatedUser = {
-        ...userData,
-        username: formData.username,
-        email: formData.email
-      };
+      setUserData(response);
+      setAuth({ ...auth, user: response });
       
-      setUserData(updatedUser);
-      
-      // Only update auth context if setAuth is available
-      if (typeof setAuth === 'function') {
-        try {
-          setAuth(prev => ({
-            ...prev,
-            user: {
-              ...prev.user,
-              username: formData.username,
-              email: formData.email
-            }
-          }));
-        } catch (authError) {
-          console.warn('Could not update auth context:', authError);
-          // Continue anyway since we've updated local state
-        }
+      // Update local storage
+      const storedAuth = JSON.parse(localStorage.getItem('auth'));
+      if (storedAuth) {
+        localStorage.setItem('auth', JSON.stringify({ ...storedAuth, user: response }));
       }
       
       setEditMode(false);
@@ -242,192 +214,238 @@ const Profile = () => {
 
   if (!auth) {
     return (
-      <div className="p-8 text-center text-lg font-semibold text-red-500">
-        Please log in to view your profile.
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center p-8 glass rounded-2xl">
+          <h2 className="text-2xl font-bold text-destructive mb-4">Access Denied</h2>
+          <p className="text-muted-foreground">Please log in to view your profile.</p>
+        </div>
       </div>
     );
   }
 
-  if (loading) return <div className="p-8 text-center">Loading profile...</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 shadow-2xl rounded-2xl mt-10">
-      {error && (
-        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-xl">
-          {error}
-        </div>
-      )}
-      
-      {message && (
-        <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-xl">
-          {message}
-        </div>
-      )}
-      
-      <div className="flex items-center space-x-6 mb-6">
-        <FaUserCircle className="text-6xl text-gray-600 dark:text-white" />
-        <div className="flex-1">
-          {editMode ? (
-            <div className="space-y-4">
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                placeholder="Username"
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-                placeholder="Email"
-              />
-              <div className="flex space-x-4">
-                <button
-                  onClick={handleUpdate}
-                  className="px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
-                >
-                  Save
-                </button>
-                <button
-                  onClick={handleCancel}
-                  className="px-5 py-2 bg-gray-400 text-white rounded-xl hover:bg-gray-500 transition"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          ) : passwordMode ? (
-            <div className="space-y-4">
-              <div className="relative">
-                <input
-                  type={showPassword.current ? "text" : "password"}
-                  name="currentPassword"
-                  value={formData.currentPassword}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pr-10"
-                  placeholder="Current Password"
-                />
-                <button 
-                  onClick={() => togglePasswordVisibility('current')} 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-                  type="button"
-                >
-                  {showPassword.current ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-              <div className="relative">
-                <input
-                  type={showPassword.new ? "text" : "password"}
-                  name="newPassword"
-                  value={formData.newPassword}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pr-10"
-                  placeholder="New Password"
-                />
-                <button 
-                  onClick={() => togglePasswordVisibility('new')} 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-                  type="button"
-                >
-                  {showPassword.new ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-              <div className="relative">
-                <input
-                  type={showPassword.confirm ? "text" : "password"}
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pr-10"
-                  placeholder="Confirm New Password"
-                />
-                <button 
-                  onClick={() => togglePasswordVisibility('confirm')} 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-                  type="button"
-                >
-                  {showPassword.confirm ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-              <div className="flex space-x-4">
-                <button
-                  onClick={handlePasswordChange}
-                  className="px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
-                >
-                  Update Password
-                </button>
-                <button
-                  onClick={handleCancel}
-                  className="px-5 py-2 bg-gray-400 text-white rounded-xl hover:bg-gray-500 transition"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          ) : (
-            <>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                {userData.username}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300">{userData.email}</p>
-              <div className="mt-3 flex space-x-4">
-                <button
-                  onClick={() => setEditMode(true)}
-                  className="px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
-                >
-                  Edit Profile
-                </button>
-                <button
-                  onClick={() => setPasswordMode(true)}
-                  className="px-5 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition"
-                >
-                  Change Password
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-
-      <div className="mt-10 space-y-8">
-        <div>
-          <h3 className="text-xl font-semibold mb-2 dark:text-white">Search History</h3>
-          {searchHistory && searchHistory.length > 0 ? (
-            <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-              {searchHistory.map((item, idx) => (
-                <li key={idx} className="bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-lg">
-                  <div className="font-medium">{item.query}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    {new Date(item.timestamp).toLocaleString()}
+    <div className="min-h-screen py-12 bg-background">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Profile Card */}
+          <div className="lg:col-span-1">
+            <div className="card p-6 sticky top-24">
+              <div className="flex flex-col items-center mb-6">
+                <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative overflow-hidden group">
+                  <FaUserCircle className="w-24 h-24 text-primary/50" />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                    <span className="text-white text-xs">Change Photo</span>
                   </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500 dark:text-gray-400">No search history yet.</p>
-          )}
-        </div>
+                </div>
+                <h2 className="text-2xl font-display font-bold">{userData.username}</h2>
+                <p className="text-muted-foreground">{userData.email}</p>
+              </div>
 
-        <div>
-          <h3 className="text-xl font-semibold mb-2 dark:text-white">Watch History</h3>
-          {watchHistory && watchHistory.length > 0 ? (
-            <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-              {watchHistory.map((item, idx) => (
-                <li key={idx} className="bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-lg">
-                  <div className="font-medium">{item.videoTitle}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    {new Date(item.timestamp).toLocaleString()}
+              {message && (
+                <div className="mb-4 p-3 bg-green-500/10 border border-green-500/20 text-green-600 rounded-lg text-sm text-center">
+                  {message}
+                </div>
+              )}
+
+              {error && (
+                <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive rounded-lg text-sm text-center">
+                  {error}
+                </div>
+              )}
+
+              {!editMode && !passwordMode ? (
+                <div className="space-y-3">
+                  <button 
+                    onClick={() => setEditMode(true)}
+                    className="btn btn-secondary w-full flex items-center justify-center gap-2"
+                  >
+                    <FaEdit /> Edit Profile
+                  </button>
+                  <button 
+                    onClick={() => setPasswordMode(true)}
+                    className="btn w-full flex items-center justify-center gap-2 border border-input hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <FaKey /> Change Password
+                  </button>
+                </div>
+              ) : editMode ? (
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Username</label>
+                    <input
+                      type="text"
+                      name="username"
+                      value={formData.username}
+                      onChange={handleChange}
+                      className="input"
+                    />
                   </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500 dark:text-gray-400">No watch history yet.</p>
-          )}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="input"
+                    />
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <button 
+                      onClick={handleUpdate}
+                      className="btn btn-primary flex-1 flex items-center justify-center gap-2"
+                    >
+                      <FaSave /> Save
+                    </button>
+                    <button 
+                      onClick={handleCancel}
+                      className="btn btn-secondary flex-1 flex items-center justify-center gap-2"
+                    >
+                      <FaTimes /> Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Current Password</label>
+                    <div className="relative">
+                      <input
+                        type={showPassword.current ? 'text' : 'password'}
+                        name="currentPassword"
+                        value={formData.currentPassword}
+                        onChange={handleChange}
+                        className="input pr-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => togglePasswordVisibility('current')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      >
+                        {showPassword.current ? <FaEyeSlash /> : <FaEye />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">New Password</label>
+                    <div className="relative">
+                      <input
+                        type={showPassword.new ? 'text' : 'password'}
+                        name="newPassword"
+                        value={formData.newPassword}
+                        onChange={handleChange}
+                        className="input pr-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => togglePasswordVisibility('new')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      >
+                        {showPassword.new ? <FaEyeSlash /> : <FaEye />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Confirm Password</label>
+                    <div className="relative">
+                      <input
+                        type={showPassword.confirm ? 'text' : 'password'}
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        className="input pr-10"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => togglePasswordVisibility('confirm')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      >
+                        {showPassword.confirm ? <FaEyeSlash /> : <FaEye />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <button 
+                      onClick={handlePasswordChange}
+                      className="btn btn-primary flex-1 flex items-center justify-center gap-2"
+                    >
+                      <FaSave /> Update
+                    </button>
+                    <button 
+                      onClick={handleCancel}
+                      className="btn btn-secondary flex-1 flex items-center justify-center gap-2"
+                    >
+                      <FaTimes /> Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* History Section */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Search History */}
+            <div className="card p-6">
+              <h3 className="text-xl font-display font-bold mb-4 flex items-center gap-2">
+                <FaHistory className="text-primary" /> Recent Searches
+              </h3>
+              {searchHistory.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {searchHistory.map((item, index) => (
+                    <span 
+                      key={index} 
+                      className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm hover:bg-secondary/20 transition-colors cursor-default"
+                    >
+                      {item.query}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-muted-foreground text-sm italic">No search history yet.</p>
+              )}
+            </div>
+
+            {/* Watch History */}
+            <div className="card p-6">
+              <h3 className="text-xl font-display font-bold mb-4 flex items-center gap-2">
+                <FaVideo className="text-primary" /> Watch History
+              </h3>
+              {watchHistory.length > 0 ? (
+                <div className="space-y-4">
+                  {watchHistory.map((item, index) => (
+                    <div key={index} className="flex gap-4 p-3 rounded-lg hover:bg-accent/50 transition-colors group">
+                      <div className="w-32 h-20 flex-shrink-0 rounded-md overflow-hidden relative">
+                        <img 
+                          src={item.videoThumbnail || 'https://via.placeholder.com/320x180'} 
+                          alt={item.videoTitle} 
+                          className="w-full h-full object-cover" 
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="font-medium line-clamp-1 group-hover:text-primary transition-colors">{item.videoTitle}</h4>
+                        <p className="text-sm text-muted-foreground mb-1">{item.videoChannel}</p>
+                        <p className="text-xs text-muted-foreground/70">
+                          Watched on {new Date(item.watchedAt).toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-muted-foreground text-sm italic">No watch history yet.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
