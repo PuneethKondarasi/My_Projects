@@ -1,35 +1,62 @@
 const apiKey = config.apiKey;
 let unit = "metric";
-let currentTheme = "dark";
+let currentHouse = "gryffindor";
+
+// House Configuration
+const houseConfig = {
+    gryffindor: { primary: '#740001', secondary: '#d3a625', accent: '#eeba30' },
+    hufflepuff: { primary: '#ecb939', secondary: '#372e29', accent: '#726255' },
+    ravenclaw: { primary: '#0e1a40', secondary: '#946b2d', accent: '#222f5b' },
+    slytherin: { primary: '#1a472a', secondary: '#5d5d5d', accent: '#aaaaaa' }
+};
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
-    // Set initial theme
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon();
-    
-    // Load last searched city from localStorage
+    // Load last searched city
     const lastCity = localStorage.getItem('lastCity');
     if (lastCity) {
         document.getElementById('cityInput').value = lastCity;
     }
+    
+    // Initialize House
+    const savedHouse = localStorage.getItem('house') || 'gryffindor';
+    document.getElementById('houseSelector').value = savedHouse;
+    changeHouse(savedHouse);
+
+    // Initialize Unit
+    const savedUnit = localStorage.getItem('unit');
+    if (savedUnit) {
+        unit = savedUnit;
+        const unitButton = document.getElementById("unitButton");
+        const unitText = unitButton.querySelector('.unit-text');
+        if (unitText) {
+            unitText.textContent = unit === "metric" ? "°C" : "°F";
+        }
+    }
 });
 
-// Theme switching functionality
-function toggleTheme() {
-    currentTheme = currentTheme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon();
-    localStorage.setItem('theme', currentTheme);
+// Change House Theme
+function changeHouse(houseValue) {
+    const house = houseValue || document.getElementById('houseSelector').value;
+    currentHouse = house;
+    const colors = houseConfig[house];
+    
+    const root = document.documentElement;
+    root.style.setProperty('--house-primary', colors.primary);
+    root.style.setProperty('--house-secondary', colors.secondary);
+    root.style.setProperty('--house-accent', colors.accent);
+    
+    localStorage.setItem('house', house);
 }
 
-function updateThemeIcon() {
-    const themeIcon = document.querySelector('.theme-toggle i');
-    if (currentTheme === "dark") {
-        themeIcon.className = "fas fa-sun";
-    } else {
-        themeIcon.className = "fas fa-moon";
-    }
+// Daily Challenge
+function startChallenge() {
+    const spells = ["Lumos", "Alohomora", "Wingardium Leviosa", "Expecto Patronum", "Expelliarmus"];
+    const randomSpell = spells[Math.floor(Math.random() * spells.length)];
+    const challengeText = document.getElementById('challengeText');
+    
+    challengeText.innerHTML = `You found the hidden spell: <strong>${randomSpell}</strong>! <br> The weather spirits are pleased.`;
+    challengeText.style.color = 'var(--house-accent)';
 }
 
 // Handle Enter key press
@@ -118,15 +145,42 @@ function displayWeather(data) {
     const weatherResult = document.getElementById("weatherResult");
     const weatherDetails = document.getElementById("weatherDetails");
     
+    // Wizarding Icon Mapping
+    let wizardIcon = "fas fa-hat-wizard";
+    let wizardDesc = "Magical Mist";
+    
+    const mainWeather = data.weather[0].main.toLowerCase();
+    if (mainWeather.includes('clear')) {
+        wizardIcon = "fas fa-dragon"; // Patronus/Dragon
+        wizardDesc = "Patronus Protection (Clear)";
+    } else if (mainWeather.includes('rain')) {
+        wizardIcon = "fas fa-cloud-showers-heavy";
+        wizardDesc = "Forbidden Forest Rain";
+    } else if (mainWeather.includes('snow')) {
+        wizardIcon = "fas fa-snowflake";
+        wizardDesc = "Hogsmeade Blizzard";
+    } else if (mainWeather.includes('thunder')) {
+        wizardIcon = "fas fa-bolt";
+        wizardDesc = "Dragon's Breath Storm";
+    } else if (mainWeather.includes('cloud')) {
+        wizardIcon = "fas fa-ghost";
+        wizardDesc = "Cloak of Invisibility (Cloudy)";
+    }
+
     weatherResult.innerHTML = `
         <div class="weather-display">
             <h2 class="weather-location">${data.name}, ${data.sys.country}</h2>
-            <img class="weather-icon" src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="weather icon" />
-            <p class="weather-description">${data.weather[0].description}</p>
-            <div class="weather-temp">${Math.round(data.main.temp)}°${unit === 'metric' ? 'C' : 'F'}</div>
+            <div class="weather-icon-container">
+                <i class="${wizardIcon}" style="font-size: 4rem; color: var(--house-secondary);"></i>
+            </div>
+            <p class="weather-description" style="margin-top: 1rem;">${wizardDesc}</p>
+            <div class="weather-temp">
+                <span style="font-size: 1.2rem; display:block; margin-bottom:0.5rem; font-family: var(--font-heading);">Current Temperature in the Wizarding World</span>
+                ${Math.round(data.main.temp)}°${unit === 'metric' ? 'C' : 'F'}
+            </div>
             <div class="weather-details">
-                <span>High: ${Math.round(data.main.temp_max)}°${unit === 'metric' ? 'C' : 'F'}</span>
-                <span>Low: ${Math.round(data.main.temp_min)}°${unit === 'metric' ? 'C' : 'F'}</span>
+                <span>High: ${Math.round(data.main.temp_max)}°</span>
+                <span>Low: ${Math.round(data.main.temp_min)}°</span>
             </div>
         </div>
     `;
@@ -224,14 +278,20 @@ function displayForecast(data) {
         }
     }
     
-    dailyForecasts.forEach(forecast => {
+    dailyForecasts.forEach((forecast, index) => {
         const forecastDate = new Date(forecast.dt * 1000);
         const dayName = forecastDate.toLocaleDateString('en-us', { weekday: 'short' });
         const date = forecastDate.toLocaleDateString('en-us', { month: 'short', day: 'numeric' });
         
+        // Wizarding Time of Day Titles
+        let timeTitle = "Morning: Rise of the Sun";
+        if (index % 3 === 1) timeTitle = "Afternoon: Glowing";
+        if (index % 3 === 2) timeTitle = "Evening: Twilight Shadows";
+
         const forecastItem = document.createElement("div");
         forecastItem.classList.add("forecast-item");
         forecastItem.innerHTML = `
+            <p style="font-size: 0.8rem; color: var(--house-accent); margin-bottom: 0.5rem;">${timeTitle}</p>
             <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" alt="forecast icon" />
             <p class="forecast-day">${dayName}</p>
             <p class="forecast-date">${date}</p>
@@ -285,25 +345,6 @@ function hideLoading() {
     const loadingOverlay = document.getElementById("loadingOverlay");
     loadingOverlay.classList.remove("show");
 }
-
-// Load saved preferences on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const savedUnit = localStorage.getItem('unit');
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedUnit) {
-        unit = savedUnit;
-        const unitButton = document.getElementById("unitButton");
-        const unitText = unitButton.querySelector('.unit-text');
-        unitText.textContent = unit === "metric" ? "°C" : "°F";
-    }
-    
-    if (savedTheme) {
-        currentTheme = savedTheme;
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        updateThemeIcon();
-    }
-});
 
 // Add smooth scrolling for better UX
 function smoothScrollTo(element) {

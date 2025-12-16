@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeatherVue - Modern Weather App</title>
+    <title>Wizarding Weather - Magical Forecasts</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Cinzel:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="config.js"></script>
     <script src="script.js" defer></script>
@@ -19,15 +22,26 @@
       <header class="header">
         <div class="header-content">
           <div class="logo">
-            <i class="fas fa-cloud-sun"></i>
-            <h1>WeatherVue</h1>
+            <i class="fas fa-hat-wizard"></i>
+            <h1>Wizarding Weather</h1>
           </div>
           <div class="header-actions">
-            <button class="location-btn" onclick="getCurrentLocation()" title="Get current location">
-              <i class="fas fa-location-arrow"></i>
-            </button>
-            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-              <i class="fas fa-moon"></i>
+            <select
+              id="houseSelector"
+              class="house-selector"
+              onchange="changeHouse()"
+            >
+              <option value="gryffindor">Gryffindor</option>
+              <option value="hufflepuff">Hufflepuff</option>
+              <option value="ravenclaw">Ravenclaw</option>
+              <option value="slytherin">Slytherin</option>
+            </select>
+            <button
+              class="location-btn"
+              onclick="getCurrentLocation()"
+              title="Locate via Marauder's Map"
+            >
+              <i class="fas fa-scroll"></i>
             </button>
           </div>
         </div>
@@ -40,10 +54,10 @@
           <div class="search-container">
             <div class="search-box">
               <i class="fas fa-search search-icon"></i>
-              <input 
-                type="text" 
-                id="cityInput" 
-                placeholder="Enter city name..." 
+              <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name..."
                 onkeypress="handleKeyPress(event)"
               />
               <button class="search-btn" onclick="getWeather()">
@@ -51,7 +65,11 @@
               </button>
             </div>
             <div class="unit-toggle-container">
-              <button class="unit-toggle" onclick="toggleUnit()" id="unitButton">
+              <button
+                class="unit-toggle"
+                onclick="toggleUnit()"
+                id="unitButton"
+              >
                 <span class="unit-text">°C</span>
                 <i class="fas fa-exchange-alt"></i>
               </button>
@@ -62,14 +80,32 @@
         <!-- Current Weather Section -->
         <section class="weather-section" id="weatherResult">
           <div class="weather-placeholder">
-            <i class="fas fa-cloud-sun"></i>
-            <h2>Search for a city to get weather information</h2>
-            <p>Enter a city name above to see current weather and forecast</p>
+            <i class="fas fa-hat-wizard"></i>
+            <h2>Cast a spell to reveal the forecast</h2>
+            <p>Enter a magical location above</p>
+          </div>
+        </section>
+
+        <!-- Daily Challenge Section -->
+        <section class="challenge-section" id="dailyChallenge">
+          <div class="challenge-card">
+            <h3><i class="fas fa-quidditch"></i> Daily Magical Challenge</h3>
+            <p id="challengeText">
+              Find the hidden magical creature that will affect tomorrow's
+              forecast!
+            </p>
+            <button class="challenge-btn" onclick="startChallenge()">
+              Accept Challenge
+            </button>
           </div>
         </section>
 
         <!-- Weather Details Section -->
-        <section class="details-section" id="weatherDetails" style="display: none;">
+        <section
+          class="details-section"
+          id="weatherDetails"
+          style="display: none"
+        >
           <div class="details-grid">
             <div class="detail-card">
               <i class="fas fa-thermometer-half"></i>
@@ -127,6 +163,14 @@
           </div>
         </section>
       </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>
+          Weather forecasts brought to you by the Ministry of Magic | Magical
+          spells from the Wizarding World | Copyright © 2025
+        </p>
+      </footer>
 
       <!-- Loading Overlay -->
       <div class="loading-overlay" id="loadingOverlay">
