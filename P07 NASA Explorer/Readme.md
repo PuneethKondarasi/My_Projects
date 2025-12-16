@@ -1,14 +1,14 @@
 # 🚀 NASA Multimedia Explorer
 
-A modern web application that showcases NASA's incredible collection of space imagery and videos through multiple public APIs. Explore daily astronomy pictures, Mars rover photos, Earth satellite images, and NASA's vast multimedia library — all in one place.
+A modern web application that showcases NASA's incredible collection of space imagery and videos through multiple public APIs. Explore daily astronomy pictures, Near Earth Objects (Asteroids), Earth satellite images, and NASA's vast multimedia library — all in one place.
 
 ---
 
 ## 🌟 Features
 
 - **Astronomy Picture of the Day (APOD)**: Daily space media with descriptions
-- **Mars Rover Photos**: Images from Curiosity, Perseverance, Opportunity & Spirit
-- **EPIC Earth Images**: Real-time photos from the DSCOVR satellite
+- **Asteroids - NeoWs**: Track Near Earth Objects, view approach data, and identify hazardous asteroids
+- **EPIC Earth Images**: Daily imagery of Earth from the DSCOVR satellite
 - **NASA Media Library**: Search and browse NASA’s image/video archives
 
 ---

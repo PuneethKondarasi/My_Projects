@@ -5,6 +5,7 @@ const NASA_API_BASE = 'https://api.nasa.gov';
 document.addEventListener('DOMContentLoaded', function() {
     createStarfield();
     setTodaysDate();
+    setAsteroidDates();
     setupEventListeners();
 });
 
@@ -70,36 +71,8 @@ function createStarfield() {
 }
 
 // Add CSS animations for enhanced space effects
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes blink {
-        0%, 50% { opacity: 0.3; }
-        25%, 75% { opacity: 1; }
-        100% { opacity: 0.3; }
-    }
-    
-    @keyframes moveAsteroid {
-        0% {
-            transform: translateX(0) translateY(0) rotate(0deg);
-        }
-        100% {
-            transform: translateX(calc(100vw + 20px)) translateY(-50px) rotate(360deg);
-        }
-    }
-    
-    .asteroid {
-        box-shadow: 0 0 3px rgba(138, 105, 20, 0.8);
-    }
-    
-    .star.large {
-        box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-    }
-    
-    .star.medium {
-        box-shadow: 0 0 3px rgba(255, 255, 255, 0.6);
-    }
-`;
-document.head.appendChild(style);
+// Styles moved to styles.css
+
 
 // Weighted random selection helper
 function getWeightedRandom(items, weights) {
@@ -124,6 +97,21 @@ function setTodaysDate() {
     if (dateInput) {
         dateInput.value = today;
         dateInput.max = today; // Prevent future dates
+    }
+}
+
+// Set default dates for Asteroids (Today and Tomorrow)
+function setAsteroidDates() {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    
+    const startDateInput = document.getElementById('asteroidStartDate');
+    const endDateInput = document.getElementById('asteroidEndDate');
+    
+    if (startDateInput && endDateInput) {
+        startDateInput.value = today.toISOString().split('T')[0];
+        endDateInput.value = tomorrow.toISOString().split('T')[0];
     }
 }
 
@@ -190,6 +178,10 @@ async function loadAPOD() {
     
     try {
         const response = await fetch(`${NASA_API_BASE}/planetary/apod?api_key=${NASA_API_KEY}`);
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
+        }
         const data = await response.json();
         
         if (data.error) {
@@ -198,6 +190,7 @@ async function loadAPOD() {
         
         displayAPOD(data);
     } catch (error) {
+        console.error('APOD Error:', error);
         displayError('apodContent', 'Failed to load APOD: ' + error.message);
     } finally {
         hideLoader(loader);
@@ -221,6 +214,10 @@ async function loadAPODByDate() {
     
     try {
         const response = await fetch(`${NASA_API_BASE}/planetary/apod?api_key=${NASA_API_KEY}&date=${selectedDate}`);
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
+        }
         const data = await response.json();
         
         if (data.error) {
@@ -229,6 +226,7 @@ async function loadAPODByDate() {
         
         displayAPOD(data);
     } catch (error) {
+        console.error('APOD Date Error:', error);
         displayError('apodContent', 'Failed to load APOD for selected date: ' + error.message);
     } finally {
         hideLoader(loader);
@@ -240,12 +238,12 @@ function displayAPOD(data) {
     
     let mediaHtml = '';
     if (data.media_type === 'image') {
-        mediaHtml = `<img src="${data.url}" alt="${data.title}" loading="lazy">`;
+        mediaHtml = `<img src="${data.url}" alt="${data.title}" loading="lazy" class="media-content">`;
     } else if (data.media_type === 'video') {
         if (data.url.includes('youtube.com') || data.url.includes('vimeo.com')) {
-            mediaHtml = `<iframe src="${data.url}" frameborder="0" allowfullscreen style="width: 100%; height: 400px;"></iframe>`;
+            mediaHtml = `<iframe src="${data.url}" frameborder="0" allowfullscreen class="media-content video-frame"></iframe>`;
         } else {
-            mediaHtml = `<video controls style="width: 100%; max-height: 600px;">
+            mediaHtml = `<video controls class="media-content video-player">
                             <source src="${data.url}" type="video/mp4">
                             Your browser does not support the video tag.
                          </video>`;
@@ -253,70 +251,89 @@ function displayAPOD(data) {
     }
     
     content.innerHTML = `
-        <div class="media-container">
-            ${mediaHtml}
+        <div class="media-card full-width">
+            <div class="media-content-wrapper">
+                ${mediaHtml}
+            </div>
             <div class="media-info">
-                <h3>${data.title}</h3>
-                <p><strong>Date:</strong> ${data.date}</p>
-                <p>${data.explanation}</p>
-                ${data.copyright ? `<p><strong>Copyright:</strong> ${data.copyright}</p>` : ''}
-                ${data.hdurl ? `<p><a href="${data.hdurl}" target="_blank" style="color: #64b5f6;">View HD Version</a></p>` : ''}
+                <h2>${data.title}</h2>
+                <p class="date">${data.date}</p>
+                <p class="explanation">${data.explanation}</p>
+                ${data.copyright ? `<p class="copyright">© ${data.copyright}</p>` : ''}
             </div>
         </div>
     `;
 }
 
-// Mars Rover functions
-async function loadMarsPhotos() {
-    const roverSelect = document.getElementById('roverSelect');
-    const selectedRover = roverSelect.value;
-    const loader = document.getElementById('marsLoader');
-    const content = document.getElementById('marsContent');
+async function loadAsteroids() {
+    const startDate = document.getElementById('asteroidStartDate').value;
+    const endDate = document.getElementById('asteroidEndDate').value;
+    const loader = document.getElementById('asteroidsLoader');
+    const content = document.getElementById('asteroidsContent');
     
+    if (!startDate || !endDate) {
+        alert('Please select both start and end dates');
+        return;
+    }
+
     showLoader(loader);
     content.innerHTML = '';
     
     try {
-        const response = await fetch(`${NASA_API_BASE}/mars-photos/api/v1/rovers/${selectedRover}/latest_photos?api_key=${NASA_API_KEY}`);
-        const data = await response.json();
+        const response = await fetch(`${NASA_API_BASE}/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${NASA_API_KEY}`);
         
-        if (data.latest_photos && data.latest_photos.length > 0) {
-            displayMarsPhotos(data.latest_photos.slice(0, 12)); // Show first 12 photos
-        } else {
-            throw new Error('No photos available for this rover');
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
         }
+
+        const data = await response.json();
+        displayAsteroids(data);
     } catch (error) {
-        displayError('marsContent', 'Failed to load Mars photos: ' + error.message);
+        console.error('Asteroids Error:', error);
+        displayError('asteroidsContent', 'Failed to load Asteroid data: ' + error.message);
     } finally {
         hideLoader(loader);
     }
 }
 
-function displayMarsPhotos(photos) {
-    const content = document.getElementById('marsContent');
+function displayAsteroids(data) {
+    const content = document.getElementById('asteroidsContent');
+    const elementCount = data.element_count;
+    const nearEarthObjects = data.near_earth_objects;
     
-    const photosHtml = photos.map(photo => `
-        <div class="media-container" style="display: flex; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
-            <div class="image-container" style="flex: 0 0 30%; max-width: 30%; height: auto;">
-                <img src="${photo.img_src}" alt="Mars photo by ${photo.rover.name}" loading="lazy" 
-                     onclick="openImageModal('${photo.img_src}', '${photo.rover.name} - Sol ${photo.sol}')"
-                     style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
-            </div>
-            <div class="media-info" style="flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
-                <h4 style="margin: 0 0 0.5rem;">${photo.rover.name}</h4>
-                <p><strong>Sol:</strong> ${photo.sol}</p>
-                <p><strong>Camera:</strong> ${photo.camera.full_name}</p>
-                <p><strong>Date:</strong> ${photo.earth_date}</p>
-            </div>
-        </div>
-    `).join('');
+    let asteroidsHtml = `<div class="results-summary" style="width:100%; text-align:center; margin-bottom:20px; font-size:1.2em;"><p>Found <strong>${elementCount}</strong> Near Earth Objects</p></div>`;
+    asteroidsHtml += '<div class="media-gallery">';
     
-    content.innerHTML = `
-        <div class="media-gallery" style="display: flex; flex-direction: column; gap: 1rem;">
-            ${photosHtml}
-        </div>
-    `;
+    // Flatten the object (dates are keys) into an array
+    Object.keys(nearEarthObjects).sort().forEach(date => {
+        nearEarthObjects[date].forEach(asteroid => {
+            const isHazardous = asteroid.is_potentially_hazardous_asteroid;
+            const diameter = asteroid.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2);
+            const closeApproach = asteroid.close_approach_data[0];
+            const velocity = parseFloat(closeApproach.relative_velocity.kilometers_per_hour).toFixed(0);
+            const missDistance = parseFloat(closeApproach.miss_distance.kilometers).toFixed(0);
+            
+            asteroidsHtml += `
+                <div class="media-card ${isHazardous ? 'hazardous' : ''}">
+                    <div class="media-info">
+                        <h4>${asteroid.name.replace(/[()]/g, '')}</h4>
+                        <p><strong>Date:</strong> ${closeApproach.close_approach_date}</p>
+                        <p><strong>Diameter:</strong> ${diameter} km</p>
+                        <p><strong>Velocity:</strong> ${Number(velocity).toLocaleString()} km/h</p>
+                        <p><strong>Miss Distance:</strong> ${Number(missDistance).toLocaleString()} km</p>
+                        <p><strong>Hazardous:</strong> ${isHazardous ? '<span style="color:#ff4444; font-weight:bold;">YES ⚠️</span>' : '<span style="color:#44ff44">NO</span>'}</p>
+                        <p><a href="${asteroid.nasa_jpl_url}" target="_blank" class="hd-link">View JPL Data</a></p>
+                    </div>
+                </div>
+            `;
+        });
+    });
+    
+    asteroidsHtml += '</div>';
+    content.innerHTML = asteroidsHtml;
 }
+
 
 
 // EPIC Earth Images functions
@@ -328,16 +345,63 @@ async function loadEPICImages() {
     content.innerHTML = '';
     
     try {
-        const response = await fetch(`${NASA_API_BASE}/EPIC/api/natural?api_key=${NASA_API_KEY}`);
+        // Fetch the latest images using the correct endpoint
+        const response = await fetch(`${NASA_API_BASE}/EPIC/api/natural/images?api_key=${NASA_API_KEY}`);
+        
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
+        }
+
         const data = await response.json();
         
         if (data && data.length > 0) {
-            displayEPICImages(data.slice(0, 6)); // Show first 6 images
+            displayEPICImages(data.slice(0, 12)); // Show first 12 images
         } else {
             throw new Error('No EPIC images available');
         }
     } catch (error) {
+        console.error('EPIC Error:', error);
         displayError('epicContent', 'Failed to load EPIC images: ' + error.message);
+    } finally {
+        hideLoader(loader);
+    }
+}
+
+async function loadEPICByDate() {
+    const dateInput = document.getElementById('epicDate');
+    const selectedDate = dateInput.value;
+    
+    if (!selectedDate) {
+        alert('Please select a date');
+        return;
+    }
+    
+    const loader = document.getElementById('epicLoader');
+    const content = document.getElementById('epicContent');
+    
+    showLoader(loader);
+    content.innerHTML = '';
+    
+    try {
+        // Fetch images for the selected date
+        const response = await fetch(`${NASA_API_BASE}/EPIC/api/natural/date/${selectedDate}?api_key=${NASA_API_KEY}`);
+        
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
+        }
+
+        const data = await response.json();
+        
+        if (data && data.length > 0) {
+            displayEPICImages(data);
+        } else {
+            displayError('epicContent', 'No EPIC images available for this date.');
+        }
+    } catch (error) {
+        console.error('EPIC Date Error:', error);
+        displayError('epicContent', 'Failed to load EPIC images for selected date: ' + error.message);
     } finally {
         hideLoader(loader);
     }
@@ -347,30 +411,40 @@ function displayEPICImages(images) {
     const content = document.getElementById('epicContent');
     
     const imagesHtml = images.map(image => {
-        const date = image.date.split(' ')[0].replace(/-/g, '/');
-        const imageUrl = `https://api.nasa.gov/EPIC/archive/natural/${date.replace(/\//g, '/')}/png/${image.image}.png?api_key=${NASA_API_KEY}`;
+        // Fix date parsing and ensure HTTPS
+        // Date format from API is "YYYY-MM-DD HH:MM:SS"
+        // We need YYYY/MM/DD for the archive URL
+        const dateParts = image.date.split(' ')[0].split('-');
+        const year = dateParts[0];
+        const month = dateParts[1];
+        const day = dateParts[2];
+        
+        const imageUrl = `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${image.image}.png?api_key=${NASA_API_KEY}`;
         
         return `
-            <div class="media-container" style="display: flex; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
+            <div class="media-card">
                 <!-- Image Container -->
-                <div class="image-container" style="flex: 0 0 30%; max-width: 30%; height: auto;">
+                <div class="image-container">
                     <img src="${imageUrl}" alt="Earth from EPIC" loading="lazy"
                          onclick="openImageModal('${imageUrl}', 'Earth - ${image.date}')"
-                         style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
+                         class="gallery-img">
                 </div>
 
                 <!-- Text Information Container -->
-                <div class="media-info" style="flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
-                    <h4 style="margin: 0 0 0.5rem;">Earth from Space</h4>
+                <div class="media-info">
+                    <h4>Earth from Space</h4>
                     <p><strong>Date:</strong> ${image.date}</p>
                     <p><strong>Caption:</strong> ${image.caption || 'Earth as seen from the EPIC camera'}</p>
+                    ${image.centroid_coordinates ? `
+                    <p class="small-text"><strong>Lat/Lon:</strong> ${image.centroid_coordinates.lat.toFixed(2)}, ${image.centroid_coordinates.lon.toFixed(2)}</p>
+                    ` : ''}
                 </div>
             </div>
         `;
     }).join('');
     
     content.innerHTML = `
-        <div class="media-gallery" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div class="media-gallery">
             ${imagesHtml}
         </div>
     `;
@@ -395,6 +469,12 @@ async function searchNASALibrary() {
     
     try {
         const response = await fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(query)}&media_type=image&page_size=20`);
+        
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API Error (${response.status}): ${text}`);
+        }
+
         const data = await response.json();
         
         if (data.collection && data.collection.items && data.collection.items.length > 0) {
@@ -403,6 +483,7 @@ async function searchNASALibrary() {
             displayError('libraryContent', 'No results found for your search query.');
         }
     } catch (error) {
+        console.error('Library Search Error:', error);
         displayError('libraryContent', 'Failed to search NASA library: ' + error.message);
     } finally {
         hideLoader(loader);
@@ -414,20 +495,24 @@ function displayLibraryResults(items) {
     
     const resultsHtml = items.map(item => {
         const data = item.data[0];
-        const imageUrl = item.links && item.links[0] ? item.links[0].href : '';
+        // Ensure HTTPS for library images
+        let imageUrl = item.links && item.links[0] ? item.links[0].href : '';
+        if (imageUrl && imageUrl.startsWith('http:')) {
+            imageUrl = imageUrl.replace('http:', 'https:');
+        }
         
         return `
-            <div class="media-container" style="display: flex; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
+            <div class="media-card">
                 <!-- Image Container -->
-                <div class="image-container" style="flex: 0 0 30%; max-width: 30%; height: auto;">
+                <div class="image-container">
                     ${imageUrl ? `<img src="${imageUrl}" alt="${data.title}" loading="lazy" 
                                    onclick="openImageModal('${imageUrl}', '${data.title}')"
-                                   style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">` : ''}
+                                   class="gallery-img">` : ''}
                 </div>
 
                 <!-- Text Information Container -->
-                <div class="media-info" style="flex: 1; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
-                    <h4 style="margin: 0 0 0.5rem;">${data.title}</h4>
+                <div class="media-info">
+                    <h4>${data.title}</h4>
                     <p><strong>Date:</strong> ${data.date_created ? new Date(data.date_created).toLocaleDateString() : 'Unknown'}</p>
                     <p>${data.description ? data.description.substring(0, 150) + '...' : 'No description available'}</p>
                     ${data.keywords ? `<p><strong>Keywords:</strong> ${data.keywords.slice(0, 5).join(', ')}</p>` : ''}
@@ -437,7 +522,7 @@ function displayLibraryResults(items) {
     }).join('');
     
     content.innerHTML = `
-        <div class="media-gallery" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div class="media-gallery">
             ${resultsHtml}
         </div>
     `;
@@ -461,9 +546,9 @@ function displayError(containerId, message) {
     const container = document.getElementById(containerId);
     if (container) {
         container.innerHTML = `
-            <div style="text-align: center; padding: 2rem; background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); border-radius: 10px;">
-                <h3 style="color: #ff6b6b; margin-bottom: 1rem;">⚠️ Error</h3>
-                <p style="color: #ff9999;">${message}</p>
+            <div class="error-container">
+                <h3 class="error-title">⚠️ Error</h3>
+                <p class="error-message">${message}</p>
             </div>
         `;
     }
@@ -482,19 +567,7 @@ function openImageModal(imageUrl, title) {
     `;
     
     // Add modal styles
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
-        animation: fadeIn 0.3s ease;
-    `;
+    // Styles are now in styles.css under .image-modal
     
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
@@ -523,52 +596,8 @@ function closeImageModal() {
 }
 
 // Add modal CSS
-const modalStyle = document.createElement('style');
-modalStyle.textContent = `
-    .modal-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        text-align: center;
-    }
-    
-    .modal-content img {
-        max-width: 100%;
-        max-height: 80vh;
-        border-radius: 10px;
-        box-shadow: 0 0 30px rgba(100, 181, 246, 0.5);
-    }
-    
-    .modal-close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 10001;
-        background: rgba(0, 0, 0, 0.5);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s ease;
-    }
-    
-    .modal-close:hover {
-        background: rgba(255, 0, 0, 0.7);
-    }
-    
-    .modal-title {
-        color: white;
-        margin-top: 1rem;
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-`;
-document.head.appendChild(modalStyle);
+// Styles moved to styles.css
+
 
 // Auto-load content on page switch
 document.addEventListener('click', function(e) {
@@ -595,4 +624,4 @@ setTimeout(() => {
             }, index * 200);
         });
     }
-}, 500);
+}, 500)

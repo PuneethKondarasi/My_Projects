@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NASA Multimedia Explorer</title>
-    <script src="config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -32,7 +37,7 @@
               >Astronomy Picture of the Day</a
             >
           </li>
-          <li><a href="#" onclick="showPage('mars')">Mars Rover Photos</a></li>
+          <li><a href="#" onclick="showPage('asteroids')">Asteroids</a></li>
           <li><a href="#" onclick="showPage('epic')">Earth EPIC</a></li>
           <li>
             <a href="#" onclick="showPage('library')">NASA Media Library</a>
@@ -73,13 +78,13 @@
               <div class="card-hover-effect"></div>
             </div>
 
-            <div class="feature-card" onclick="showPage('mars')">
-              <div class="feature-icon">🔴</div>
-              <h3>Mars Rover Photos</h3>
+            <div class="feature-card" onclick="showPage('asteroids')">
+              <div class="feature-icon">☄️</div>
+              <h3>Asteroids - NeoWs</h3>
               <p>
-                Explore the Martian landscape through the eyes of NASA’s rovers,
-                including Curiosity, Perseverance, Opportunity, and Spirit. See
-                the Red Planet like never before.
+                Track Near Earth Objects (NEOs) and asteroids passing close to
+                our planet. Check their size, speed, and potential hazard
+                status.
               </p>
               <div class="card-hover-effect"></div>
             </div>
@@ -143,37 +148,45 @@
           </div>
         </div>
 
-        <!-- Mars Rovers Page -->
-        <div id="mars" class="page">
+        <!-- Asteroids Page -->
+        <div id="asteroids" class="page">
           <div class="page-header">
-            <h1>🔴 Mars Rover Photos</h1>
+            <h1>☄️ Asteroids - Near Earth Objects</h1>
             <p>
-              Embark on a journey to the Red Planet through the eyes of NASA's
-              rovers. Witness Mars like never before with high-resolution images
-              and videos taken by Curiosity, Perseverance, and other rovers
-              exploring the Martian surface.
+              Monitor Near Earth Objects (NEOs) and asteroids that are passing
+              close to Earth. View detailed data about their size, velocity, and
+              potential hazards.
             </p>
           </div>
 
           <div class="content-section">
             <div class="controls">
-              <select id="roverSelect" class="select-input">
-                <option value="curiosity">Curiosity Rover</option>
-                <option value="perseverance">Perseverance Rover</option>
-              </select>
-              <button class="btn btn-primary" onclick="loadMarsPhotos()">
-                <span>Load Latest Photos</span>
+              <div
+                class="date-range-group"
+                style="display: flex; gap: 10px; align-items: center"
+              >
+                <label
+                  >Start:
+                  <input type="date" id="asteroidStartDate" class="date-input"
+                /></label>
+                <label
+                  >End:
+                  <input type="date" id="asteroidEndDate" class="date-input"
+                /></label>
+              </div>
+              <button class="btn btn-primary" onclick="loadAsteroids()">
+                <span>Search Asteroids</span>
               </button>
             </div>
 
-            <div class="loader" id="marsLoader">
+            <div class="loader" id="asteroidsLoader">
               <div class="loader-container">
                 <div class="spinner"></div>
-                <p>Fetching the latest photos from Mars...</p>
+                <p>Scanning for Near Earth Objects...</p>
               </div>
             </div>
 
-            <div id="marsContent" class="content-display"></div>
+            <div id="asteroidsContent" class="content-display"></div>
           </div>
         </div>
 
@@ -193,6 +206,13 @@
               <button class="btn btn-primary" onclick="loadEPICImages()">
                 <span>Load Latest Earth Images</span>
               </button>
+              <input
+                type="date"
+                id="epicDate"
+                onchange="loadEPICByDate()"
+                class="date-input"
+                placeholder="Select Date"
+              />
             </div>
 
             <div class="loader" id="epicLoader">
@@ -259,7 +279,7 @@
           <ul>
             <li>NASA Open Data Portal</li>
             <li>Astronomy Picture of the Day</li>
-            <li>Mars Rover Photo API</li>
+            <li>NeoWs (Asteroids)</li>
           </ul>
         </div>
         <div class="footer-section">
@@ -280,6 +300,7 @@
       </div>
     </footer>
 
+    <script src="config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
